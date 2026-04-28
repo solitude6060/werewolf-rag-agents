@@ -37,11 +37,11 @@ Build a multi-agent Langchain system to predict player roles and wolf scores in 
 ## Phases
 
 ### Phase 1: 項目初始化與環境建置
-- [ ] 1.1 Create project directory structure
-- [ ] 1.2 Initialize uv project with Python
-- [ ] 1.3 Set up git repository with dev flow
-- [ ] 1.4 Create requirements.txt with dependencies
-- [ ] 1.5 Verify environment setup
+- [x] 1.1 Create project directory structure
+- [x] 1.2 Initialize uv project with Python
+- [x] 1.3 Set up git repository with dev flow
+- [x] 1.4 Create requirements.txt with dependencies
+- [x] 1.5 Verify environment setup
 
 ### Phase 2: 數據獲取與分析
 - [ ] 2.1 Obtain dataset (Kaggle/NTU COOL)
@@ -191,23 +191,23 @@ flowchart LR
 ```
 
 ### Structured TODO List
-| ID | Task | Category | Skills | Depends |
-|---|---|---|---|---|
-| T0 | Freeze branch/worktree/dev-flow policy | writing | planning-with-files, git-master | - |
-| T1 | Acquire dataset and sample submission | deep | planning-with-files | T0 |
-| T2 | Run local runtime compatibility spike | unspecified-high | git-master, verification | T0 |
-| T3 | Build metric and submission contract | deep | test-driven-development | T1 |
-| T4 | Write SDD and interface contracts | writing | planning-with-files, writing-plans | T1,T2,T3 |
-| T5 | Implement transcript loader and schema | unspecified-high | test-driven-development | T1,T4 |
-| T6 | Implement local retrieval layer | deep | test-driven-development | T1,T4 |
-| T7 | Implement local GGUF model adapter | unspecified-high | test-driven-development | T2,T4 |
-| T8 | Implement Stage 1 Fetching Agent | deep | test-driven-development | T5,T6,T7 |
-| T9 | Implement Stage 2 Analysis Agent | ultrabrain | test-driven-development | T6,T7,T8 |
-| T10 | Implement Stage 3 Constrained Solver | ultrabrain | test-driven-development | T3,T4,T9 |
-| T11 | Wire end-to-end pipeline and CLI | unspecified-high | test-driven-development, verification | T3,T8,T10 |
-| T12 | Run baselines and public-slice eval | deep | verification, code-review | T11 |
-| T13 | Draft report and diagrams | writing | planning-with-files | T4,T12 |
-| T14 | Package final deliverable | quick | git-master, verification, finishing | T13 |
+| ID | Task | Category | Skills | Depends | Status |
+|---|---|---|---|---|---|
+| T0 | Freeze branch/worktree/dev-flow policy | writing | planning-with-files, git-master | - | ✅ Done |
+| T1 | Acquire dataset and sample submission | deep | planning-with-files | T0 | ✅ Done |
+| T2 | Run local runtime compatibility spike | unspecified-high | git-master, verification | T0 | 🔄 In Progress |
+| T3 | Build metric and submission contract | deep | test-driven-development | T1 | ⏳ Pending |
+| T4 | Write SDD and interface contracts | writing | planning-with-files, writing-plans | T1,T2,T3 | ✅ Done |
+| T5 | Implement transcript loader and schema | unspecified-high | test-driven-development | T1,T4 | ⏳ Pending |
+| T6 | Implement local retrieval layer | deep | test-driven-development | T1,T4 | ⏳ Pending |
+| T7 | Implement local GGUF model adapter | unspecified-high | test-driven-development | T2,T4 | ⏳ Pending |
+| T8 | Implement Stage 1 Fetching Agent | deep | test-driven-development | T5,T6,T7 | ⏳ Pending |
+| T9 | Implement Stage 2 Analysis Agent | ultrabrain | test-driven-development | T6,T7,T8 | ⏳ Pending |
+| T10 | Implement Stage 3 Constrained Solver | ultrabrain | test-driven-development | T3,T4,T9 | ⏳ Pending |
+| T11 | Wire end-to-end pipeline and CLI | unspecified-high | test-driven-development, verification | T3,T8,T10 | ⏳ Pending |
+| T12 | Run baselines and public-slice eval | deep | verification, code-review | T11 | ⏳ Pending |
+| T13 | Draft report and diagrams | writing | planning-with-files | T4,T12 | ⏳ Pending |
+| T14 | Package final deliverable | quick | git-master, verification, finishing | T13 | ⏳ Pending |
 
 ### Suggested Timebox
 | Window | Target |
