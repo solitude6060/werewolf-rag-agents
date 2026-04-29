@@ -94,6 +94,31 @@ def predict_all_public(
     return results
 
 
+def predict_all_private(
+    data_dir: Optional[Path] = None,
+    output_path: Optional[Path] = None,
+) -> dict[str, Submission]:
+    if data_dir is None:
+        data_dir = get_data_root()
+
+    games = load_private_games(data_dir)
+
+    results = {}
+    for game_id, game in games.items():
+        submission = predict_game(game)
+        results[game_id] = submission
+
+    if output_path:
+        all_predictions = []
+        for game_id, sub in results.items():
+            all_predictions.extend(sub.predictions)
+
+        full_submission = Submission(predictions=all_predictions)
+        output_path.write_text(full_submission.to_csv())
+
+    return results
+
+
 def predict_single_game(
     game_index: str,
     is_private: bool = False,

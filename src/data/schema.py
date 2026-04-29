@@ -138,6 +138,7 @@ class FetchingResult(BaseModel):
     total_claims: list[Claim]
     votes: list[Vote]
     deaths: list[Death]
+    statements: list[Statement] = Field(default_factory=list)
     suspicious_patterns: list[str] = Field(default_factory=list)
     key_events: list[str] = Field(default_factory=list)
 

@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 
-from src.pipeline import predict_single_game, predict_all_public
+from src.pipeline import predict_single_game, predict_all_public, predict_all_private
 from src.data.loader import get_data_root
 
 
@@ -16,6 +16,9 @@ def main():
 
     all_parser = subparsers.add_parser("predict-all", help="Predict all public games")
     all_parser.add_argument("--output", type=Path, help="Output CSV path")
+
+    private_parser = subparsers.add_parser("predict-private", help="Predict all private games")
+    private_parser.add_argument("--output", type=Path, help="Output CSV path")
 
     parser.add_argument("--data-dir", type=Path, help="Data directory override")
 
@@ -37,6 +40,13 @@ def main():
             print(f"Predictions saved to {args.output}")
         else:
             print(f"Processed {len(results)} games")
+
+    elif args.command == "predict-private":
+        results = predict_all_private(data_dir, output_path=args.output)
+        if args.output:
+            print(f"Predictions saved to {args.output}")
+        else:
+            print(f"Processed {len(results)} private games")
 
     else:
         parser.print_help()

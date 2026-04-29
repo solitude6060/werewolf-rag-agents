@@ -29,65 +29,108 @@ def extract_statements(transcript: str) -> list[Statement]:
     statements = []
     lines = transcript.split("\n")
 
-    player_pattern = re.compile(r"^(\d+)\.\s*([A-Za-z\s']+)\s*$")
-    time_pattern = re.compile(r"^(\d{2}:\d{2})$")
     day_pattern = re.compile(r"Day (\d+)")
+    time_pattern = re.compile(r"^(\d{2}:\d{2})$")
 
+    current_day = 1
     current_player_id = None
     current_character = None
     current_timestamp = None
-    current_day = 1
-    line_num = 0
 
-    for i, line in enumerate(lines):
-        line_num = i + 1
-        line = line.strip()
-
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
         if not line:
+            i += 1
             continue
 
         day_match = day_pattern.search(line)
         if day_match:
             current_day = int(day_match.group(1))
+            current_player_id = None
+            current_character = None
+            current_timestamp = None
+            i += 1
             continue
 
-        player_match = player_pattern.match(line)
-        if player_match:
-            player_num = int(player_match.group(1))
-            character = player_match.group(2).strip()
-            current_player_id = player_num
-            current_character = character
-            continue
+        if line and line[0].isdigit():
+            parts = line.split(maxsplit=1)
+            if len(parts) == 2 and parts[0][-1] == ".":
+                try:
+                    potential_id = int(parts[0][:-1])
+                    next_text = parts[1].strip()
+                    if next_text and len(next_text) > 2:
+                        current_player_id = potential_id
+                        current_character = next_text
+                        current_timestamp = None
+                        i += 1
+                        continue
+                except ValueError:
+                    pass
+            elif line.endswith("."):
+                try:
+                    current_player_id = int(line[:-1])
+                    if i + 1 < len(lines):
+                        next_line = lines[i + 1].strip()
+                        if next_line and (next_line[0].isupper() or "'" in next_line) and len(next_line) > 3:
+                            current_character = next_line
+                            current_timestamp = None
+                    i += 1
+                    continue
+                except ValueError:
+                    pass
 
-        time_match = time_pattern.match(line)
-        if time_match and current_player_id:
-            current_timestamp = time_match.group(1)
-            continue
+        if line and line[0].isupper() and current_player_id is None:
+            parts = line.split()
+            if parts and parts[0].replace(".", "").isdigit():
+                potential_id = int(parts[0].replace(".", ""))
+                if i + 1 < len(lines):
+                    next_line = lines[i + 1].strip()
+                    if next_line and time_pattern.match(next_line):
+                        current_player_id = potential_id
+                        i += 1
+                        continue
 
-        if current_player_id and current_timestamp and line:
-            statements.append(Statement(
-                player_id=current_player_id,
-                character=current_character,
-                timestamp=current_timestamp,
-                content=line,
-                day_num=current_day,
-                line_start=line_num,
-            ))
+        if current_player_id is not None and current_character is None:
+            if line and line[0].isupper() and len(line) > 3:
+                current_character = line
+                current_timestamp = None
+                i += 1
+                continue
+
+        if current_player_id and current_character:
+            time_match = time_pattern.match(line)
+            if time_match:
+                current_timestamp = time_match.group(1)
+                i += 1
+                continue
+
+            if current_timestamp and line:
+                statements.append(Statement(
+                    player_id=current_player_id,
+                    character=current_character,
+                    timestamp=current_timestamp,
+                    content=line,
+                    day_num=current_day,
+                    line_start=i + 1,
+                ))
+                current_timestamp = None
+
+        i += 1
 
     return statements
 
 
 def extract_votes(transcript: str) -> list[Vote]:
     votes = []
-    vote_patterns = [
-        re.compile(r"\[(\w+)\].*?vote.*?\[(\w+)\]", re.IGNORECASE),
-        re.compile(r"vote\s+(?:for\s+)?(\w+)", re.IGNORECASE),
-        re.compile(r">>\d+.*?\[(\w+)\]", re.IGNORECASE),
-    ]
-
     lines = transcript.split("\n")
     current_day = 1
     day_pattern = re.compile(r"Day (\d+)")
+
+    vote_patterns = [
+        re.compile(r"\[(\w+)\].*?\[(\w+)\]", re.IGNORECASE),
+        re.compile(r"(?:\bvote\b|\bvoting\b|\bvoted\b).*?\[(\w+)\]", re.IGNORECASE),
+    ]
 
     for line in lines:
         day_match = day_pattern.search(line)
@@ -98,14 +141,18 @@ def extract_votes(transcript: str) -> list[Vote]:
             matches = pattern.findall(line)
             for match in matches:
                 if isinstance(match, tuple) and len(match) == 2:
-                    votes.append(Vote(
-                        voter_id=0,
-                        voter_character=match[0],
-                        target_id=0,
-                        target_character=match[1],
-                        day_num=current_day,
-                        vote_text=line.strip(),
-                    ))
+                    voter = match[0].strip()
+                    target = match[1].strip()
+                    if len(voter) > 2 and len(target) > 2 and voter != target:
+                        if voter[0].isupper() and target[0].isupper():
+                            votes.append(Vote(
+                                voter_id=0,
+                                voter_character=voter,
+                                target_id=0,
+                                target_character=target,
+                                day_num=current_day,
+                                vote_text=line.strip()[:200],
+                            ))
 
     return votes
 
@@ -246,6 +293,7 @@ def run_fetching_agent(
         total_claims=claims,
         votes=votes,
         deaths=deaths,
+        statements=statements,
         suspicious_patterns=suspicious,
         key_events=key_events,
     )
