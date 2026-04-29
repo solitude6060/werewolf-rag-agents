@@ -123,65 +123,63 @@ def extract_statements(transcript: str) -> list[Statement]:
 
 def extract_votes(transcript: str) -> list[Vote]:
     votes = []
-    lines = transcript.split("\n")
+
+    day_pattern = re.compile(r"===== Day (\d+) =====")
     current_day = 1
-    day_pattern = re.compile(r"Day (\d+)")
 
-    vote_patterns = [
-        re.compile(r"\[(\w+)\].*?\[(\w+)\]", re.IGNORECASE),
-        re.compile(r"(?:\bvote\b|\bvoting\b|\bvoted\b).*?\[(\w+)\]", re.IGNORECASE),
-    ]
-
-    for line in lines:
+    for line in transcript.split("\n"):
         day_match = day_pattern.search(line)
         if day_match:
             current_day = int(day_match.group(1))
 
-        for pattern in vote_patterns:
-            matches = pattern.findall(line)
-            for match in matches:
-                if isinstance(match, tuple) and len(match) == 2:
-                    voter = match[0].strip()
-                    target = match[1].strip()
-                    if len(voter) > 2 and len(target) > 2 and voter != target:
-                        if voter[0].isupper() and target[0].isupper():
-                            votes.append(Vote(
-                                voter_id=0,
-                                voter_character=voter,
-                                target_id=0,
-                                target_character=target,
-                                day_num=current_day,
-                                vote_text=line.strip()[:200],
-                            ))
+        vote_tally_pattern = re.compile(r"^([A-Z][a-zA-Z ]+):\s*(\d+)\s+votes?\.", re.MULTILINE)
+        matches = vote_tally_pattern.findall(line)
+
+        for char, count in matches:
+            char = char.strip()
+            if len(char) > 3 and char not in ["votes"]:
+                for _ in range(int(count)):
+                    votes.append(Vote(
+                        voter_id=0,
+                        voter_character="villagers",
+                        target_id=0,
+                        target_character=char,
+                        day_num=current_day,
+                        vote_text=f"Villagers voted for {char}",
+                    ))
 
     return votes
 
 
 def extract_deaths(transcript: str) -> list[Death]:
     deaths = []
-    death_patterns = [
-        re.compile(r"(\w+)\s+(?:was\s+)?(?:killed|attacked|executed|died)", re.IGNORECASE),
-        re.compile(r"dead.*?\[(\w+)\]", re.IGNORECASE),
+    lines = transcript.split("\n")
+
+    day_pattern = re.compile(r"===== Day (\d+) =====")
+    current_day = 1
+
+    death_line_patterns = [
+        re.compile(r"^([A-Z][a-zA-Z ]+)\s+was\s+executed\s+by\s+the\s+villagers", re.MULTILINE),
+        re.compile(r"^The next morning,\s+([A-Z][a-zA-Z ]+)\s+was\s+found\s+in\s+a\s+gruesome\s+state", re.MULTILINE),
+        re.compile(r"^The next morning,\s+([A-Z][a-zA-Z ]+)\s+was\s+found\s+dead", re.MULTILINE),
     ]
 
-    lines = transcript.split("\n")
-    current_day = 1
-    day_pattern = re.compile(r"Day (\d+)")
-
-    for line in lines:
+    for i, line in enumerate(lines):
         day_match = day_pattern.search(line)
         if day_match:
             current_day = int(day_match.group(1))
 
-        for pattern in death_patterns:
-            matches = pattern.findall(line)
-            for match in matches:
-                deaths.append(Death(
-                    player_id=0,
-                    character=match,
-                    cause=DeathCause.WEREWOLF_ATTACK if "attack" in line.lower() else DeathCause.EXECUTION,
-                    day_num=current_day,
-                ))
+        for pattern in death_line_patterns:
+            match = pattern.search(line)
+            if match:
+                char = match.group(1).strip()
+                if len(char) > 3 and char not in ["votes"]:
+                    deaths.append(Death(
+                        player_id=0,
+                        character=char,
+                        cause=DeathCause.EXECUTION if "executed" in line.lower() else DeathCause.WEREWOLF_ATTACK,
+                        day_num=current_day,
+                    ))
 
     return deaths
 

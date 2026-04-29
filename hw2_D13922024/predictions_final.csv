@@ -1,0 +1,277 @@
+id,index,character,role,wolf_score
+1,01,Optimist Gerd,Werewolf,1.0
+2,01,Boy Peter,Werewolf,1.0
+3,01,Village Girl Pamela,Werewolf,1.0
+4,01,Shepherd Katharina,Seer,0.175
+5,01,Outlaw Dieter,Medium,0.175
+6,01,Baker Otto,Hunter,0.13499999999999998
+7,01,Traveler Nicholas,Madman,0.0
+8,01,Sister Friedel,Villager,0.175
+9,01,Innkeeper Regina,Villager,0.175
+10,01,Farmer Jacob,Villager,0.175
+11,01,Young Girl Liza,Villager,0.175
+12,01,Young Man Joachim,Villager,0.175
+13,01,Merchant Albin,Villager,0.175
+14,01,Father Jimzon,Villager,0.175
+15,01,Wounded Soldier Simon,Villager,0.175
+16,01,Librarian Clara,Villager,0.175
+17,02,Optimist Gerd,Werewolf,1.0
+18,02,Merchant Albin,Werewolf,1.0
+19,02,Shepherd Katharina,Seer,0.13499999999999998
+20,02,Village Girl Pamela,Medium,0.15499999999999997
+21,02,Tailor Elna,Werewolf,1.0
+22,02,Traveler Nicholas,Hunter,0.175
+23,02,Young Girl Liza,Madman,0.0
+24,02,Librarian Clara,Villager,0.15499999999999997
+25,02,Boy Peter,Villager,0.175
+26,02,Young Man Joachim,Villager,0.15499999999999997
+27,02,Wounded Soldier Simon,Villager,0.15499999999999997
+28,02,Innkeeper Regina,Villager,0.29500000000000004
+29,02,Sister Friedel,Villager,0.175
+30,02,Mayor Valter,Villager,0.175
+31,02,Father Jimzon,Villager,0.315
+32,03,Optimist Gerd,Werewolf,1.0
+33,03,Young Man Joachim,Seer,0.175
+34,03,Young Girl Liza,Medium,0.175
+35,03,Tailor Elna,Villager,0.175
+36,03,Farmer Jacob,Werewolf,1.0
+37,03,Librarian Clara,Villager,0.175
+38,03,Boy Peter,Villager,0.15499999999999997
+39,03,Shepherd Katharina,Villager,0.175
+40,03,Old Man Moritz,Villager,0.175
+41,03,Village Girl Pamela,Villager,0.13499999999999998
+42,04,Optimist Gerd,Seer,0.16999999999999998
+43,04,Sister Friedel,Medium,0.15499999999999997
+44,04,Father Jimzon,Werewolf,1.0
+45,04,Mayor Valter,Werewolf,1.0
+46,04,Young Girl Liza,Werewolf,1.0
+47,04,Young Man Joachim,Hunter,0.175
+48,04,Librarian Clara,Madman,0.0
+49,04,Traveler Nicholas,Villager,0.175
+50,04,Old Man Moritz,Villager,0.15499999999999997
+51,04,Outlaw Dieter,Villager,0.175
+52,04,Baker Otto,Villager,0.15499999999999997
+53,04,Wounded Soldier Simon,Villager,0.175
+54,04,Village Girl Pamela,Villager,0.175
+55,04,Innkeeper Regina,Villager,0.175
+56,04,Farmer Jacob,Villager,0.175
+57,05,Optimist Gerd,Werewolf,1.0
+58,05,Mayor Valter,Werewolf,1.0
+59,05,Baker Otto,Seer,0.175
+60,05,Tailor Elna,Medium,0.175
+61,05,Librarian Clara,Hunter,0.15499999999999997
+62,05,Shepherd Katharina,Madman,0.0
+63,05,Young Man Joachim,Villager,0.175
+64,05,Father Jimzon,Villager,0.15499999999999997
+65,05,Merchant Albin,Villager,0.175
+66,05,Young Girl Liza,Villager,0.175
+67,05,Boy Peter,Villager,0.15499999999999997
+68,06,Optimist Gerd,Werewolf,1.0
+69,06,Young Girl Liza,Werewolf,1.0
+70,06,Wounded Soldier Simon,Seer,0.15499999999999997
+71,06,Innkeeper Regina,Medium,0.13499999999999998
+72,06,Father Jimzon,Hunter,0.15499999999999997
+73,06,Boy Peter,Madman,0.0
+74,06,Traveler Nicholas,Villager,0.175
+75,06,Sister Friedel,Villager,0.175
+76,06,Young Man Joachim,Werewolf,1.0
+77,06,Old Man Moritz,Villager,0.175
+78,06,Outlaw Dieter,Villager,0.175
+79,06,Mayor Valter,Villager,0.175
+80,06,Baker Otto,Villager,0.15499999999999997
+81,06,Tailor Elna,Villager,0.175
+82,06,Woodcutter Thomas,Villager,0.175
+83,06,Shepherd Katharina,Villager,0.15499999999999997
+84,07,Optimist Gerd,Werewolf,1.0
+85,07,Traveler Nicholas,Werewolf,1.0
+86,07,Shepherd Katharina,Werewolf,1.0
+87,07,Old Man Moritz,Seer,0.175
+88,07,Boy Peter,Medium,0.175
+89,07,Baker Otto,Hunter,0.175
+90,07,Father Jimzon,Madman,0.0
+91,07,Young Girl Liza,Villager,0.175
+92,07,Innkeeper Regina,Villager,0.13499999999999998
+93,07,Village Girl Pamela,Villager,0.13499999999999998
+94,07,Merchant Albin,Villager,0.175
+95,07,Sister Friedel,Villager,0.175
+96,07,Tailor Elna,Villager,0.175
+97,07,Young Man Joachim,Villager,0.175
+98,07,Mayor Valter,Villager,0.175
+99,07,Woodcutter Thomas,Villager,0.15499999999999997
+100,08,Optimist Gerd,Seer,0.19
+101,08,Merchant Albin,Werewolf,1.0
+102,08,Father Jimzon,Medium,0.175
+103,08,Boy Peter,Hunter,0.175
+104,08,Wounded Soldier Simon,Madman,0.0
+105,08,Baker Otto,Werewolf,1.0
+106,08,Tailor Elna,Villager,0.175
+107,08,Shepherd Katharina,Villager,0.175
+108,08,Young Girl Liza,Villager,0.13499999999999998
+109,08,Outlaw Dieter,Werewolf,1.0
+110,08,Sister Friedel,Villager,0.175
+111,08,Farmer Jacob,Villager,0.15499999999999997
+112,08,Librarian Clara,Villager,0.175
+113,08,Old Man Moritz,Villager,0.13499999999999998
+114,08,Innkeeper Regina,Villager,0.175
+115,08,Mayor Valter,Villager,0.175
+116,09,Optimist Gerd,Werewolf,1.0
+117,09,Shepherd Katharina,Seer,0.15499999999999997
+118,09,Outlaw Dieter,Werewolf,1.0
+119,09,Wounded Soldier Simon,Werewolf,1.0
+120,09,Old Man Moritz,Medium,0.175
+121,09,Librarian Clara,Hunter,0.175
+122,09,Tailor Elna,Madman,0.0
+123,09,Young Man Joachim,Villager,0.175
+124,09,Father Jimzon,Villager,0.175
+125,09,Young Girl Liza,Villager,0.175
+126,09,Traveler Nicholas,Villager,0.175
+127,09,Village Girl Pamela,Villager,0.175
+128,09,Innkeeper Regina,Villager,0.175
+129,09,Merchant Albin,Villager,0.175
+130,10,Optimist Gerd,Seer,0.19
+131,10,Young Man Joachim,Medium,0.175
+132,10,Shepherd Katharina,Hunter,0.175
+133,10,Sister Friedel,Werewolf,1.0
+134,10,Farmer Jacob,Madman,0.0
+135,10,Boy Peter,Villager,0.175
+136,10,Old Man Moritz,Villager,0.175
+137,10,Mayor Valter,Werewolf,1.0
+138,10,Young Girl Liza,Villager,0.175
+139,10,Innkeeper Regina,Villager,0.175
+140,10,Tailor Elna,Villager,0.215
+141,11,Optimist Gerd,Werewolf,1.0
+142,11,Young Girl Liza,Seer,0.13499999999999998
+143,11,Traveler Nicholas,Medium,0.175
+144,11,Outlaw Dieter,Hunter,0.15499999999999997
+145,11,Sister Friedel,Madman,0.0
+146,11,Father Jimzon,Villager,0.15499999999999997
+147,11,Mayor Valter,Villager,0.175
+148,11,Young Man Joachim,Villager,0.175
+149,11,Baker Otto,Villager,0.15499999999999997
+150,11,Tailor Elna,Villager,0.175
+151,11,Village Girl Pamela,Villager,0.175
+152,11,Farmer Jacob,Werewolf,1.0
+153,11,Wounded Soldier Simon,Villager,0.175
+154,11,Merchant Albin,Werewolf,1.0
+155,11,Shepherd Katharina,Villager,0.175
+156,11,Boy Peter,Villager,0.175
+157,12,Optimist Gerd,Werewolf,1.0
+158,12,Shepherd Katharina,Seer,0.19
+159,12,Librarian Clara,Medium,0.175
+160,12,Boy Peter,Hunter,0.15499999999999997
+161,12,Young Girl Liza,Madman,0.0
+162,12,Village Girl Pamela,Villager,0.175
+163,12,Innkeeper Regina,Villager,0.175
+164,12,Sister Friedel,Villager,0.175
+165,12,Traveler Nicholas,Werewolf,1.0
+166,12,Merchant Albin,Villager,0.175
+167,12,Young Man Joachim,Villager,0.175
+168,12,Mayor Valter,Villager,0.175
+169,12,Outlaw Dieter,Werewolf,1.0
+170,12,Wounded Soldier Simon,Villager,0.15499999999999997
+171,12,Tailor Elna,Villager,0.15499999999999997
+172,12,Father Jimzon,Villager,0.15499999999999997
+173,13,Optimist Gerd,Werewolf,1.0
+174,13,Boy Peter,Seer,0.15499999999999997
+175,13,Farmer Jacob,Medium,0.175
+176,13,Wounded Soldier Simon,Hunter,0.15499999999999997
+177,13,Sister Friedel,Madman,0.0
+178,13,Village Girl Pamela,Villager,0.175
+179,13,Young Man Joachim,Villager,0.175
+180,13,Father Jimzon,Villager,0.175
+181,13,Merchant Albin,Villager,0.175
+182,13,Tailor Elna,Villager,0.175
+183,13,Shepherd Katharina,Villager,0.175
+184,13,Traveler Nicholas,Werewolf,1.0
+185,14,Optimist Gerd,Seer,0.19
+186,14,Mayor Valter,Medium,0.175
+187,14,Father Jimzon,Hunter,0.175
+188,14,Librarian Clara,Madman,0.0
+189,14,Young Man Joachim,Villager,0.175
+190,14,Sister Friedel,Villager,0.175
+191,14,Village Girl Pamela,Villager,0.175
+192,14,Young Girl Liza,Werewolf,1.0
+193,14,Merchant Albin,Villager,0.175
+194,14,Shepherd Katharina,Villager,0.175
+195,14,Boy Peter,Villager,0.175
+196,14,Traveler Nicholas,Villager,0.175
+197,14,Farmer Jacob,Villager,0.175
+198,14,Wounded Soldier Simon,Werewolf,1.0
+199,14,Baker Otto,Werewolf,1.0
+200,14,Tailor Elna,Villager,0.175
+201,15,Optimist Gerd,Werewolf,1.0
+202,15,Boy Peter,Werewolf,1.0
+203,15,Tailor Elna,Seer,0.175
+204,15,Librarian Clara,Medium,0.13499999999999998
+205,15,Young Girl Liza,Hunter,0.175
+206,15,Baker Otto,Madman,0.0
+207,15,Traveler Nicholas,Villager,0.175
+208,15,Wounded Soldier Simon,Villager,0.175
+209,15,Woodcutter Thomas,Werewolf,1.0
+210,15,Old Man Moritz,Villager,0.175
+211,15,Sister Friedel,Villager,0.175
+212,15,Village Girl Pamela,Villager,0.175
+213,15,Innkeeper Regina,Villager,0.175
+214,16,Optimist Gerd,Werewolf,1.0
+215,16,Young Man Joachim,Werewolf,1.0
+216,16,Young Girl Liza,Werewolf,1.0
+217,16,Shepherd Katharina,Seer,0.15499999999999997
+218,16,Village Girl Pamela,Medium,0.15499999999999997
+219,16,Sister Friedel,Hunter,0.175
+220,16,Boy Peter,Madman,0.0
+221,16,Mayor Valter,Villager,0.13499999999999998
+222,16,Librarian Clara,Villager,0.175
+223,16,Merchant Albin,Villager,0.13499999999999998
+224,16,Traveler Nicholas,Villager,0.175
+225,16,Old Man Moritz,Villager,0.175
+226,16,Innkeeper Regina,Villager,0.175
+227,16,Outlaw Dieter,Villager,0.175
+228,17,Optimist Gerd,Werewolf,1.0
+229,17,Young Girl Liza,Seer,0.15499999999999997
+230,17,Village Girl Pamela,Medium,0.15499999999999997
+231,17,Sister Friedel,Hunter,0.175
+232,17,Merchant Albin,Madman,0.0
+233,17,Librarian Clara,Villager,0.175
+234,17,Mayor Valter,Villager,0.175
+235,17,Baker Otto,Villager,0.175
+236,17,Father Jimzon,Villager,0.175
+237,17,Traveler Nicholas,Werewolf,1.0
+238,17,Woodcutter Thomas,Villager,0.175
+239,18,Optimist Gerd,Werewolf,1.0
+240,18,Young Man Joachim,Werewolf,1.0
+241,18,Young Girl Liza,Seer,0.175
+242,18,Traveler Nicholas,Medium,0.175
+243,18,Shepherd Katharina,Hunter,0.13499999999999998
+244,18,Librarian Clara,Madman,0.0
+245,18,Wounded Soldier Simon,Villager,0.13499999999999998
+246,18,Outlaw Dieter,Villager,0.175
+247,18,Baker Otto,Villager,0.175
+248,18,Old Man Moritz,Villager,0.13499999999999998
+249,18,Sister Friedel,Villager,0.175
+250,18,Boy Peter,Werewolf,1.0
+251,18,Village Girl Pamela,Villager,0.175
+252,18,Father Jimzon,Villager,0.175
+253,18,Tailor Elna,Villager,0.175
+254,19,Optimist Gerd,Werewolf,1.0
+255,19,Village Girl Pamela,Werewolf,1.0
+256,19,Mayor Valter,Seer,0.175
+257,19,Tailor Elna,Medium,0.175
+258,19,Shepherd Katharina,Hunter,0.13499999999999998
+259,19,Librarian Clara,Madman,0.0
+260,19,Young Girl Liza,Villager,0.15
+261,19,Old Man Moritz,Villager,0.175
+262,19,Father Jimzon,Villager,0.175
+263,19,Traveler Nicholas,Villager,0.15499999999999997
+264,19,Sister Friedel,Villager,0.175
+265,20,Optimist Gerd,Seer,0.16999999999999998
+266,20,Sister Friedel,Medium,0.13499999999999998
+267,20,Shepherd Katharina,Werewolf,1.0
+268,20,Young Man Joachim,Werewolf,1.0
+269,20,Young Girl Liza,Hunter,0.175
+270,20,Tailor Elna,Madman,0.0
+271,20,Librarian Clara,Villager,0.15
+272,20,Village Girl Pamela,Villager,0.175
+273,20,Mayor Valter,Villager,0.175
+274,20,Woodcutter Thomas,Villager,0.175
+275,20,Baker Otto,Villager,0.175
+276,20,Old Man Moritz,Villager,0.175

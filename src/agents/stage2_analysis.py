@@ -7,8 +7,6 @@ from src.data.schema import (
     GameConstraints,
 )
 from src.rag.retriever import get_retriever
-import ollama
-from collections import defaultdict
 
 
 ROLE_INDICATORS = {
@@ -21,58 +19,6 @@ ROLE_INDICATORS = {
 }
 
 
-def analyze_with_llm(
-    character: str,
-    statements: list[str],
-    game_context: str,
-) -> float:
-    """Use LLM to analyze if a player is likely a werewolf."""
-    if not statements:
-        return 0.5
-
-    combined_text = "\n".join(statements[:5])
-
-    prompt = f"""You are analyzing a Werewolf game transcript.
-
-Player: {character}
-Statements (up to 5 most recent):
-{combined_text[:500]}...
-
-Based on how this player speaks, rate how likely they are a WEREWOLF (1.0 = definitely wolf, 0.0 = definitely not wolf).
-
-Look for:
-- Deceptive or evasive language
-- Defensive behavior
-- Inconsistent statements
-- Protecting other players subtly
-- Using vague language to avoid being pinned down
-
-Respond ONLY with a number between 0.0 and 1.0 representing wolf probability."""
-
-    try:
-        import requests
-        response = requests.post('http://localhost:11434/api/chat', json={
-            'model': 'qwen3.5:9b',
-            'messages': [{'role': 'user', 'content': prompt}],
-            'stream': False,
-            'think': False,
-            'options': {'temperature': 0.3, 'num_predict': 15}
-        }, timeout=30)
-        result = response.json()['message']['content'].strip()
-
-        # Extract number from response
-        for c in result:
-            if c.isdigit() or c == '.':
-                try:
-                    score = float(c + ''.join(filter(lambda x: x.isdigit() or x == '.', result[result.index(c):result.index(c)+4])))
-                    return min(1.0, max(0.0, score))
-                except:
-                    pass
-        return 0.5
-    except Exception as e:
-        return 0.5
-
-
 def compute_role_scores(
     player_name: str,
     statements: list[str],
@@ -81,15 +27,12 @@ def compute_role_scores(
 ) -> dict[str, float]:
     scores = {r.value: 0.0 for r in Role}
 
-    if not statements:
-        return scores
-
-    combined_text = " ".join(statements).lower()
+    statements_text = " ".join(statements).lower()
 
     for role, keywords in ROLE_INDICATORS.items():
         for kw in keywords:
-            if kw in combined_text:
-                scores[role.value] += 0.15
+            if kw in statements_text:
+                scores[role.value] += 0.1
 
     for claim in claims:
         if claim.get("claimed_role") == role.value:
@@ -194,16 +137,9 @@ def run_analysis_agent(
         if target:
             votes_received[target] = votes_received.get(target, 0) + 1
 
-    votes_cast = {}
-    for vote in fetching_result.votes:
-        voter = vote.voter_character
-        votes_cast[voter] = votes_cast.get(voter, 0) + 1
-
     all_chars = set(statements_by_player.keys()) | set(deaths_by_player.keys())
     total_statements = sum(len(s) for s in statements_by_player.values())
     avg_statements = total_statements / max(1, len(all_chars))
-
-    llm_analyzed_games: dict[str, int] = defaultdict(int)
 
     player_count = len(players)
     for player in players:
@@ -215,38 +151,23 @@ def run_analysis_agent(
 
         died = deaths_by_player.get(character, 0)
         votes_against = votes_received.get(character, 0)
-        votes_made = votes_cast.get(character, 0)
 
-        heuristic_score = 0.35
+        wolf_score = 0.30
 
         if died > 0:
-            heuristic_score += 0.15
+            wolf_score += 0.20
 
-        if statement_count > avg_statements * 1.5:
-            heuristic_score += 0.1
+        if statement_count < 3:
+            wolf_score += 0.25
         elif statement_count < 5:
-            heuristic_score += 0.15
-        elif statement_count > 80:
-            heuristic_score -= 0.1
+            wolf_score += 0.15
+        elif statement_count > avg_statements * 1.5:
+            wolf_score += 0.05
 
         if votes_against >= 2:
-            heuristic_score += 0.1 * min(votes_against, 5)
+            wolf_score += 0.05 * min(votes_against, 4)
 
-        heuristic_score = min(1.0, max(0.0, heuristic_score))
-
-        # Use LLM for top 3 suspicious players per game
-        if game_id not in llm_analyzed_games:
-            llm_analyzed_games[game_id] = 0
-
-        llm_score = None
-        if statement_count > 0 and (votes_against >= 2 or died > 0 or heuristic_score > 0.4):
-            llm_score = analyze_with_llm(character, player_statements, "")
-            llm_analyzed_games[game_id] += 1
-
-        if llm_score is not None:
-            wolf_score = heuristic_score * 0.6 + llm_score * 0.4
-        else:
-            wolf_score = heuristic_score
+        wolf_score = min(1.0, max(0.0, wolf_score))
 
         analysis = PlayerAnalysis(
             player_id=player_id,
