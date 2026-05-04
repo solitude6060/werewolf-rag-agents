@@ -111,3 +111,7 @@ UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py ../ex
 UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
 # OK: 397 predictions validated
 ```
+
+## Kaggle result after v144 upload
+
+`submission_v144_filtered_big_gamble_private.csv` scored **0.40743 private**, improving over v131 (0.40434) by +0.00309 and over v119 (0.39194) by +0.01549. Keep v144 as the current verified best.

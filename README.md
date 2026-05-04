@@ -1,79 +1,159 @@
-# Werewolf Prediction - Multi-Agent System
+# HW2 Werewolf Prediction — Multi-Agent + RAG Project
 
-A multi-agent LangChain system for predicting player roles and wolf scores in Werewolf game records.
+這是一份用於 **AI HW2 Multi-Agent Werewolf Prediction** 的可重現專案。目標是根據狼人殺遊戲文字紀錄，預測每位玩家的角色與 `wolf_score`，並輸出符合 Kaggle/作業格式的 submission CSV。
 
-## Architecture
+目前最佳已上傳結果：
 
-### Multi-Agent Pipeline
+| Candidate | Kaggle private | 說明 |
+| --- | ---: | --- |
+| `submission_v131_candidate_qwen_safe_private.csv` | 0.40434 | 第一個大幅突破；保守 qwen candidate audit。 |
+| `submission_v144_filtered_big_gamble_private.csv` | **0.40743** | 最新最佳；filtered LLM disagreement big-gamble。 |
 
-1. **Stage 1: Fetching Agent** - Extracts events from game transcripts
-2. **Stage 2: Analysis Agent** - Computes role probabilities and wolf scores
-3. **Stage 3: Constrained Solver** - Assigns roles respecting game constraints
+> 最後衝刺用檔案位於 repo 外層：`../experiments/submissions/`。本 repo 保留程式碼、驗證器、報告與實驗紀錄。
 
-### RAG System
+---
 
-- Game rules and role behavior corpus
-- Simple keyword and BM25 retrieval
+## 1. Assignment Fit
 
-## Installation
+本專案遵守作業限制：
+
+- **Multi-agent**：Stage 1 evidence fetching、Stage 2 analysis、Stage 3 constrained solver，另有 candidate-level local LLM audit agents。
+- **RAG / evidence retrieval**：從 transcript、事件、角色規則與 feature extractor 取回證據，再交給 solver 或 local LLM audit。
+- **Local models only**：使用 Ollama local models，例如 `qwen3.5:9b`、`deepseek-r1:14b`。
+- **No training / fine-tuning**：所有改進都是推論、規則、後處理與本地 LLM audit。
+- **Submission validation**：使用 `assert/validate_submission.py` 檢查欄位、角色、分數範圍與 row count。
+
+詳細教學版說明見：[`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md)
+
+---
+
+## 2. Quick Start
 
 ```bash
+cd werewolf-project
 uv sync
 ```
 
-## Usage
-
-### Predict Single Game
-```bash
-uv run python main.py predict 01
-```
-
-### Predict All Public Games
-```bash
-uv run python main.py predict-all --output predictions.csv
-```
-
-### Validate Submission
-```bash
-uv run python assert/validate_submission.py predictions.csv
-```
-
-## Testing
+Run tests:
 
 ```bash
-uv run pytest tests/ -v
+UV_CACHE_DIR=.uv-cache uv run pytest tests/ -q
 ```
 
-## Model Configuration
+Validate the current final private candidate:
 
-Default backend: **Ollama** (localhost:11434)
-
-Set model via environment variable:
 ```bash
-export OLLAMA_MODEL=qwen2.5:7b
+UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py \
+  ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
 ```
 
-## Project Structure
+Score the matching public candidate locally:
 
+```bash
+UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py \
+  ../experiments/submissions/submission_v144_filtered_big_gamble_public.csv \
+  --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv \
+  --quiet
 ```
+
+Expected evidence at cleanup time:
+
+```text
+71 passed, 3 warnings
+OK: 397 predictions validated
+submission_v144_filtered_big_gamble_public.csv F1=0.4363 AP=0.5007 Score=0.4750
+```
+
+---
+
+## 3. Project Map
+
+```text
 werewolf-project/
+├── main.py                         # CLI entry point for baseline pipeline
 ├── src/
-│   ├── agents/          # Multi-agent implementations
-│   ├── data/            # Data loading and schema
-│   ├── rag/             # RAG corpus and retriever
-│   ├── utils/           # Metrics and utilities
-│   └── pipeline.py      # End-to-end prediction
-├── tests/               # Unit and integration tests
-├── assert/              # Validation scripts
-└── docs/               # SDD and report
+│   ├── agents/                     # Stage 1/2/3 multi-agent pipeline
+│   ├── data/                       # Dataset loading and schemas
+│   ├── rag/                        # Rule/evidence corpus and retriever
+│   ├── utils/                      # Metrics
+│   └── pipeline.py                 # End-to-end baseline predictor
+├── scripts/
+│   ├── candidate_llm_audit.py      # Final qwen/deepseek candidate audit lane
+│   ├── leaderboard_informed_fixes.py
+│   └── structured_llm_audit.py     # Earlier structured audit experiment
+├── assert/
+│   └── validate_submission.py      # Submission validator
+├── tests/                          # Unit tests for loader/schema/RAG/agents/pipeline
+└── docs/
+    ├── PROJECT_GUIDE.md            # Teaching-oriented architecture guide
+    ├── EXPERIMENTS.md              # Score history and final sprint guide
+    ├── evals/                      # Detailed experiment logs
+    ├── report/                     # Report draft/outline
+    └── sdd/                        # Spec/design documents
 ```
 
-## Git Flow
+Out-of-repo experiment artifacts used by the final sprint:
 
-- `main`: Protected release branch
-- `develop`: Integration branch
-- `feat/*`: Feature branches
+```text
+../experiments/submissions/          # Public/private submission candidates
+../experiments/llm_runs/             # Local Ollama audit caches
+../experiments/scripts/              # Scoring and variant-generation utilities
+../hand-over.md                      # Long chronological hand-over log
+```
 
-## License
+---
 
-MIT
+## 4. Main Workflows
+
+### Baseline prediction pipeline
+
+```bash
+UV_CACHE_DIR=.uv-cache uv run python main.py predict 01
+UV_CACHE_DIR=.uv-cache uv run python main.py predict-all --output predictions.csv
+UV_CACHE_DIR=.uv-cache uv run python main.py predict-private --output private_predictions.csv
+```
+
+### Local LLM candidate audit
+
+Run qwen/deepseek only on rows likely to affect Wolf-AP ordering:
+
+```bash
+UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py run \
+  ../experiments/submissions/submission_v119_swap_private.csv \
+  --split private \
+  --model qwen3.5:9b \
+  --num-ctx 4096
+```
+
+Apply a conservative or experimental scoring policy:
+
+```bash
+UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py apply \
+  ../experiments/submissions/submission_v119_swap_private.csv \
+  --split private \
+  --model qwen3.5:9b \
+  --ww-floor 0.5 \
+  --output ../experiments/submissions/my_candidate_private.csv
+```
+
+---
+
+## 5. What to Read First
+
+1. [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md) — architecture and assignment-compliance walkthrough.
+2. [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) — which submissions worked, failed, and why.
+3. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
+4. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
+
+---
+
+## 6. Git / Development Discipline
+
+- Use feature/dev branches; current active branch: `dev/structured-llm-rag-audit`.
+- Use `uv`; do not install packages globally.
+- Keep data/model/cache artifacts out of git.
+- Before changing behavior, add or run tests first.
+- For final candidates, always run both:
+  - `pytest tests/ -q`
+  - `assert/validate_submission.py <candidate_private.csv>`
+
