@@ -1,4 +1,4 @@
-# HW2 Werewolf Prediction — Multi-Agent + RAG Project
+# Werewolf RAG Agents
 
 這是一份用於 **AI HW2 Multi-Agent Werewolf Prediction** 的可重現專案。目標是根據狼人殺遊戲文字紀錄，預測每位玩家的角色與 `wolf_score`，並輸出符合 Kaggle/作業格式的 submission CSV。
 
@@ -10,6 +10,17 @@
 | `submission_v144_filtered_big_gamble_private.csv` | **0.40743** | 最新最佳；filtered LLM disagreement big-gamble。 |
 
 > 最後衝刺用檔案位於 repo 外層：`../experiments/submissions/`。本 repo 保留程式碼、驗證器、報告與實驗紀錄。
+
+
+## Repository Name
+
+Recommended GitHub repository name: **`werewolf-rag-agents`**.
+
+Suggested description:
+
+> Multi-agent RAG and local-LLM audit workflow for Werewolf role and wolf-score prediction.
+
+Suggested topics: `multi-agent`, `rag`, `ollama`, `local-llm`, `werewolf`, `social-deduction`, `coursework`.
 
 ---
 
@@ -145,6 +156,8 @@ UV_CACHE_DIR=.uv-cache uv run python scripts/audits/candidate_llm_audit.py apply
 4. [`docs/SUBMISSION_GUIDE.md`](docs/SUBMISSION_GUIDE.md) — Kaggle candidate and package checklist.
 5. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
 6. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
+7. [`DATASETS.md`](DATASETS.md) — dataset and privacy policy.
+8. [`CONTRIBUTING.md`](CONTRIBUTING.md) — development workflow.
 
 ---
 

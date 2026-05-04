@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "Werewolf RAG Agents"
+message: "If you use this coursework project structure or experiments, please cite this repository."
+type: software
+authors:
+  - name: "D13922024"
+repository-code: "https://github.com/<owner>/werewolf-rag-agents"
+abstract: "A multi-agent RAG system and local-LLM audit workflow for Werewolf role and wolf-score prediction."
+keywords:
+  - multi-agent
+  - retrieval-augmented-generation
+  - werewolf
+  - social-deduction
+  - local-llm
+license: MIT
