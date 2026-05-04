@@ -74,3 +74,8 @@ This gives inspectable reasoning while keeping output parseable and avoiding rol
 ## VRAM Measurement Policy
 
 Do not judge HW2 model compliance from whole-GPU `nvidia-smi` total used memory, because it includes drivers, unrelated services, and background processes. For Ollama runs, use `ollama ps` model `SIZE` as the primary compliance signal, with `nvidia-smi` only as auxiliary operational evidence. `qwen3.5:9b` is acceptable when `ollama ps` reports model size below 12GB; context is kept at 8192 by default for speed and margin, not because 32768 was proven non-compliant.
+
+
+## Path note after folder restructure
+
+Preferred organized script path: `scripts/audits/structured_llm_audit.py` and `scripts/audits/candidate_llm_audit.py`. Older commands using `scripts/structured_llm_audit.py` or `scripts/candidate_llm_audit.py` still work through compatibility wrappers.

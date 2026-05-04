@@ -19,6 +19,7 @@ werewolf-project/
 │   ├── PROJECT_GUIDE.md
 │   ├── EXPERIMENTS.md
 │   ├── STRUCTURE.md
+│   ├── SUBMISSION_GUIDE.md
 │   ├── archive/
 │   │   ├── notes.md
 │   │   └── task_plan.md
@@ -62,6 +63,7 @@ werewolf-project/
 | `scripts/*.py` | Thin compatibility wrappers for old commands. New code should import/run files in subfolders. |
 | `docs/sdd/` | Spec-driven design documents. |
 | `docs/evals/` | Experiment/evaluation logs. |
+| `docs/SUBMISSION_GUIDE.md` | Final candidate and packaging checklist. |
 | `docs/cleanup/` | Planning-with-files cleanup and restructure records. |
 | `docs/archive/` | Historical notes/plans kept for audit trail, not the current entry point. |
 | `artifacts/legacy-submissions/` | Old generated prediction CSV bundles retained for reproducibility. |

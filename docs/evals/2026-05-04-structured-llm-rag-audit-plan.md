@@ -115,3 +115,8 @@ UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py ../experiment
 ## Kaggle result after v144 upload
 
 `submission_v144_filtered_big_gamble_private.csv` scored **0.40743 private**, improving over v131 (0.40434) by +0.00309 and over v119 (0.39194) by +0.01549. Keep v144 as the current verified best.
+
+
+## Path note after folder restructure
+
+Preferred organized script path: `scripts/audits/structured_llm_audit.py` and `scripts/audits/candidate_llm_audit.py`. Older commands using `scripts/structured_llm_audit.py` or `scripts/candidate_llm_audit.py` still work through compatibility wrappers.

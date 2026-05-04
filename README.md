@@ -142,8 +142,9 @@ UV_CACHE_DIR=.uv-cache uv run python scripts/audits/candidate_llm_audit.py apply
 1. [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md) — architecture and assignment-compliance walkthrough.
 2. [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) — which submissions worked, failed, and why.
 3. [`docs/STRUCTURE.md`](docs/STRUCTURE.md) — folder layout and command compatibility.
-4. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
-5. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
+4. [`docs/SUBMISSION_GUIDE.md`](docs/SUBMISSION_GUIDE.md) — Kaggle candidate and package checklist.
+5. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
+6. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
 
 ---
 
