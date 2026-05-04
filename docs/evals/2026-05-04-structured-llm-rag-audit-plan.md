@@ -65,3 +65,21 @@ Public results from v119 base:
 Recommended next Kaggle upload: `experiments/submissions/submission_v131_candidate_qwen_safe_private.csv`.
 
 Why v131 over v130: public local is better and it avoids allowing the LLM to overturn predicted Werewolf rows, consistent with the earlier lesson that aggressive role-side changes generalized poorly.
+
+
+## Kaggle update
+
+`submission_v131_candidate_qwen_safe_private.csv` scored **0.40434 private**, improving v119 by +0.01240. Continue from v131 for the final sprint; prioritize score-ordering variants and additional local LLM agreement, not broad role swaps.
+
+## Final sprint after v131 private score
+
+Kaggle private confirmed: `submission_v131_candidate_qwen_safe_private.csv` = **0.40434**.
+
+Final candidate generated:
+
+- `experiments/submissions/submission_v136_final_qwen_safe_zero_private.csv`
+- Public local: **0.4691** (`AP=0.4909`), slightly above v131 public 0.4690.
+- Private validation: OK, 397 rows.
+- Difference vs v131: only seven qwen-demoted non-Werewolf candidates move from `0.05` to `0.0`; roles and Werewolf floor logic unchanged.
+
+Deepseek candidate audit was tested but rejected for final use: public local dropped to 0.4544 when used directly; qwen/deepseek agreement variants also underperformed v131/v136 public local. Use v136 only if the final attempt should be a minimal-risk refinement over the already-successful v131.
