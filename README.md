@@ -71,25 +71,24 @@ submission_v144_filtered_big_gamble_public.csv F1=0.4363 AP=0.5007 Score=0.4750
 ```text
 werewolf-project/
 ├── main.py                         # CLI entry point for baseline pipeline
-├── src/
-│   ├── agents/                     # Stage 1/2/3 multi-agent pipeline
-│   ├── data/                       # Dataset loading and schemas
-│   ├── rag/                        # Rule/evidence corpus and retriever
-│   ├── utils/                      # Metrics
-│   └── pipeline.py                 # End-to-end baseline predictor
+├── src/                            # Multi-agent package: agents/data/rag/utils
+├── tests/                          # Unit and integration tests
+├── assert/                         # Assignment-facing submission validator
 ├── scripts/
-│   ├── candidate_llm_audit.py      # Final qwen/deepseek candidate audit lane
-│   ├── leaderboard_informed_fixes.py
-│   └── structured_llm_audit.py     # Earlier structured audit experiment
-├── assert/
-│   └── validate_submission.py      # Submission validator
-├── tests/                          # Unit tests for loader/schema/RAG/agents/pipeline
-└── docs/
-    ├── PROJECT_GUIDE.md            # Teaching-oriented architecture guide
-    ├── EXPERIMENTS.md              # Score history and final sprint guide
-    ├── evals/                      # Detailed experiment logs
-    ├── report/                     # Report draft/outline
-    └── sdd/                        # Spec/design documents
+│   ├── audits/                     # qwen/deepseek local LLM audit tools
+│   ├── postprocess/                # score-only post-processing tools
+│   └── *.py                        # compatibility wrappers for old commands
+├── docs/
+│   ├── PROJECT_GUIDE.md            # Teaching-oriented architecture guide
+│   ├── EXPERIMENTS.md              # Score history and final sprint guide
+│   ├── STRUCTURE.md                # Folder layout reference
+│   ├── archive/                    # Historical notes/plans
+│   ├── cleanup/                    # Planning-with-files records
+│   ├── evals/                      # Detailed experiment logs
+│   ├── report/                     # Report draft/outline
+│   └── sdd/                        # Spec/design documents
+└── artifacts/
+    └── legacy-submissions/         # Old generated predictions kept for audit
 ```
 
 Out-of-repo experiment artifacts used by the final sprint:
@@ -118,7 +117,7 @@ UV_CACHE_DIR=.uv-cache uv run python main.py predict-private --output private_pr
 Run qwen/deepseek only on rows likely to affect Wolf-AP ordering:
 
 ```bash
-UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py run \
+UV_CACHE_DIR=.uv-cache uv run python scripts/audits/candidate_llm_audit.py run \
   ../experiments/submissions/submission_v119_swap_private.csv \
   --split private \
   --model qwen3.5:9b \
@@ -128,7 +127,7 @@ UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py run \
 Apply a conservative or experimental scoring policy:
 
 ```bash
-UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py apply \
+UV_CACHE_DIR=.uv-cache uv run python scripts/audits/candidate_llm_audit.py apply \
   ../experiments/submissions/submission_v119_swap_private.csv \
   --split private \
   --model qwen3.5:9b \
@@ -142,8 +141,9 @@ UV_CACHE_DIR=.uv-cache uv run python scripts/candidate_llm_audit.py apply \
 
 1. [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md) — architecture and assignment-compliance walkthrough.
 2. [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) — which submissions worked, failed, and why.
-3. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
-4. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
+3. [`docs/STRUCTURE.md`](docs/STRUCTURE.md) — folder layout and command compatibility.
+4. [`docs/evals/2026-05-04-structured-llm-rag-audit-plan.md`](docs/evals/2026-05-04-structured-llm-rag-audit-plan.md) — detailed final sprint audit trail.
+5. [`docs/report/hw2_report.md`](docs/report/hw2_report.md) — report draft material.
 
 ---
 

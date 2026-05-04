@@ -81,9 +81,9 @@ Score-only policy
 | `src/agents/stage2_analysis.py` | Analysis/probability agent. |
 | `src/agents/stage3_solver.py` | Constraint-based role assignment. |
 | `src/rag/` | RAG corpus/retrieval utilities. |
-| `scripts/candidate_llm_audit.py` | Final local LLM audit workflow. |
-| `scripts/structured_llm_audit.py` | Earlier full-game structured audit attempt; retained for audit trail. |
-| `scripts/leaderboard_informed_fixes.py` | Conservative post-processing utilities. |
+| `scripts/audits/candidate_llm_audit.py` | Final local LLM audit workflow. |
+| `scripts/audits/structured_llm_audit.py` | Earlier full-game structured audit attempt; retained for audit trail. |
+| `scripts/postprocess/leaderboard_informed_fixes.py` | Conservative post-processing utilities. |
 | `assert/validate_submission.py` | Required output validation. |
 | `docs/EXPERIMENTS.md` | Score progression and final candidate guide. |
 
