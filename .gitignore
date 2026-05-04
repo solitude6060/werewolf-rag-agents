@@ -15,7 +15,7 @@ eggs/
 *.egg
 
 # UV
-uv.lock
+.uv-cache/
 .venv/
 venv/
 
