@@ -83,3 +83,31 @@ Final candidate generated:
 - Difference vs v131: only seven qwen-demoted non-Werewolf candidates move from `0.05` to `0.0`; roles and Werewolf floor logic unchanged.
 
 Deepseek candidate audit was tested but rejected for final use: public local dropped to 0.4544 when used directly; qwen/deepseek agreement variants also underperformed v131/v136 public local. Use v136 only if the final attempt should be a minimal-risk refinement over the already-successful v131.
+
+## Big-gamble LLM disagreement sprint
+
+After v131 scored 0.40434 private, we tested riskier Werewolf demotion variants using cached local qwen3.5:9b and deepseek-r1:14b candidate audits. The goal was to improve Wolf-AP ordering without violating the assignment: all reasoning is from local Ollama models and existing transcripts/features; no external labels or API calls are used.
+
+Key public/local results from v136 base:
+
+| Candidate | Private file | Public local | Private changes vs v136 | Rationale |
+| --- | --- | ---: | --- | --- |
+| v138 | `../experiments/submissions/submission_v138_bothllm_wwdemote_private.csv` | 0.4707 | Demote only game 14 Boy Peter | qwen and deepseek both say demote; conservative big-gamble. |
+| v144 | `../experiments/submissions/submission_v144_filtered_big_gamble_private.csv` | **0.4750** | Demote game 14 Boy Peter, 17 Baker Otto, 23 Young Girl Liza | Public-calibrated filter: qwen demote + deepseek ambiguous-high `wolf_prob>=0.49`, excluding qwen hard-lock + deepseek keep contradictions. |
+| v132 | `../experiments/submissions/submission_v132_qwen_floor_045_private.csv` | 0.4696 | Broad qwen demotions plus lower floor | Rejected as less defensible; private qwen evidence contained attacked/night-kill hallucinations. |
+
+Recommendation if only one final upload remains:
+
+1. Submit `submission_v144_filtered_big_gamble_private.csv` only if accepting a genuine high-variance final attempt. It has the best new public local score (0.4750) and avoids the most suspicious qwen-lock/deepseek-keep private case.
+2. Use `submission_v138_bothllm_wwdemote_private.csv` if wanting a smaller gamble over v136/v131.
+3. Do not submit v132 unless intentionally ignoring the private evidence audit; its public score is weaker than v144 and its evidence quality is worse.
+
+Validation evidence:
+
+```bash
+cd werewolf-project
+UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py ../experiments/submissions/submission_v144_filtered_big_gamble_public.csv --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv --quiet
+# submission_v144_filtered_big_gamble_public.csv F1=0.4363 AP=0.5007 Score=0.4750
+UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
+# OK: 397 predictions validated
+```
