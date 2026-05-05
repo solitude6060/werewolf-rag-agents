@@ -55,14 +55,14 @@ Validate the current final private candidate:
 
 ```bash
 UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
+  ../experiments/submissions/submission_v166_postv144_zero_refine_private.csv
 ```
 
 Score the matching public candidate locally:
 
 ```bash
 UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_public.csv \
+  ../experiments/submissions/submission_v166_postv144_zero_refine_public.csv \
   --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv \
   --quiet
 ```
@@ -72,7 +72,7 @@ Expected evidence at cleanup time:
 ```text
 71 passed, 3 warnings
 OK: 397 predictions validated
-submission_v144_filtered_big_gamble_public.csv F1=0.4363 AP=0.5007 Score=0.4750
+submission_v166_postv144_zero_refine_public.csv F1=0.4363 AP=0.5009 Score=0.4750
 ```
 
 ---

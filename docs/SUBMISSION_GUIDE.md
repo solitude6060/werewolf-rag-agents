@@ -8,12 +8,12 @@ Best verified private score so far:
 
 | File | Kaggle private | Notes |
 | --- | ---: | --- |
-| `../experiments/submissions/submission_v144_filtered_big_gamble_private.csv` | **0.40743** | Current best; upload this for Kaggle private if no newer candidate supersedes it. |
+| `../experiments/submissions/submission_v166_postv144_zero_refine_private.csv` | **0.40764** | Current best; upload this for Kaggle private if no newer candidate supersedes it. |
 
 Matching public file for local validation:
 
 ```text
-../experiments/submissions/submission_v144_filtered_big_gamble_public.csv
+../experiments/submissions/submission_v166_postv144_zero_refine_public.csv
 ```
 
 ## 2. Required Validation Commands
@@ -23,9 +23,9 @@ Run from `werewolf-project/`:
 ```bash
 UV_CACHE_DIR=.uv-cache uv run pytest tests/ -q
 UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
+  ../experiments/submissions/submission_v166_postv144_zero_refine_private.csv
 UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_public.csv \
+  ../experiments/submissions/submission_v166_postv144_zero_refine_public.csv \
   --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv \
   --quiet
 ```
@@ -35,7 +35,7 @@ Expected current evidence:
 ```text
 71 passed, 3 warnings
 OK: 397 predictions validated
-F1=0.4363 AP=0.5007 Score=0.4750
+F1=0.4363 AP=0.5009 Score=0.4750
 ```
 
 ## 3. Assignment Package Checklist
@@ -49,7 +49,7 @@ The course package usually needs a folder/zip like `hw2_<student-id>.zip`. Keep 
 | `requirements.txt` | `werewolf-project/requirements.txt` |
 | README | `werewolf-project/README.md` |
 | Report draft | `werewolf-project/docs/report/hw2_report.md` |
-| Final Kaggle CSV | `../experiments/submissions/submission_v144_filtered_big_gamble_private.csv` |
+| Final Kaggle CSV | `../experiments/submissions/submission_v166_postv144_zero_refine_private.csv` |
 | Legacy generated bundle | `werewolf-project/artifacts/legacy-submissions/hw2_D13922024/` |
 
 ## 4. Recommended Report Reading Order

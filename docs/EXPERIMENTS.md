@@ -8,15 +8,18 @@ This document is the concise experiment guide. The long chronological log remain
 | --- | ---: | --- |
 | `submission_v119_swap_private.csv` | 0.39194 | Earlier best before LLM candidate audit. |
 | `submission_v131_candidate_qwen_safe_private.csv` | 0.40434 | Major breakthrough; safe qwen candidate audit. |
-| `submission_v144_filtered_big_gamble_private.csv` | **0.40743** | Latest best; filtered qwen/deepseek disagreement gamble. |
+| `submission_v144_filtered_big_gamble_private.csv` | 0.40743 | Filtered qwen/deepseek disagreement gamble. |
+| `submission_v166_postv144_zero_refine_private.csv` | **0.40764** | Latest best; v144 three demoted rows refined from 0.05 to 0. |
 
 ## 2. Final Candidate Ranking
 
 | Candidate | File | Public local | Private result | Risk |
 | --- | --- | ---: | ---: | --- |
-| v144 | `../experiments/submissions/submission_v144_filtered_big_gamble_private.csv` | **0.4750** | **0.40743** | Medium/high but now verified best. |
-| v138 | `../experiments/submissions/submission_v138_bothllm_wwdemote_private.csv` | 0.4707 | Not uploaded | Lower variance than v144. |
-| v136 | `../experiments/submissions/submission_v136_final_qwen_safe_zero_private.csv` | 0.4691 | Not uploaded | Minimal-risk refinement over v131. |
+| v166 | `../experiments/submissions/submission_v166_postv144_zero_refine_private.csv` | **0.4750** | **0.40764** | Low; current verified best. |
+| v144 | `../experiments/submissions/submission_v144_filtered_big_gamble_private.csv` | 0.4750 | 0.40743 | Medium/high; previous best. |
+| v164 | `../experiments/submissions/submission_v164_postv144_highww_madman_private.csv` | 0.4812 | 0.40400 | Rejected; public overfit. |
+| v138 | `../experiments/submissions/submission_v138_bothllm_wwdemote_private.csv` | 0.4707 | Not uploaded | Lower variance than v144, now obsolete. |
+| v136 | `../experiments/submissions/submission_v136_final_qwen_safe_zero_private.csv` | 0.4691 | Not uploaded | Minimal-risk refinement over v131, now obsolete. |
 | v132 | `../experiments/submissions/submission_v132_qwen_floor_045_private.csv` | 0.4696 | Not uploaded | Rejected: broad qwen demotion with hallucinated evidence risk. |
 
 ## 3. Score Progression
@@ -30,6 +33,7 @@ This document is the concise experiment guide. The long chronological log remain
 | v121 | 0.38844 | all Madman score zero | Public logic did not generalize. |
 | v131 | 0.40434 | safe qwen candidate audit | Candidate-level LLM audit was the breakthrough. |
 | v144 | 0.40743 | filtered qwen/deepseek disagreement | Carefully filtered higher variance can still improve. |
+| v166 | 0.40764 | v144 zero refinement | Tiny score-ordering refinements can still matter. |
 
 ## 4. Final v144 Policy
 
@@ -70,9 +74,9 @@ Why this is defensible:
 cd werewolf-project
 UV_CACHE_DIR=.uv-cache uv run pytest tests/ -q
 UV_CACHE_DIR=.uv-cache uv run python assert/validate_submission.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_private.csv
+  ../experiments/submissions/submission_v166_postv144_zero_refine_private.csv
 UV_CACHE_DIR=.uv-cache uv run python ../experiments/scripts/local_score.py \
-  ../experiments/submissions/submission_v144_filtered_big_gamble_public.csv \
+  ../experiments/submissions/submission_v166_postv144_zero_refine_public.csv \
   --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv \
   --quiet
 ```
@@ -82,6 +86,6 @@ Current expected output summary:
 ```text
 71 passed, 3 warnings
 OK: 397 predictions validated
-F1=0.4363 AP=0.5007 Score=0.4750
+F1=0.4363 AP=0.5009 Score=0.4750
 ```
 

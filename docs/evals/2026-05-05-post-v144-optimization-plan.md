@@ -102,3 +102,38 @@ UV_CACHE_DIR=.uv-cache uv run --no-sync python ../experiments/scripts/local_scor
 UV_CACHE_DIR=.uv-cache uv run --no-sync python assert/validate_submission.py ../experiments/submissions/submission_v166_postv144_zero_refine_private.csv
 # OK: 397 predictions validated
 ```
+
+## Kaggle feedback: v166 is new verified best
+
+`submission_v166_postv144_zero_refine_private.csv` scored **0.40764 private**, improving over v144's 0.40743 by +0.00021. This validates the tiny refinement of changing only the three v144 demoted Werewolf scores from `0.05` to `0`.
+
+Current verified best:
+
+- `../experiments/submissions/submission_v166_postv144_zero_refine_private.csv` = **0.40764 private**
+
+Next implication:
+
+- Very small score-ordering refinements can still matter.
+- Avoid broad new demotion classes; prioritize changes already supported by the successful v144/v166 row set or near-identical evidence patterns.
+
+## Final sprint candidate after v166: v186 Madman ceiling gamble
+
+After v166 became the verified best, the next local search focused on score-ordering-only changes so F1 stays unchanged and only AP can move.
+
+Candidate generated:
+
+- `../experiments/submissions/submission_v186_last_gamble_madman_ceiling_private.csv`
+- Rule: from v166, set predicted `Madman` rows with `0 < wolf_score <= 0.326` to `0`.
+- Public evidence: `F1=0.4363 AP=0.5021 Score=0.4758`, compared with v166 public `F1=0.4363 AP=0.5009 Score=0.4750`.
+- Private validation: `OK: 397 predictions validated`.
+
+Why not all-Madman-zero:
+
+- The broader all-Madman-zero lane changes 17 private rows, including `0.414`, `0.49`, and two `1.0` rows.
+- Prior `submission_v121_madman_zero_private.csv` scored only `0.38844`, so broad Madman zeroing is known to be dangerous.
+- v186 keeps the same public AP gain while excluding the highest-risk private Madman scores above `0.326`.
+
+Risk note:
+
+- v186 is still a gamble because it demotes 11 private rows without private labels.
+- It is more defensible than v170/v181 all-Madman-zero because it preserves the high-confidence private Madman-as-wolf scores.
