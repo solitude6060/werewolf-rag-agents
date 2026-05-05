@@ -72,3 +72,33 @@ Recommendation:
 
 - If continuing the successful v144 high-variance lane, submit **v164** next. Its public lift is the largest found after v144 (+0.0062 public local), and the rule is interpretable: demote high-score predicted Werewolves that a local LLM calls Madman while qwen does not call Werewolf.
 - If submission attempts are scarce or risk tolerance is lower, submit **v165** first; it adds only one high-score qwen-Madman demotion beyond the v144-zero refinement.
+
+## Kaggle feedback: v164 failed to generalize
+
+`submission_v164_postv144_highww_madman_private.csv` scored **0.40400 private**, below v144's 0.40743 and also below v131's 0.40434. This rejects the high-score predicted-Werewolf + LLM-Madman demotion lane for private generalization.
+
+Interpretation:
+
+- The public gain from demoting high-score predicted Werewolves with Madman signals was overfit.
+- Do not upload v165 unless intentionally testing a single-row variant; v165 still contains the same high-score Madman-demotion hypothesis through game 01 Baker Otto.
+- The safest remaining post-v144 candidate is now the tiny v144-zero refinement.
+
+New low-risk candidate:
+
+| Candidate | Public local | Private validator | Diff vs v144 | Recommendation |
+| --- | ---: | --- | --- | --- |
+| v166 | 0.4750 (`AP=0.5009`) | OK | Only v144's three `0.05` demotions become `0` | Use only if another low-risk attempt is desired. |
+
+Generated file:
+
+- `../experiments/submissions/submission_v166_postv144_zero_refine_private.csv`
+
+Validation evidence:
+
+```bash
+cd werewolf-project
+UV_CACHE_DIR=.uv-cache uv run --no-sync python ../experiments/scripts/local_score.py ../experiments/submissions/submission_v166_postv144_zero_refine_public.csv --gt data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv --quiet
+# submission_v166_postv144_zero_refine_public.csv F1=0.4363 AP=0.5009 Score=0.4750
+UV_CACHE_DIR=.uv-cache uv run --no-sync python assert/validate_submission.py ../experiments/submissions/submission_v166_postv144_zero_refine_private.csv
+# OK: 397 predictions validated
+```
