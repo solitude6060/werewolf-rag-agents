@@ -4,7 +4,7 @@ message: "If you use this coursework project structure or experiments, please ci
 type: software
 authors:
   - name: "D13922024"
-repository-code: "https://github.com/<owner>/werewolf-rag-agents"
+repository-code: "https://github.com/solitude6060/werewolf-rag-agents"
 abstract: "A multi-agent RAG system and local-LLM audit workflow for Werewolf role and wolf-score prediction."
 keywords:
   - multi-agent
