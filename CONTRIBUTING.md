@@ -47,3 +47,8 @@ Use concise decision-oriented commits. Include:
 - what was tested,
 - what was not tested,
 - risk/scope notes when relevant.
+
+
+## Dataset-Dependent Tests
+
+Raw course/Kaggle data is not committed. Dataset-dependent tests are skipped automatically when `data/raw/Werewolf_Prediction_Dataset/` is absent, which is the expected GitHub Actions behavior. With the local dataset present, those tests run normally.

@@ -1,5 +1,6 @@
 from pathlib import Path
 from src.data.loader import normalize_character_name, parse_roles_csv, get_data_root
+from tests.dataset_mark import requires_dataset
 
 
 def test_normalize_character_name_short():
@@ -18,6 +19,7 @@ def test_normalize_character_name_mixed_case():
     assert normalize_character_name("KATHARINA") == "Shepherd Katharina"
 
 
+@requires_dataset
 def test_get_data_root():
     root = get_data_root()
     assert root.exists()
@@ -26,6 +28,7 @@ def test_get_data_root():
     assert (root / "Dataset_README.md").exists()
 
 
+@requires_dataset
 def test_parse_roles_csv_structure():
     root = get_data_root()
     public_roles = root / "public" / "roles.csv"
@@ -38,6 +41,7 @@ def test_parse_roles_csv_structure():
     assert players[0].character is not None
 
 
+@requires_dataset
 def test_parse_roles_with_gt():
     root = get_data_root()
     gt_path = root / "public" / "roles_with_gt.csv"

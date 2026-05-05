@@ -1,3 +1,5 @@
+from tests.dataset_mark import requires_dataset
+
 from src.utils.metrics import (
     compute_macro_f1,
     compute_ap,
@@ -57,6 +59,7 @@ def test_compute_ap_all_wrong():
     assert ap < 1.0
 
 
+@requires_dataset
 def test_compute_baseline_metrics():
     metrics = compute_baseline_metrics(None)
     assert "macro_f1" in metrics
