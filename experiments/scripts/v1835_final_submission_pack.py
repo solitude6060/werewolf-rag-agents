@@ -1388,7 +1388,7 @@ def write_readme(out_root: Path, rows: list[dict[str, str]], preset: str) -> Pat
         "",
         "## Contingency candidates",
         "",
-        "These are not the primary five-shot queue. They exist to support adaptive decisions after tomorrow's real scores.",
+        "These are not the primary five-shot queue. They exist to support adaptive decisions after real leaderboard scores.",
         "",
         *markdown_table(rows, "contingency").splitlines(),
         "",
@@ -1519,7 +1519,7 @@ def write_submission_strategy(out_root: Path, rows: list[dict[str, str]]) -> Pat
         "",
         *markdown_table(rows, "overlay").splitlines(),
         "",
-        "## Decision rules for tomorrow",
+        "## Decision rules for final-attempt feedback",
         "",
         "1. Lowest role-risk first upload: `scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv`.",
         f"2. Stop immediately if any private score is above `>{TOP3_THRESHOLD:.5f}`.",
@@ -1678,7 +1678,7 @@ def write_report_draft(out_root: Path) -> Path:
     | v1823b | 0.46492 | v1823 stack plus g30 Dieter branch |
     | v1824a | 0.47119 | v1823a plus g24 Thomas true-Seer repair |
 
-    The current best verified score is `0.47119`.  The final queue is prepared separately because the remaining attempts should be chosen based on tomorrow's user-reported Kaggle feedback.
+    The current best verified score is `0.47119`.  The final queue is prepared separately because the remaining attempts should be chosen from real Kaggle feedback gathered during final attempts.
 
     ## 7. Reproducibility
 
@@ -1736,7 +1736,8 @@ def write_cool_package_stage(out_root: Path, report_path: Path) -> list[Path]:
         "python3 assert/validate_submission.py <candidate.csv>",
         "```",
         "",
-        "The final Kaggle CSV is managed separately under `experiments/final_submission_package/queue/`.",
+        "The final Kaggle CSV is staged separately under `experiments/final_submission_package/current_upload/submission.csv`.",
+        f"The current staged branch is `scoreonly_safe_queue` order 1 (`v1856g`); use the release checklist before spending the next upload.",
     ]
     readme_dest.write_text("\n".join(readme_lines) + "\n", encoding="utf-8")
     return [main_dest, req_dest, report_dest, readme_dest, assert_dest / "validate_submission.py"]
@@ -1768,7 +1769,13 @@ def iter_document_paths(root: Path) -> list[Path]:
 
 def lint_documents(out_root: Path, extra_roots: list[Path]) -> None:
     log_path = out_root / "manifests" / "document_lint_log.txt"
-    roots = [out_root / "README.md", out_root / "reports", out_root / "cool_package", *extra_roots]
+    roots = [
+        out_root / "README.md",
+        out_root / "reports",
+        out_root / "cool_package",
+        out_root / "current_upload",
+        *extra_roots,
+    ]
     all_paths: list[Path] = []
     for root in roots:
         all_paths.extend(iter_document_paths(root))

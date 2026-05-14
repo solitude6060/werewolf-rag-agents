@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce final v1121 submission (Kaggle private 0.44352).
+"""Build the packaged HW2 submission.
 
 Pipeline (multi-agent + RAG + post-lynch event extraction):
   Stage 1  multi-agent CoT (qwen3.5:9b analyst + gemma4:e4b verifier) → base CSV
@@ -10,7 +10,10 @@ Pipeline (multi-agent + RAG + post-lynch event extraction):
            bracket-bold or definitive Medium reveal in next 200 lines)
 
 Usage:
-  # Fast path (no LLM rerun, uses bundled checkpoints):
+  # Fast path (copies the packaged final candidate and validates it):
+  python3 make_final.py --output submission.csv
+
+  # Earlier reproducibility checkpoint:
   python3 make_final.py --from-checkpoint v851 --output submission.csv
 
   # Full reproduction (requires Ollama with qwen3.5:9b + gemma4:e4b loaded):
@@ -33,6 +36,8 @@ ROOT = Path(__file__).resolve().parent
 STEPS = ROOT / "pipeline_steps"
 CKPT = ROOT / "checkpoints"
 DATA_ROOT = ROOT.parent / "werewolf-project" / "data" / "raw" / "Werewolf_Prediction_Dataset"
+
+FINAL_CHECKPOINT = CKPT / "final_v1856g_private.csv"
 
 # 9 audit-validated post-lynch reveal corrections that v1120 produced and v1121 keeps.
 # (g13 Nicholas was DROPPED in audit — its reveal "Nicholas is the werewolf." was
@@ -116,15 +121,33 @@ def stage5_apply_v1121(in_csv: Path, out_csv: Path) -> None:
     print(f"\n[stage5] applied {applied}/9 lynch-reveal corrections -> {out_csv}")
 
 
+def validate_output(path: Path) -> None:
+    print(f"\n[validator]")
+    run_step(
+        [sys.executable, str(ROOT / "assert" / "validate_submission.py"), str(path)],
+        "validate",
+    )
+
+
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Build final v1121 submission.")
+    ap = argparse.ArgumentParser(description="Build the packaged HW2 submission.")
     ap.add_argument("--split", choices=["private", "public"], default="private")
     ap.add_argument("--output", type=Path, default=ROOT / "submission.csv")
-    ap.add_argument("--from-checkpoint", choices=["v440", "v851"], default="v851",
-                    help="skip earlier stages by starting from a bundled checkpoint")
+    ap.add_argument("--from-checkpoint", choices=["final", "v440", "v851"], default="final",
+                    help="final copies the packaged v1856g candidate; v440/v851 reproduce the earlier pipeline")
     ap.add_argument("--full", action="store_true",
                     help="rerun stages 1-3 from raw transcripts (requires Ollama)")
     args = ap.parse_args()
+
+    if args.from_checkpoint == "final" and not args.full:
+        if args.split != "private":
+            sys.exit("the packaged final checkpoint is for the private split")
+        if not FINAL_CHECKPOINT.exists():
+            sys.exit(f"missing checkpoint: {FINAL_CHECKPOINT}")
+        args.output.write_bytes(FINAL_CHECKPOINT.read_bytes())
+        validate_output(args.output)
+        print(f"\nFinal submission written to: {args.output}")
+        return
 
     work = ROOT / f".work_{args.split}.csv"
 
@@ -144,12 +167,7 @@ def main() -> None:
     stage5_apply_v1121(work, args.output)
     work.unlink(missing_ok=True)
 
-    # validate
-    print(f"\n[validator]")
-    run_step(
-        [sys.executable, str(ROOT / "assert" / "validate_submission.py"), str(args.output)],
-        "validate",
-    )
+    validate_output(args.output)
     print(f"\nFinal submission written to: {args.output}")
 
 

@@ -71,7 +71,7 @@ The strongest prompt pattern is evidence-first: list retrieved facts, ask for co
 | v1823b | 0.46492 | v1823 stack plus g30 Dieter branch |
 | v1824a | 0.47119 | v1823a plus g24 Thomas true-Seer repair |
 
-The current best verified score is `0.47119`.  The final queue is prepared separately because the remaining attempts should be chosen based on tomorrow's user-reported Kaggle feedback.
+The current best verified score is `0.47119`.  The final queue is prepared separately because the remaining attempts should be chosen from real Kaggle feedback gathered during final attempts.
 
 ## 7. Reproducibility
 

@@ -183,7 +183,7 @@ Top-3 threshold to beat: `>0.50671`
 | 8 | v1840b | pending | `experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv` | Optional most aggressive AP-only replacement for v1826d after v1826b is positive. |
 | 9 | v1840c | pending | `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv` | Optional most aggressive AP-only replacement for the final Hail Mary queue file. |
 
-## Decision rules for tomorrow
+## Decision rules for final-attempt feedback
 
 1. Lowest role-risk first upload: `scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv`.
 2. Stop immediately if any private score is above `>0.50671`.

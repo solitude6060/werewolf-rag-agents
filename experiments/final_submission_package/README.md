@@ -228,7 +228,7 @@ These candidates keep the verified-best role labels and change only scores. Use 
 
 ## Contingency candidates
 
-These are not the primary five-shot queue. They exist to support adaptive decisions after tomorrow's real scores.
+These are not the primary five-shot queue. They exist to support adaptive decisions after real leaderboard scores.
 
 | Order | Candidate | Private score | File | Condition |
 | ---: | --- | ---: | --- | --- |

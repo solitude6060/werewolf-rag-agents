@@ -8,6 +8,8 @@ PASS experiments/final_submission_package/README.md
 PASS experiments/final_submission_package/cool_package/hw2_D13922024/README
 PASS experiments/final_submission_package/cool_package/hw2_D13922024/hw2_D13922024_report.md
 PASS experiments/final_submission_package/cool_package/hw2_D13922024/requirements.txt
+PASS experiments/final_submission_package/current_upload/ATTEMPT_CARD.md
+PASS experiments/final_submission_package/current_upload/README.md
 PASS experiments/final_submission_package/reports/hw2_report_draft.md
 PASS experiments/final_submission_package/reports/reproducibility_checklist.md
 PASS experiments/final_submission_package/reports/submission_strategy.md
@@ -31,4 +33,4 @@ PASS werewolf-project/docs/report/hw2_report.md
 PASS werewolf-project/docs/sdd/structured-llm-rag-audit.md
 PASS werewolf-project/docs/sdd/system-design.md
 
-Summary: 26 files checked, 0 findings.
+Summary: 28 files checked, 0 findings.
