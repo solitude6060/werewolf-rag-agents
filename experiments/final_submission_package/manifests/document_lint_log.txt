@@ -1,0 +1,34 @@
+# Document lint log
+
+Date: 2026-05-14
+Scope: generated package docs plus selected submission-facing docs.
+Result format: path, line, pattern class.
+
+PASS experiments/final_submission_package/README.md
+PASS experiments/final_submission_package/cool_package/hw2_D13922024/README
+PASS experiments/final_submission_package/cool_package/hw2_D13922024/hw2_D13922024_report.md
+PASS experiments/final_submission_package/cool_package/hw2_D13922024/requirements.txt
+PASS experiments/final_submission_package/reports/hw2_report_draft.md
+PASS experiments/final_submission_package/reports/reproducibility_checklist.md
+PASS experiments/final_submission_package/reports/submission_strategy.md
+PASS hw2_D13922024/README.md
+PASS hw2_D13922024/hw2_report.md
+PASS hw2_D13922024/requirements.txt
+PASS werewolf-project/README.md
+PASS werewolf-project/docs/EXPERIMENTS.md
+PASS werewolf-project/docs/PROJECT_GUIDE.md
+PASS werewolf-project/docs/STRUCTURE.md
+PASS werewolf-project/docs/SUBMISSION_GUIDE.md
+PASS werewolf-project/docs/archive/notes.md
+PASS werewolf-project/docs/archive/task_plan.md
+PASS werewolf-project/docs/cleanup/2026-05-04-folder-restructure-plan.md
+PASS werewolf-project/docs/cleanup/2026-05-04-github-publication-plan.md
+PASS werewolf-project/docs/cleanup/2026-05-04-project-teaching-cleanup-plan.md
+PASS werewolf-project/docs/evals/2026-05-04-structured-llm-rag-audit-plan.md
+PASS werewolf-project/docs/evals/2026-05-05-post-v144-optimization-plan.md
+PASS werewolf-project/docs/report/hw2-report-outline.md
+PASS werewolf-project/docs/report/hw2_report.md
+PASS werewolf-project/docs/sdd/structured-llm-rag-audit.md
+PASS werewolf-project/docs/sdd/system-design.md
+
+Summary: 26 files checked, 0 findings.

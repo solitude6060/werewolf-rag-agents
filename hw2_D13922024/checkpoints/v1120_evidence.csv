@@ -1,0 +1,11 @@
+id,index,character,role,old_score,new_score,action,verdict,confidence,execution_line,execution_text,reveal_line,reveal_text,pattern
+104,08,Village Girl Pamela,Werewolf,0.5,1,boost_wolf,werewolf,bracket,7541,Village Girl Pamela was executed by the villagers.,7560,"[**Pamela: Ears and tail, good, right? (Daughter Black)**]",bracket_werewolf
+134,10,Young Man Joachim,Medium,0.49,0.05,demote_human,human,bracket,3838,Young Man Joachim was executed by the villagers.,3855,[**Joachim is human**],bracket_human
+163,13,Traveler Nicholas,Seer,0.454,1,boost_wolf,werewolf,anchored_direct,4659,Traveler Nicholas was executed by the villagers.,4738,Nicholas is the werewolf.,direct_werewolf
+225,18,Joachim,Villager,0.382,0.05,demote_human,human,bracket,2755,Young Man Joachim was executed by the villagers.,2781,[I was human! Joachim-san was human too!],bracket_human
+265,20,Woodcutter Thomas,Villager,0.222,0.05,demote_human,human,anchored_direct,6304,Thomas was executed by the villagers.,6319,Thomas was white.,direct_human
+305,24,Otto the Baker,Werewolf,0.5,1,boost_wolf,werewolf,bracket,5177,Baker Otto was executed by the villagers.,5229,"My throat was hoarse. The hunter is too capable, I want to buy him whatever he wants. Hey! [Baker Werewolf confirmed] He’s a great actor—!",bracket_werewolf
+345,27,Young Girl Liza,Madman,0,1,boost_wolf,werewolf,anchored_direct,6917,Young Girl Liza was executed by the villagers.,7101,Young Girl Liza was the werewolf.,direct_werewolf
+351,27,Baker Otto,Werewolf,0.5,0.05,demote_human,human,anchored_direct,9540,[OTTO] was executed by the villagers.,9617,"As everyone knows, Otto was human.",direct_human
+370,28,Wounded Soldier Simon,Villager,0.355,0.05,demote_human,human,bracket,7599,Wounded Soldier Simon was executed by the villagers.,7643,[Simon is human],bracket_human
+392,30,Dieter,Villager,0.49,1,boost_wolf,werewolf,bracket,4637,Outlaw Dieter was executed by the villagers.,4646,[Dieter is a werewolf],bracket_werewolf

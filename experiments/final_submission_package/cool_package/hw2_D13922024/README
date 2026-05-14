@@ -1,0 +1,19 @@
+# HW2 D13922024 Package Staging
+
+This folder mirrors the required NTU COOL zip structure before PDF conversion.
+
+## Required final zip shape
+
+- `hw2_D13922024.pdf`: convert from `hw2_D13922024_report.md` and keep within 5 pages.
+- `main.py`: copied from `werewolf-project/main.py`.
+- `assert/`: copied from `werewolf-project/assert/`.
+- `requirements.txt`: copied from `werewolf-project/requirements.txt`.
+- `README`: this instruction file.
+
+## Validate a Kaggle CSV
+
+```bash
+python3 assert/validate_submission.py <candidate.csv>
+```
+
+The final Kaggle CSV is managed separately under `experiments/final_submission_package/queue/`.

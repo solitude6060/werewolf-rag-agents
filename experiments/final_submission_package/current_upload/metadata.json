@@ -1,0 +1,13 @@
+{
+  "candidate": "v1856g",
+  "generated_at_utc": "2026-05-14T17:17:42+00:00",
+  "group": "scoreonly_safe_queue",
+  "order": "1",
+  "post_score_command": "python3 experiments/scripts/v1836_score_feedback_router.py --group scoreonly_safe_queue --order 1 --score <REAL_SCORE> --dry-run",
+  "rows": 397,
+  "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "source_path": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+  "staged_path": "experiments/final_submission_package/current_upload/submission.csv",
+  "stop_if_score_greater_than": 0.50671,
+  "validator": "OK: 397 predictions validated"
+}
