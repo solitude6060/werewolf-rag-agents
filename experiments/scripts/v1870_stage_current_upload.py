@@ -19,6 +19,7 @@ VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 POST_SCORE = Path("experiments/scripts/v1872_post_score_command_center.py")
 SCORE_TEMPLATE = Path("experiments/scripts/v1893_score_report_template.py")
 SCORE_BRIDGE = Path("experiments/scripts/v1895_score_report_command_center.py")
+CURRENT_SCORE_BRIDGE = Path("experiments/scripts/v1898_current_score_report_bridge.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 TOP3 = 0.50671
@@ -133,6 +134,8 @@ def main() -> None:
         "score_report_template_command": f"python3 {SCORE_TEMPLATE}",
         "score_report_bridge_command": f"python3 {SCORE_BRIDGE} <SCORE_REPORT_FILE>",
         "score_report_bridge_confirm_command": f"python3 {SCORE_BRIDGE} <SCORE_REPORT_FILE> --confirm-real-score",
+        "current_score_bridge_command": f"python3 {CURRENT_SCORE_BRIDGE} --score <REAL_SCORE>",
+        "current_score_bridge_confirm_command": f"python3 {CURRENT_SCORE_BRIDGE} --score <REAL_SCORE> --confirm-real-score",
         "pre_upload_preflight_command": "python3 experiments/scripts/v1888_final_upload_preflight.py",
         "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
         "stop_if_score_greater_than": TOP3,
@@ -178,6 +181,18 @@ def main() -> None:
         "",
         "```text",
         metadata["score_report_template_path"],
+        "```",
+        "",
+        "No-edit path after the score appears:",
+        "",
+        "```bash",
+        metadata["current_score_bridge_command"],
+        "```",
+        "",
+        "No-edit record command after confirming the score is real:",
+        "",
+        "```bash",
+        metadata["current_score_bridge_confirm_command"],
         "```",
         "",
         "Before the score appears, prepare the copy/paste score report template:",

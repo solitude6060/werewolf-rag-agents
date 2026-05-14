@@ -1,0 +1,5 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+valid_continue_score_routes_next_csv,0,zero,scoreonly_safe_queue/02_v1853g_scoreonly_max_proxy_private.csv,yes,yes
+valid_top3_score_routes_stop,0,zero,STOP: score exceeds top-3 threshold.,yes,yes
+invalid_percentage_like_score_rejected,1,nonzero,Invalid --score,yes,yes
+missing_placeholder_rejected,1,nonzero,missing placeholder,yes,yes

@@ -1,6 +1,8 @@
 {
   "candidate": "v1856g",
-  "generated_at_utc": "2026-05-14T18:53:46+00:00",
+  "current_score_bridge_command": "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>",
+  "current_score_bridge_confirm_command": "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score",
+  "generated_at_utc": "2026-05-14T18:57:45+00:00",
   "group": "scoreonly_safe_queue",
   "order": "1",
   "post_score_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",

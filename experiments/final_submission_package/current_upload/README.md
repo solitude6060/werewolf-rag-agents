@@ -26,6 +26,18 @@ Fill this ready-to-edit score report after the real private score appears:
 experiments/final_submission_package/current_upload/SCORE_REPORT.txt
 ```
 
+No-edit path after the score appears:
+
+```bash
+python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>
+```
+
+No-edit record command after confirming the score is real:
+
+```bash
+python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score
+```
+
 Before the score appears, prepare the copy/paste score report template:
 
 ```bash
