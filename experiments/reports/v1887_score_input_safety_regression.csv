@@ -1,0 +1,8 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+command_center_rejects_percentage_like_score,1,nonzero,Invalid --score,yes,yes
+command_center_rejects_nan_score,1,nonzero,Invalid --score,yes,yes
+command_center_rejects_negative_score,1,nonzero,Invalid --score,yes,yes
+command_center_rejects_bad_previous_score,1,nonzero,Invalid --previous-score,yes,yes
+router_rejects_percentage_like_score,1,nonzero,Invalid --score,yes,yes
+valid_top3_dry_run_still_routes_stop,0,zero,NEXT_PATH_STATUS=non_concrete_ok,yes,yes
+valid_tiny_positive_dry_run_still_routes_next_csv,0,zero,scoreonly_safe_queue/02_v1853g_scoreonly_max_proxy_private.csv,yes,yes

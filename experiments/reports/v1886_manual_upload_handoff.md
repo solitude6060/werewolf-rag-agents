@@ -72,6 +72,8 @@ Record only after confirming the score is the real Kaggle private score:
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score
 ```
 
+Enter the score as a decimal such as `0.47119`, not a percentage-like value such as `47.119`. The command center rejects out-of-range, `nan`, and infinite values before routing or recording.
+
 ## Completion boundary
 
 This handoff reduces upload risk, but it does not complete the active objective. Completion still requires a real private score strictly greater than `0.50671`.

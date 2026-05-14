@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -322,7 +323,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="Print routing result without writing records.")
     parser.add_argument("--confirm-real-score", action="store_true", help="Required for non-dry-run writes.")
     parser.add_argument("--manifest", type=Path, default=MANIFEST)
-    return parser.parse_args()
+    args = parser.parse_args()
+    validate_score_input("--score", args.score)
+    if args.previous_score is not None:
+        validate_score_input("--previous-score", args.previous_score)
+    return args
+
+
+def validate_score_input(label: str, value: float) -> None:
+    if not math.isfinite(value) or value < 0.0 or value > 1.0:
+        raise SystemExit(
+            f"Invalid {label}: expected a decimal Kaggle score in [0, 1], got {value!r}. "
+            "If the UI shows a percentage, divide by 100 before running this command."
+        )
 
 
 def main() -> None:

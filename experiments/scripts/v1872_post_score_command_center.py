@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 import shlex
 import subprocess
 import sys
@@ -137,7 +138,19 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Do not refresh current_upload/submission.csv after recording.",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    validate_score_input("--score", args.score)
+    if args.previous_score is not None:
+        validate_score_input("--previous-score", args.previous_score)
+    return args
+
+
+def validate_score_input(label: str, value: float) -> None:
+    if not math.isfinite(value) or value < 0.0 or value > 1.0:
+        raise SystemExit(
+            f"Invalid {label}: expected a decimal Kaggle score in [0, 1], got {value!r}. "
+            "If the UI shows a percentage, divide by 100 before running this command."
+        )
 
 
 def router_cmd(args: argparse.Namespace, *, confirm: bool) -> list[str]:
