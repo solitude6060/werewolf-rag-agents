@@ -1,0 +1,5 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+valid_current_report_passes,0,zero,SCORE_REPORT_READY=yes,yes,yes
+wrong_sha_rejected,1,nonzero,sha_matches_upload,yes,yes
+filled_score_rejected_before_upload,1,nonzero,score_placeholder_ready,yes,yes
+wrong_candidate_rejected,1,nonzero,candidate_matches_metadata,yes,yes

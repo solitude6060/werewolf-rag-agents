@@ -1,6 +1,6 @@
 # v1888 Final Upload Preflight
 
-Generated UTC: `2026-05-14T18:30:49+00:00`
+Generated UTC: `2026-05-14T19:02:47+00:00`
 
 ## Summary
 
@@ -29,6 +29,7 @@ Generated UTC: `2026-05-14T18:30:49+00:00`
 | validator_ok | yes | `OK: 397 predictions validated` |
 | pre_upload_guard_ready | yes | `PRE_UPLOAD_GUARD; UPLOAD_READY=yes; UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv; CANDIDATE=v1856g; GROUP=scoreonly_safe_queue; ORDER=1; SHA256=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d; ROWS=397; REPORT=experiments/reports/v1883_pre_upload_guard.md; JSON=experiments/reports/v1883_pre_upload_guard.json` |
 | candidate_pool_review_zero | yes | `WROTE_CSV=experiments/reports/v1884_candidate_pool_coverage_scan.csv; WROTE_REPORT=experiments/reports/v1884_candidate_pool_coverage_scan.md; PRIVATE_FILES=1331; SCORED_PAIRS=1309; REVIEW_CANDIDATES=0; SAFE_OR_DUPLICATE_ABOVE_FIRST=0` |
+| score_report_guard_ready | yes | `CURRENT_UPLOAD_SCORE_REPORT_GUARD; SCORE_REPORT_READY=yes; UPLOAD=experiments/final_submission_package/current_upload/submission.csv; SCORE_REPORT=experiments/final_submission_package/current_upload/SCORE_REPORT.txt; CANDIDATE=v1856g; ROWS=397; SHA256=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d; REPORT=experiments/reports/v1900_current_upload_score_report_guard.md; JSON=experiments/reports/v1900_current_upload_score_report_guard.json` |
 | score_records_absent_for_first_upload | yes | `experiments/final_submission_package/manifests/v1836_score_feedback_records.csv` |
 
 ## Manual upload instruction
@@ -42,8 +43,8 @@ experiments/final_submission_package/current_upload/submission.csv
 After the real private score appears:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
-python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>
+python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score
 ```
 
 ## Completion boundary

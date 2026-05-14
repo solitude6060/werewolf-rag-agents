@@ -1,0 +1,81 @@
+{
+  "candidate": "v1856g",
+  "checks": [
+    {
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "name": "upload_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/metadata.json",
+      "name": "metadata_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
+      "name": "score_report_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "all_present",
+      "name": "required_keys_present",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "name": "uploaded_path_matches",
+      "ok": "yes"
+    },
+    {
+      "detail": "v1856g",
+      "name": "candidate_matches_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "scoreonly_safe_queue",
+      "name": "group_matches_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "1",
+      "name": "order_matches_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "report=397 upload=397",
+      "name": "rows_match_upload",
+      "ok": "yes"
+    },
+    {
+      "detail": "metadata=397 upload=397",
+      "name": "rows_match_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "report=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "sha_matches_upload",
+      "ok": "yes"
+    },
+    {
+      "detail": "metadata=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "sha_matches_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "<REAL_PRIVATE_SCORE_DECIMAL>",
+      "name": "score_placeholder_ready",
+      "ok": "yes"
+    },
+    {
+      "detail": "yes",
+      "name": "real_private_flag_yes",
+      "ok": "yes"
+    }
+  ],
+  "generated_at_utc": "2026-05-14T19:02:47+00:00",
+  "rows": 397,
+  "score_report": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
+  "score_report_ready": "yes",
+  "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "upload": "experiments/final_submission_package/current_upload/submission.csv"
+}

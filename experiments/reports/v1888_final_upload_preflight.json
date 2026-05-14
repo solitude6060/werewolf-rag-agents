@@ -68,12 +68,17 @@
       "ok": "yes"
     },
     {
+      "detail": "CURRENT_UPLOAD_SCORE_REPORT_GUARD; SCORE_REPORT_READY=yes; UPLOAD=experiments/final_submission_package/current_upload/submission.csv; SCORE_REPORT=experiments/final_submission_package/current_upload/SCORE_REPORT.txt; CANDIDATE=v1856g; ROWS=397; SHA256=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d; REPORT=experiments/reports/v1900_current_upload_score_report_guard.md; JSON=experiments/reports/v1900_current_upload_score_report_guard.json",
+      "name": "score_report_guard_ready",
+      "ok": "yes"
+    },
+    {
       "detail": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
       "name": "score_records_absent_for_first_upload",
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-14T18:30:49+00:00",
+  "generated_at_utc": "2026-05-14T19:02:47+00:00",
   "group": "scoreonly_safe_queue",
   "order": "1",
   "ready_to_manual_upload": "yes",

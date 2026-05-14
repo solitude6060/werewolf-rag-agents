@@ -17,6 +17,7 @@ MANIFEST = Path("experiments/final_submission_package/manifests/final_submission
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 GUARD = Path("experiments/scripts/v1883_pre_upload_guard.py")
 COVERAGE = Path("experiments/scripts/v1884_candidate_pool_coverage_scan.py")
+SCORE_REPORT_GUARD = Path("experiments/scripts/v1900_current_upload_score_report_guard.py")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 OUT_JSON = Path("experiments/reports/v1888_final_upload_preflight.json")
 OUT_MD = Path("experiments/reports/v1888_final_upload_preflight.md")
@@ -103,8 +104,8 @@ def write_outputs(payload: dict[str, Any]) -> None:
             "After the real private score appears:",
             "",
             "```bash",
-            "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",
-            "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score",
+            "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>",
+            "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score",
             "```",
             "",
             "## Completion boundary",
@@ -160,6 +161,16 @@ def main() -> None:
     coverage_text = (coverage.stdout + coverage.stderr).strip()
     coverage_kv = parse_kv(coverage_text)
     add_check(checks, "candidate_pool_review_zero", coverage.returncode == 0 and coverage_kv.get("REVIEW_CANDIDATES") == "0", coverage_text.replace("\n", "; "))
+
+    score_report_guard = run([sys.executable, str(SCORE_REPORT_GUARD)])
+    score_report_guard_text = (score_report_guard.stdout + score_report_guard.stderr).strip()
+    score_report_guard_kv = parse_kv(score_report_guard_text)
+    add_check(
+        checks,
+        "score_report_guard_ready",
+        score_report_guard.returncode == 0 and score_report_guard_kv.get("SCORE_REPORT_READY") == "yes",
+        score_report_guard_text.replace("\n", "; "),
+    )
 
     add_check(checks, "score_records_absent_for_first_upload", not RECORDS.exists(), str(RECORDS))
 
