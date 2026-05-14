@@ -1,0 +1,6 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+no_records_first_upload_passes,0,zero,STATE=no_records_first_upload,yes,yes
+latest_recommended_match_passes,0,zero,STATE=staged_latest_recommended,yes,yes
+latest_recommended_mismatch_rejected,1,nonzero,current_source_matches_expected,yes,yes
+stop_record_rejected,1,nonzero,no_prior_top3_hit,yes,yes
+budget_exhausted_rejected,1,nonzero,attempt_budget_not_exhausted,yes,yes

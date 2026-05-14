@@ -1,0 +1,82 @@
+{
+  "attempt_state_ready": "yes",
+  "checks": [
+    {
+      "detail": "experiments/final_submission_package/manifests/final_submission_pack_manifest.csv",
+      "name": "manifest_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/metadata.json",
+      "name": "metadata_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "name": "upload_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "397",
+      "name": "upload_rows_397",
+      "ok": "yes"
+    },
+    {
+      "detail": "0",
+      "name": "attempt_budget_not_exhausted",
+      "ok": "yes"
+    },
+    {
+      "detail": "none",
+      "name": "no_prior_top3_hit",
+      "ok": "yes"
+    },
+    {
+      "detail": "scoreonly_safe_queue#1",
+      "name": "first_upload_default_context",
+      "ok": "yes"
+    },
+    {
+      "detail": "scoreonly_safe_queue#1",
+      "name": "first_upload_manifest_row_found",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv expected=experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "name": "current_source_matches_expected",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=scoreonly_safe_queue expected=scoreonly_safe_queue",
+      "name": "current_group_matches_expected",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=1 expected=1",
+      "name": "current_order_matches_expected",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=v1856g expected=v1856g",
+      "name": "current_candidate_matches_expected",
+      "ok": "yes"
+    },
+    {
+      "detail": "upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d expected=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "current_upload_sha_matches_expected",
+      "ok": "yes"
+    },
+    {
+      "detail": "metadata=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d expected=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "metadata_sha_matches_expected",
+      "ok": "yes"
+    }
+  ],
+  "current_source_path": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+  "generated_at_utc": "2026-05-14T19:11:31+00:00",
+  "recommended_next": "",
+  "records_count": 0,
+  "state": "no_records_first_upload",
+  "upload_rows": 397,
+  "upload_sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d"
+}

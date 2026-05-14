@@ -19,6 +19,7 @@ GUARD = Path("experiments/scripts/v1883_pre_upload_guard.py")
 COVERAGE = Path("experiments/scripts/v1884_candidate_pool_coverage_scan.py")
 SCORE_REPORT_GUARD = Path("experiments/scripts/v1900_current_upload_score_report_guard.py")
 ALIAS_GUARD = Path("experiments/scripts/v1902_upload_alias_guard.py")
+ATTEMPT_STATE_GUARD = Path("experiments/scripts/v1904_attempt_state_guard.py")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 OUT_JSON = Path("experiments/reports/v1888_final_upload_preflight.json")
 OUT_MD = Path("experiments/reports/v1888_final_upload_preflight.md")
@@ -183,7 +184,15 @@ def main() -> None:
         alias_guard_text.replace("\n", "; "),
     )
 
-    add_check(checks, "score_records_absent_for_first_upload", not RECORDS.exists(), str(RECORDS))
+    attempt_state_guard = run([sys.executable, str(ATTEMPT_STATE_GUARD)])
+    attempt_state_guard_text = (attempt_state_guard.stdout + attempt_state_guard.stderr).strip()
+    attempt_state_guard_kv = parse_kv(attempt_state_guard_text)
+    add_check(
+        checks,
+        "attempt_state_guard_ready",
+        attempt_state_guard.returncode == 0 and attempt_state_guard_kv.get("ATTEMPT_STATE_READY") == "yes",
+        attempt_state_guard_text.replace("\n", "; "),
+    )
 
     ready = all(check["ok"] == "yes" for check in checks)
     payload: dict[str, Any] = {
