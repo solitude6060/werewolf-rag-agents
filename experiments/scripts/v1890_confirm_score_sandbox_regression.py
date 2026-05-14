@@ -94,7 +94,7 @@ def main() -> None:
                 "label": "first_confirm_write_succeeds_in_sandbox",
                 "exit_code": str(code),
                 "records": str(len(first_rows)),
-                "message": output.splitlines()[-1] if output else "",
+                "message": "sandbox_write_ok" if pass_first else output,
                 "pass": "yes" if pass_first else "no",
             }
         )
