@@ -20,6 +20,12 @@ python3 experiments/scripts/v1888_final_upload_preflight.py
 
 Expected result: `READY_TO_MANUAL_UPLOAD=yes`.
 
+Single status command for the current goal:
+
+```bash
+python3 experiments/scripts/v1908_final_goal_status.py
+```
+
 Fill this ready-to-edit score report after the real private score appears:
 
 ```text

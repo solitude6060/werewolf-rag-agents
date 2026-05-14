@@ -1,0 +1,4 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+complete_records_mark_goal_complete,0,zero,ACTION=MARK_GOAL_COMPLETE,yes,yes
+not_complete_ready_upload_current,0,zero,ACTION=UPLOAD_CURRENT,yes,yes
+not_complete_not_ready_blocked,1,nonzero,ACTION=BLOCKED,yes,yes

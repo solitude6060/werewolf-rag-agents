@@ -21,6 +21,7 @@ SCORE_TEMPLATE = Path("experiments/scripts/v1893_score_report_template.py")
 SCORE_BRIDGE = Path("experiments/scripts/v1895_score_report_command_center.py")
 CURRENT_SCORE_BRIDGE = Path("experiments/scripts/v1898_current_score_report_bridge.py")
 GOAL_COMPLETION_GATE = Path("experiments/scripts/v1906_goal_completion_gate.py")
+FINAL_GOAL_STATUS = Path("experiments/scripts/v1908_final_goal_status.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 TOP3 = 0.50671
@@ -138,6 +139,7 @@ def main() -> None:
         "current_score_bridge_command": f"python3 {CURRENT_SCORE_BRIDGE} --score <REAL_SCORE>",
         "current_score_bridge_confirm_command": f"python3 {CURRENT_SCORE_BRIDGE} --score <REAL_SCORE> --confirm-real-score",
         "goal_completion_gate_command": f"python3 {GOAL_COMPLETION_GATE}",
+        "final_goal_status_command": f"python3 {FINAL_GOAL_STATUS}",
         "pre_upload_preflight_command": "python3 experiments/scripts/v1888_final_upload_preflight.py",
         "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
         "stop_if_score_greater_than": TOP3,
@@ -178,6 +180,12 @@ def main() -> None:
         "```",
         "",
         "Expected result: `READY_TO_MANUAL_UPLOAD=yes`.",
+        "",
+        "Single status command for the current goal:",
+        "",
+        "```bash",
+        metadata["final_goal_status_command"],
+        "```",
         "",
         "Fill this ready-to-edit score report after the real private score appears:",
         "",
