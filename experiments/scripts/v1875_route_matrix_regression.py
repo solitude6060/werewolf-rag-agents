@@ -118,7 +118,7 @@ def scenarios() -> list[dict[str, str]]:
     for label, score in [("portfolio_order1_positive", 0.47200), ("portfolio_order1_near", 0.47080), ("portfolio_order1_regression", 0.46600)]:
         cases.append({"group": "portfolio_queue", "order": "1", "score": f"{score:.5f}", "previous_score": "", "label": label})
     for label, score, previous in [
-        ("portfolio_order2_beats_first", 0.48001, 0.48000),
+        ("portfolio_order2_beats_first_to_charprior", 0.48001, 0.48000),
         ("portfolio_order2_below_first", 0.47900, 0.48000),
     ]:
         cases.append(
@@ -160,7 +160,7 @@ def main() -> None:
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     fields = ["label", "group", "order", "score", "previous_score", "recommended_next", "status", "pass"]
     with OUT_CSV.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(result_rows)
 

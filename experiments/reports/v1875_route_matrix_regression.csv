@@ -30,5 +30,5 @@ portfolio_queue_order5_top3,portfolio_queue,5,0.50672,,STOP: score exceeds top-3
 portfolio_order1_positive,portfolio_queue,1,0.47200,,experiments/final_submission_package/portfolio_queue/02_v1853a_max_proxy_second_private.csv,concrete_ok:portfolio_queue#2:v1853a,yes
 portfolio_order1_near,portfolio_queue,1,0.47080,,experiments/final_submission_package/portfolio_queue/03_v1850a_lowtail_fallback_private.csv,concrete_ok:portfolio_queue#3:v1850a,yes
 portfolio_order1_regression,portfolio_queue,1,0.46600,,experiments/final_submission_package/portfolio_queue/04_v1848a_denoise_fallback_private.csv,concrete_ok:portfolio_queue#4:v1848a,yes
-portfolio_order2_beats_first,portfolio_queue,2,0.48001,0.48000,PORTFOLIO_POSITIVE: keep best verified score; use remaining slots only for rank-1 chase or manual high-upside review.,non_concrete_ok,yes
+portfolio_order2_beats_first_to_charprior,portfolio_queue,2,0.48001,0.48000,experiments/final_submission_package/charprior_queue/02_v1853b_queue02_v1850b_charprior_private.csv,concrete_ok:charprior_queue#2:v1853b,yes
 portfolio_order2_below_first,portfolio_queue,2,0.47900,0.48000,experiments/final_submission_package/portfolio_queue/03_v1850a_lowtail_fallback_private.csv,concrete_ok:portfolio_queue#3:v1850a,yes

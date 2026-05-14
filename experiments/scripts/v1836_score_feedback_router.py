@@ -175,7 +175,7 @@ def route_next(
         if order == 2:
             first_score = previous_score if previous_score is not None else latest_score_for(results, "v1856a")
             if first_score is not None and score > first_score:
-                return "PORTFOLIO_POSITIVE: keep best verified score; use remaining slots only for rank-1 chase or manual high-upside review."
+                return by_group_order(manifest, "charprior_queue", 2)
             return by_group_order(manifest, "portfolio_queue", 3)
         if order == 3:
             return by_group_order(manifest, "portfolio_queue", 4)
