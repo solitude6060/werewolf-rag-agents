@@ -1,0 +1,112 @@
+{
+  "candidate": "v1856g",
+  "checks": [
+    {
+      "check": "manifest_exists",
+      "detail": "experiments/final_submission_package/manifests/final_submission_pack_manifest.csv",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_exists",
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "ok": "yes"
+    },
+    {
+      "check": "metadata_exists",
+      "detail": "experiments/final_submission_package/current_upload/metadata.json",
+      "ok": "yes"
+    },
+    {
+      "check": "metadata_context_is_first_upload",
+      "detail": "scoreonly_safe_queue#1:v1856g",
+      "ok": "yes"
+    },
+    {
+      "check": "manifest_row_found",
+      "detail": "scoreonly_safe_queue#1",
+      "ok": "yes"
+    },
+    {
+      "check": "manifest_candidate_matches",
+      "detail": "v1856g",
+      "ok": "yes"
+    },
+    {
+      "check": "manifest_status_pass",
+      "detail": "pass",
+      "ok": "yes"
+    },
+    {
+      "check": "metadata_source_matches_manifest",
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "ok": "yes"
+    },
+    {
+      "check": "source_exists",
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_rows_397",
+      "detail": "397",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_sha_matches_expected",
+      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_sha_matches_metadata",
+      "detail": "upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d metadata=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_sha_matches_manifest",
+      "detail": "upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d manifest=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "ok": "yes"
+    },
+    {
+      "check": "current_upload_sha_matches_source",
+      "detail": "upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d source=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "ok": "yes"
+    },
+    {
+      "check": "validator_ok",
+      "detail": "OK: 397 predictions validated",
+      "ok": "yes"
+    },
+    {
+      "check": "score_records_absent_for_first_upload",
+      "detail": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
+      "ok": "yes"
+    },
+    {
+      "check": "attempt_budget_command_ok",
+      "detail": "ATTEMPT_BUDGET; records_path=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv; max_attempts=5; attempts_used=0; attempts_remaining=5; best_score=none; top3_hit=no; next_action=RUN_FIRST_UPLOAD_RUNBOOK; next_command=python3 experiments/scripts/v1866_final_attempt_runbook.py; stage_command=python3 experiments/scripts/v1870_stage_current_upload.py",
+      "ok": "yes"
+    },
+    {
+      "check": "attempts_remaining_5",
+      "detail": "5",
+      "ok": "yes"
+    },
+    {
+      "check": "top3_not_already_hit",
+      "detail": "no",
+      "ok": "yes"
+    },
+    {
+      "check": "command_center_regression_ok",
+      "detail": "WROTE_CSV=experiments/reports/v1882_command_center_dry_run_regression.csv; WROTE_REPORT=experiments/reports/v1882_command_center_dry_run_regression.md; SCENARIOS=7; FAILURES=0; MUTATION_OK=yes",
+      "ok": "yes"
+    }
+  ],
+  "group": "scoreonly_safe_queue",
+  "order": 1,
+  "rows": 397,
+  "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "stop_if_score_greater_than": 0.50671,
+  "upload_path": "experiments/final_submission_package/current_upload/submission.csv",
+  "upload_ready": true
+}
