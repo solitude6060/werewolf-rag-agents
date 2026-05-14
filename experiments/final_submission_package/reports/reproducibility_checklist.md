@@ -22,6 +22,18 @@ Expected shape:
 OK: 397 predictions validated
 ```
 
+## Final-attempt safeguards
+
+```bash
+python3 experiments/scripts/v1883_pre_upload_guard.py
+python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
+```
+
+Expected safeguards before manual upload:
+
+- Pre-upload guard prints `UPLOAD_READY=yes`.
+- Candidate-pool coverage scan reports `REVIEW_CANDIDATES=0` for unmanifested unique predictions above the packaged maximum proxy.
+
 ## Course package checklist
 
 - [ ] Convert `reports/hw2_report_draft.md` to `hw2_D13922024.pdf` and keep it within 5 pages.

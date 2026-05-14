@@ -70,6 +70,8 @@ Useful commands from the workspace root:
 ```bash
 python3 experiments/scripts/v1835_final_submission_pack.py --preset full
 python3 experiments/scripts/v1871_final_attempt_cockpit.py
+python3 experiments/scripts/v1883_pre_upload_guard.py
+python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score
 ```

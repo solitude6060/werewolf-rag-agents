@@ -38,6 +38,13 @@ python3 experiments/scripts/v1835_final_submission_pack.py --preset scoreonly-sa
 python3 experiments/scripts/v1835_final_submission_pack.py --preset full --skip-validation
 ```
 
+After rebuilding, run the upload guard and candidate-pool coverage audit before spending a real attempt:
+
+```bash
+python3 experiments/scripts/v1883_pre_upload_guard.py
+python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
+```
+
 ## What to upload to Kaggle
 
 Upload one CSV from the selected queue/fallback group; use the strategy table and router before spending the next attempt.
@@ -285,3 +292,4 @@ Staging folder: `cool_package/hw2_D13922024/`.
 - CSV validation evidence: `manifests/validation_log.txt`
 - Submission-facing document lint: `manifests/document_lint_log.txt`
 - Rebuild checklist: `reports/reproducibility_checklist.md`
+- Candidate-pool coverage audit: `../reports/v1884_candidate_pool_coverage_scan.md`

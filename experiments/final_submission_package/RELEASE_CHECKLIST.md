@@ -47,6 +47,14 @@ python3 experiments/scripts/v1883_pre_upload_guard.py
 
 Expected output: `UPLOAD_READY=yes`.
 
+Confirm no higher-public-proxy unique prediction was missed from the local candidate pool:
+
+```bash
+python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
+```
+
+Expected output: `REVIEW_CANDIDATES=0`.
+
 After a real Kaggle private score appears, preview the route:
 
 ```bash
@@ -95,12 +103,14 @@ experiments/final_submission_package/
 - `experiments/reports/v1874_positive_signal_router_threshold.md`
 - `experiments/reports/v1875_route_matrix_regression.md`
 - `experiments/reports/v1883_pre_upload_guard.md`
+- `experiments/reports/v1884_candidate_pool_coverage_scan.md`
 
 ## Latest local verification
 
 ```text
 Route matrix: 45 scenarios, 0 failures
 Pre-upload guard: UPLOAD_READY=yes
+Candidate pool coverage: REVIEW_CANDIDATES=0
 Current upload validator: OK: 397 predictions validated
 Submission-facing document findings: 0
 Broad problem-phrase findings: 0
