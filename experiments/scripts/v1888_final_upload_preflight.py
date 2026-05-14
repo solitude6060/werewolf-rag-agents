@@ -18,6 +18,7 @@ RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedb
 GUARD = Path("experiments/scripts/v1883_pre_upload_guard.py")
 COVERAGE = Path("experiments/scripts/v1884_candidate_pool_coverage_scan.py")
 SCORE_REPORT_GUARD = Path("experiments/scripts/v1900_current_upload_score_report_guard.py")
+ALIAS_GUARD = Path("experiments/scripts/v1902_upload_alias_guard.py")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 OUT_JSON = Path("experiments/reports/v1888_final_upload_preflight.json")
 OUT_MD = Path("experiments/reports/v1888_final_upload_preflight.md")
@@ -170,6 +171,16 @@ def main() -> None:
         "score_report_guard_ready",
         score_report_guard.returncode == 0 and score_report_guard_kv.get("SCORE_REPORT_READY") == "yes",
         score_report_guard_text.replace("\n", "; "),
+    )
+
+    alias_guard = run([sys.executable, str(ALIAS_GUARD)])
+    alias_guard_text = (alias_guard.stdout + alias_guard.stderr).strip()
+    alias_guard_kv = parse_kv(alias_guard_text)
+    add_check(
+        checks,
+        "upload_alias_guard_ready",
+        alias_guard.returncode == 0 and alias_guard_kv.get("ALIAS_GUARD_READY") == "yes",
+        alias_guard_text.replace("\n", "; "),
     )
 
     add_check(checks, "score_records_absent_for_first_upload", not RECORDS.exists(), str(RECORDS))

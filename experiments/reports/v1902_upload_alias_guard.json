@@ -1,0 +1,67 @@
+{
+  "alias_guard_ready": "yes",
+  "aliases": [
+    {
+      "detail": "ok",
+      "exists": "yes",
+      "path": "hw2_D13922024/submission.csv",
+      "rows": "397",
+      "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "sha_matches": "yes"
+    },
+    {
+      "detail": "ok",
+      "exists": "yes",
+      "path": "hw2_D13922024/checkpoints/final_v1856g_private.csv",
+      "rows": "397",
+      "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "sha_matches": "yes"
+    }
+  ],
+  "canonical": "experiments/final_submission_package/current_upload/submission.csv",
+  "canonical_rows": 397,
+  "canonical_sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "checks": [
+    {
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "name": "canonical_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "397",
+      "name": "canonical_rows_397",
+      "ok": "yes"
+    },
+    {
+      "detail": "hw2_D13922024/submission.csv",
+      "name": "alias_1_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "alias=397 canonical=397",
+      "name": "alias_1_rows_match",
+      "ok": "yes"
+    },
+    {
+      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "alias_1_sha_matches",
+      "ok": "yes"
+    },
+    {
+      "detail": "hw2_D13922024/checkpoints/final_v1856g_private.csv",
+      "name": "alias_2_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "alias=397 canonical=397",
+      "name": "alias_2_rows_match",
+      "ok": "yes"
+    },
+    {
+      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "alias_2_sha_matches",
+      "ok": "yes"
+    }
+  ],
+  "generated_at_utc": "2026-05-14T19:06:33+00:00"
+}
