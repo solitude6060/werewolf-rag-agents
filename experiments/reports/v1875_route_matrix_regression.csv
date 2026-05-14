@@ -32,3 +32,15 @@ portfolio_order1_near,portfolio_queue,1,0.47080,,experiments/final_submission_pa
 portfolio_order1_regression,portfolio_queue,1,0.46600,,experiments/final_submission_package/portfolio_queue/04_v1848a_denoise_fallback_private.csv,concrete_ok:portfolio_queue#4:v1848a,yes
 portfolio_order2_beats_first_to_charprior,portfolio_queue,2,0.48001,0.48000,experiments/final_submission_package/charprior_queue/02_v1853b_queue02_v1850b_charprior_private.csv,concrete_ok:charprior_queue#2:v1853b,yes
 portfolio_order2_below_first,portfolio_queue,2,0.47900,0.48000,experiments/final_submission_package/portfolio_queue/03_v1850a_lowtail_fallback_private.csv,concrete_ok:portfolio_queue#3:v1850a,yes
+charprior_order2_beats_first,charprior_queue,2,0.48101,0.48001,experiments/final_submission_package/charprior_queue/03_v1853c_queue03_v1850c_charprior_private.csv,concrete_ok:charprior_queue#3:v1853c,yes
+charprior_order2_below_first,charprior_queue,2,0.48000,0.48001,experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv,concrete_ok:contingency#4:v1827d,yes
+charprior_order2_top3,charprior_queue,2,0.50672,0.48001,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes
+charprior_queue_order3_positive,charprior_queue,3,0.47200,,experiments/final_submission_package/charprior_queue/04_v1853d_queue04_v1850d_charprior_private.csv,concrete_ok:charprior_queue#4:v1853d,yes
+charprior_queue_order3_regression,charprior_queue,3,0.46600,,experiments/final_submission_package/charprior_queue/04_v1853d_queue04_v1850d_charprior_private.csv,concrete_ok:charprior_queue#4:v1853d,yes
+charprior_queue_order3_top3,charprior_queue,3,0.50672,,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes
+charprior_queue_order4_positive,charprior_queue,4,0.47200,,experiments/final_submission_package/charprior_queue/05_v1853e_queue05_v1850e_charprior_private.csv,concrete_ok:charprior_queue#5:v1853e,yes
+charprior_queue_order4_regression,charprior_queue,4,0.46600,,experiments/final_submission_package/charprior_queue/05_v1853e_queue05_v1850e_charprior_private.csv,concrete_ok:charprior_queue#5:v1853e,yes
+charprior_queue_order4_top3,charprior_queue,4,0.50672,,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes
+charprior_queue_order5_positive,charprior_queue,5,0.47200,,NO_CHARPRIOR_QUEUE_REMAINING: keep best verified score or choose contingency manually.,non_concrete_ok,yes
+charprior_queue_order5_regression,charprior_queue,5,0.46600,,NO_CHARPRIOR_QUEUE_REMAINING: keep best verified score or choose contingency manually.,non_concrete_ok,yes
+charprior_queue_order5_top3,charprior_queue,5,0.50672,,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes

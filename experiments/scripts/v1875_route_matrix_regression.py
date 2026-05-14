@@ -130,6 +130,35 @@ def scenarios() -> list[dict[str, str]]:
                 "label": label,
             }
         )
+
+    # The portfolio order-2 positive branch can now enter charprior_queue order 2.
+    # Cover the downstream high-upside continuation so that the new concrete
+    # route does not lead to an unverified branch.
+    for label, score, previous in [
+        ("charprior_order2_beats_first", 0.48101, 0.48001),
+        ("charprior_order2_below_first", 0.48000, 0.48001),
+        ("charprior_order2_top3", 0.50672, 0.48001),
+    ]:
+        cases.append(
+            {
+                "group": "charprior_queue",
+                "order": "2",
+                "score": f"{score:.5f}",
+                "previous_score": f"{previous:.5f}",
+                "label": label,
+            }
+        )
+    for order in range(3, 6):
+        for label, score in [("positive", 0.47200), ("regression", 0.46600), ("top3", 0.50672)]:
+            cases.append(
+                {
+                    "group": "charprior_queue",
+                    "order": str(order),
+                    "score": f"{score:.5f}",
+                    "previous_score": "",
+                    "label": f"charprior_queue_order{order}_{label}",
+                }
+            )
     return cases
 
 
