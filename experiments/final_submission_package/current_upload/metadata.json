@@ -1,6 +1,6 @@
 {
   "candidate": "v1856g",
-  "generated_at_utc": "2026-05-14T18:46:16+00:00",
+  "generated_at_utc": "2026-05-14T18:53:46+00:00",
   "group": "scoreonly_safe_queue",
   "order": "1",
   "post_score_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",
@@ -11,6 +11,7 @@
   "score_report_bridge_command": "python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE>",
   "score_report_bridge_confirm_command": "python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE> --confirm-real-score",
   "score_report_template_command": "python3 experiments/scripts/v1893_score_report_template.py",
+  "score_report_template_path": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
   "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
   "source_path": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
   "staged_path": "experiments/final_submission_package/current_upload/submission.csv",

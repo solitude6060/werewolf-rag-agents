@@ -118,6 +118,7 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_path": str(source),
         "staged_path": str(staged),
+        "score_report_template_path": str(args.out_dir / "SCORE_REPORT.txt"),
         "group": row["group"],
         "order": row["order"],
         "candidate": row["candidate"],
@@ -137,6 +138,19 @@ def main() -> None:
         "stop_if_score_greater_than": TOP3,
     }
     (args.out_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    score_report = [
+        "SCORE_REPORT",
+        f"uploaded_path={staged}",
+        f"candidate={row['candidate']}",
+        f"group={row['group']}",
+        f"order={row['order']}",
+        f"sha256={staged_sha}",
+        f"rows={row_count}",
+        "real_private_score=<REAL_PRIVATE_SCORE_DECIMAL>",
+        "score_is_real_kaggle_private=yes",
+        "",
+    ]
+    (args.out_dir / "SCORE_REPORT.txt").write_text("\n".join(score_report), encoding="utf-8")
     readme = [
         "# Current Upload Staging",
         "",
@@ -159,6 +173,12 @@ def main() -> None:
         "```",
         "",
         "Expected result: `READY_TO_MANUAL_UPLOAD=yes`.",
+        "",
+        "Fill this ready-to-edit score report after the real private score appears:",
+        "",
+        "```text",
+        metadata["score_report_template_path"],
+        "```",
         "",
         "Before the score appears, prepare the copy/paste score report template:",
         "",
@@ -204,6 +224,7 @@ def main() -> None:
     print(f"validator={validation}")
     print(f"metadata={args.out_dir / 'metadata.json'}")
     print(f"readme={args.out_dir / 'README.md'}")
+    print(f"score_report={args.out_dir / 'SCORE_REPORT.txt'}")
 
 
 if __name__ == "__main__":

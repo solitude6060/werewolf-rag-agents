@@ -20,6 +20,12 @@ python3 experiments/scripts/v1888_final_upload_preflight.py
 
 Expected result: `READY_TO_MANUAL_UPLOAD=yes`.
 
+Fill this ready-to-edit score report after the real private score appears:
+
+```text
+experiments/final_submission_package/current_upload/SCORE_REPORT.txt
+```
+
 Before the score appears, prepare the copy/paste score report template:
 
 ```bash

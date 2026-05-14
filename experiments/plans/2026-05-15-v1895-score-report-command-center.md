@@ -19,6 +19,7 @@ The v1894 intake validates the report, but the user still has to copy the decima
 - Optionally allow explicit `--confirm-real-score` for the real score path, while preserving v1872's safeguards.
 - Update the v1893 score-report template to prefer the new saved-report bridge before any manual score typing.
 - Update current-upload staging metadata/readme so regenerated upload instructions point at the safe saved-report bridge.
+- Generate `experiments/final_submission_package/current_upload/SCORE_REPORT.txt` beside the upload file, so the real score can be filled without copying metadata out of a Markdown report.
 - Add a regression that proves dry-run bridge scenarios do not touch official records and invalid reports are rejected.
 
 ## Non-goals
