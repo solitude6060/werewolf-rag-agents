@@ -14,6 +14,7 @@ from pathlib import Path
 
 BASELINE = 0.47119
 TOP3 = 0.50671
+MAX_FINAL_ATTEMPTS = 5
 MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
 RESULTS_CSV = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 RESULTS_MD = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.md")
@@ -338,6 +339,21 @@ def validate_score_input(label: str, value: float) -> None:
         )
 
 
+def validate_append_allowed(rows: list[dict[str, str]], result: dict[str, str]) -> None:
+    if any(row.get("top3_hit") == "yes" for row in rows):
+        raise SystemExit("Refusing to append score: a top-3 hit is already recorded.")
+    if len(rows) >= MAX_FINAL_ATTEMPTS:
+        raise SystemExit(f"Refusing to append score: final-attempt budget already has {len(rows)} records.")
+
+    duplicate_fields = ["group", "order", "candidate", "uploaded_path", "score"]
+    for row in rows:
+        if all(row.get(field) == result.get(field) for field in duplicate_fields):
+            raise SystemExit(
+                "Refusing to append duplicate score record for "
+                f"{result['group']}#{result['order']}:{result['candidate']} score={result['score']}."
+            )
+
+
 def main() -> None:
     args = parse_args()
     if not args.dry_run and not args.confirm_real_score:
@@ -361,6 +377,7 @@ def main() -> None:
 
     if not args.dry_run:
         rows = read_results()
+        validate_append_allowed(rows, result)
         rows.append(result)
         write_results(rows)
 

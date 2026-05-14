@@ -1,0 +1,7 @@
+label,expected_allowed,actual_allowed,message,pass
+empty_ledger_allows_first_record,yes,yes,allowed,yes
+four_records_allows_fifth_record,yes,yes,allowed,yes
+five_records_rejects_sixth_record,no,no,Refusing to append score: final-attempt budget already has 5 records.,yes
+existing_top3_hit_rejects_followup_record,no,no,Refusing to append score: a top-3 hit is already recorded.,yes
+exact_duplicate_rejected,no,no,Refusing to append duplicate score record for scoreonly_safe_queue#1:v1856g score=0.47120.,yes
+same_candidate_different_score_allowed,yes,yes,allowed,yes
