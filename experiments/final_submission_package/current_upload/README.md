@@ -12,13 +12,13 @@ Rows: `397`
 SHA-256: `468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d`
 Validator: `OK: 397 predictions validated`
 
-Before manually uploading, run the one-command guard:
+Before manually uploading, run the final one-command preflight:
 
 ```bash
-python3 experiments/scripts/v1883_pre_upload_guard.py
+python3 experiments/scripts/v1888_final_upload_preflight.py
 ```
 
-Expected guard result: `UPLOAD_READY=yes`.
+Expected result: `READY_TO_MANUAL_UPLOAD=yes`.
 
 After the real private score appears, dry-run the route first:
 

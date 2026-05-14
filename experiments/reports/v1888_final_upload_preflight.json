@@ -1,0 +1,84 @@
+{
+  "absolute_upload_path": "/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv",
+  "candidate": "v1856g",
+  "checks": [
+    {
+      "detail": "experiments/final_submission_package/current_upload/metadata.json",
+      "name": "metadata_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/current_upload/submission.csv",
+      "name": "current_upload_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "397",
+      "name": "current_upload_rows_397",
+      "ok": "yes"
+    },
+    {
+      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "current_upload_sha_matches_metadata",
+      "ok": "yes"
+    },
+    {
+      "detail": "scoreonly_safe_queue#1:v1856g",
+      "name": "manifest_row_found",
+      "ok": "yes"
+    },
+    {
+      "detail": "v1856g",
+      "name": "manifest_candidate_matches",
+      "ok": "yes"
+    },
+    {
+      "detail": "pass",
+      "name": "manifest_status_pass",
+      "ok": "yes"
+    },
+    {
+      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "name": "manifest_sha_matches_upload",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "name": "manifest_output_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "name": "manifest_output_sha_matches_upload",
+      "ok": "yes"
+    },
+    {
+      "detail": "OK: 397 predictions validated",
+      "name": "validator_ok",
+      "ok": "yes"
+    },
+    {
+      "detail": "PRE_UPLOAD_GUARD; UPLOAD_READY=yes; UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv; CANDIDATE=v1856g; GROUP=scoreonly_safe_queue; ORDER=1; SHA256=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d; ROWS=397; REPORT=experiments/reports/v1883_pre_upload_guard.md; JSON=experiments/reports/v1883_pre_upload_guard.json",
+      "name": "pre_upload_guard_ready",
+      "ok": "yes"
+    },
+    {
+      "detail": "WROTE_CSV=experiments/reports/v1884_candidate_pool_coverage_scan.csv; WROTE_REPORT=experiments/reports/v1884_candidate_pool_coverage_scan.md; PRIVATE_FILES=1331; SCORED_PAIRS=1309; REVIEW_CANDIDATES=0; SAFE_OR_DUPLICATE_ABOVE_FIRST=0",
+      "name": "candidate_pool_review_zero",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
+      "name": "score_records_absent_for_first_upload",
+      "ok": "yes"
+    }
+  ],
+  "generated_at_utc": "2026-05-14T18:16:17+00:00",
+  "group": "scoreonly_safe_queue",
+  "order": "1",
+  "ready_to_manual_upload": "yes",
+  "relative_upload_path": "experiments/final_submission_package/current_upload/submission.csv",
+  "rows": 397,
+  "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "top3_threshold": 0.50671
+}

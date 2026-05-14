@@ -32,21 +32,19 @@ Current staged metadata:
 
 ## Pre-upload command sequence
 
-Run these from the workspace root immediately before selecting the file in the browser:
+Run this from the workspace root immediately before selecting the file in the browser:
 
 ```bash
-python3 experiments/scripts/v1883_pre_upload_guard.py
-python3 werewolf-project/assert/validate_submission.py experiments/final_submission_package/current_upload/submission.csv
-python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
+python3 experiments/scripts/v1888_final_upload_preflight.py
 ```
 
-Expected minimum outputs:
+Expected minimum output:
 
 ```text
-UPLOAD_READY=yes
-OK: 397 predictions validated
-REVIEW_CANDIDATES=0
+READY_TO_MANUAL_UPLOAD=yes
 ```
+
+This preflight also runs the pre-upload guard, validator, and candidate-pool coverage scan.
 
 ## Browser upload checklist
 

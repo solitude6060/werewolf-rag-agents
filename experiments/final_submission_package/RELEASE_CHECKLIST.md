@@ -39,21 +39,13 @@ Show the current upload card:
 python3 experiments/scripts/v1871_final_attempt_cockpit.py
 ```
 
-Run the final pre-upload guard immediately before manual upload:
+Run the final one-command preflight immediately before manual upload:
 
 ```bash
-python3 experiments/scripts/v1883_pre_upload_guard.py
+python3 experiments/scripts/v1888_final_upload_preflight.py
 ```
 
-Expected output: `UPLOAD_READY=yes`.
-
-Confirm no higher-public-proxy unique prediction was missed from the local candidate pool:
-
-```bash
-python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
-```
-
-Expected output: `REVIEW_CANDIDATES=0`.
+Expected output: `READY_TO_MANUAL_UPLOAD=yes`. The preflight also runs the pre-upload guard, validator, and candidate-pool coverage scan.
 
 After a real Kaggle private score appears, preview the route:
 
@@ -104,6 +96,7 @@ experiments/final_submission_package/
 - `experiments/reports/v1875_route_matrix_regression.md`
 - `experiments/reports/v1883_pre_upload_guard.md`
 - `experiments/reports/v1884_candidate_pool_coverage_scan.md`
+- `experiments/reports/v1888_final_upload_preflight.md`
 
 ## Latest local verification
 
@@ -111,6 +104,7 @@ experiments/final_submission_package/
 Route matrix: 45 scenarios, 0 failures
 Pre-upload guard: UPLOAD_READY=yes
 Candidate pool coverage: REVIEW_CANDIDATES=0
+Final upload preflight: READY_TO_MANUAL_UPLOAD=yes
 Current upload validator: OK: 397 predictions validated
 Submission-facing document findings: 0
 Broad problem-phrase findings: 0
