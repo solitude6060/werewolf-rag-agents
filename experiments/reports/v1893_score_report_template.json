@@ -3,7 +3,7 @@
   "candidate": "v1856g",
   "confirm_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score",
   "dry_run_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",
-  "generated_at_utc": "2026-05-14T18:30:38+00:00",
+  "generated_at_utc": "2026-05-14T18:35:28+00:00",
   "group": "scoreonly_safe_queue",
   "metadata_sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
   "order": "1",

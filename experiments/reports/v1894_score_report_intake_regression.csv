@@ -1,0 +1,7 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+valid_top3_report,0,zero,SCORE_STATUS=top3_completion_candidate,yes,yes
+valid_continue_report,0,zero,SCORE_STATUS=continue_routing_required,yes,yes
+reject_wrong_sha,1,nonzero,sha_matches_current_upload,yes,yes
+reject_missing_real_private_flag,1,nonzero,score_marked_real_private,yes,yes
+reject_percentage_like_score,1,nonzero,Invalid real_private_score,yes,yes
+reject_wrong_upload_path,1,nonzero,uploaded_path_matches_current,yes,yes

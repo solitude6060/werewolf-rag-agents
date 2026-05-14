@@ -1,6 +1,6 @@
 # v1893 Score Report Template
 
-Generated UTC: `2026-05-14T18:30:38+00:00`
+Generated UTC: `2026-05-14T18:35:28+00:00`
 
 ## Upload context to report back
 
@@ -29,6 +29,12 @@ Dry-run first:
 
 ```bash
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
+```
+
+Validate the pasted block first if you saved it to a file:
+
+```bash
+python3 experiments/scripts/v1894_score_report_intake.py <SCORE_REPORT_FILE>
 ```
 
 Then record only after confirming the score is real:
