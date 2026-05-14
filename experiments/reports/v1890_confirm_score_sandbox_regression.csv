@@ -1,0 +1,6 @@
+label,exit_code,records,message,pass
+first_confirm_write_succeeds_in_sandbox,0,1,wrote=/tmp/v1890_score_sandbox_dyhq0jxz/records_first.md,yes
+duplicate_confirm_rejected_in_sandbox,1,1,Refusing to append duplicate score record for scoreonly_safe_queue#1:v1856g score=0.47120.,yes
+top3_confirm_writes_stop_record_in_sandbox,0,1,STOP: score exceeds top-3 threshold.,yes
+post_top3_followup_confirm_rejected_in_sandbox,1,1,Refusing to append score: a top-3 hit is already recorded.,yes
+sixth_confirm_rejected_in_sandbox,1,5,Refusing to append score: final-attempt budget already has 5 records.,yes
