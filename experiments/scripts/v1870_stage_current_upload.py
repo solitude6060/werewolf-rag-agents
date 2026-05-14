@@ -16,7 +16,7 @@ MANIFEST = Path("experiments/final_submission_package/manifests/final_submission
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 OUT_DIR = Path("experiments/final_submission_package/current_upload")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
-ROUTER = Path("experiments/scripts/v1836_score_feedback_router.py")
+POST_SCORE = Path("experiments/scripts/v1872_post_score_command_center.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 TOP3 = 0.50671
@@ -122,7 +122,11 @@ def main() -> None:
         "rows": row_count,
         "sha256": staged_sha,
         "validator": validation,
-        "post_score_command": f"python3 {ROUTER} --group {row['group']} --order {row['order']} --score <REAL_SCORE> --dry-run",
+        "post_score_command": f"python3 {POST_SCORE} --score <REAL_SCORE>",
+        "record_score_command": (
+            f"python3 {POST_SCORE} --group {row['group']} --order {row['order']} "
+            "--score <REAL_SCORE> --confirm-real-score"
+        ),
         "stop_if_score_greater_than": TOP3,
     }
     (args.out_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -141,10 +145,16 @@ def main() -> None:
         f"SHA-256: `{staged_sha}`",
         f"Validator: `{validation}`",
         "",
-        "After the real private score appears, run:",
+        "After the real private score appears, dry-run the route first:",
         "",
         "```bash",
         metadata["post_score_command"],
+        "```",
+        "",
+        "Record the score only after confirming it is real:",
+        "",
+        "```bash",
+        metadata["record_score_command"],
         "```",
         "",
         f"Stop if the real score is greater than `{TOP3:.5f}`.",
