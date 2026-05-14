@@ -1,6 +1,6 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-14T17:17:42+00:00`
+Generated UTC: `2026-05-14T17:51:01+00:00`
 
 ## Upload now
 
@@ -31,6 +31,14 @@ For the first upload with no records, this is also valid:
 ```bash
 python3 experiments/scripts/v1870_stage_current_upload.py
 ```
+
+Before manually uploading, run the final guard:
+
+```bash
+python3 experiments/scripts/v1883_pre_upload_guard.py
+```
+
+Expected guard result: `UPLOAD_READY=yes`.
 
 ## Attempt budget
 

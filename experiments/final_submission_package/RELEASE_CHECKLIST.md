@@ -39,6 +39,14 @@ Show the current upload card:
 python3 experiments/scripts/v1871_final_attempt_cockpit.py
 ```
 
+Run the final pre-upload guard immediately before manual upload:
+
+```bash
+python3 experiments/scripts/v1883_pre_upload_guard.py
+```
+
+Expected output: `UPLOAD_READY=yes`.
+
 After a real Kaggle private score appears, preview the route:
 
 ```bash
@@ -86,11 +94,13 @@ experiments/final_submission_package/
 - `experiments/reports/v1873_final_five_diversity_audit.md`
 - `experiments/reports/v1874_positive_signal_router_threshold.md`
 - `experiments/reports/v1875_route_matrix_regression.md`
+- `experiments/reports/v1883_pre_upload_guard.md`
 
 ## Latest local verification
 
 ```text
-Route matrix: 33 scenarios, 0 failures
+Route matrix: 45 scenarios, 0 failures
+Pre-upload guard: UPLOAD_READY=yes
 Current upload validator: OK: 397 predictions validated
 Submission-facing document findings: 0
 Broad problem-phrase findings: 0

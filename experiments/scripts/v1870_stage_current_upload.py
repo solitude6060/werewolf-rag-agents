@@ -127,6 +127,7 @@ def main() -> None:
             f"python3 {POST_SCORE} --group {row['group']} --order {row['order']} "
             "--score <REAL_SCORE> --confirm-real-score"
         ),
+        "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
         "stop_if_score_greater_than": TOP3,
     }
     (args.out_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -144,6 +145,14 @@ def main() -> None:
         f"Rows: `{row_count}`",
         f"SHA-256: `{staged_sha}`",
         f"Validator: `{validation}`",
+        "",
+        "Before manually uploading, run the one-command guard:",
+        "",
+        "```bash",
+        metadata["pre_upload_guard_command"],
+        "```",
+        "",
+        "Expected guard result: `UPLOAD_READY=yes`.",
         "",
         "After the real private score appears, dry-run the route first:",
         "",
