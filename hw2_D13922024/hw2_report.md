@@ -84,7 +84,7 @@ python3 experiments/scripts/v1835_final_submission_pack.py --preset full
 The selected Kaggle CSV must pass:
 
 ```bash
-python3 werewolf-project/assert/validate_submission.py <candidate.csv>
+python3 hw2_D13922024/assert/validate_submission.py <candidate.csv>
 ```
 
 The expected private submission shape is 397 predictions with header `id,index,character,role,wolf_score`.

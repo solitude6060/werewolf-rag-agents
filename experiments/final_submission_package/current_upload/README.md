@@ -20,13 +20,31 @@ python3 experiments/scripts/v1888_final_upload_preflight.py
 
 Expected result: `READY_TO_MANUAL_UPLOAD=yes`.
 
-After the real private score appears, dry-run the route first:
+Before the score appears, prepare the copy/paste score report template:
+
+```bash
+python3 experiments/scripts/v1893_score_report_template.py
+```
+
+After the real private score appears, save the filled `SCORE_REPORT` block to a file and dry-run the safe bridge first:
+
+```bash
+python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE>
+```
+
+Then record only after confirming the score is real:
+
+```bash
+python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE> --confirm-real-score
+```
+
+Fallback direct dry-run if no report file is available:
 
 ```bash
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
 ```
 
-Record the score only after confirming it is real:
+Fallback direct record command if the validated score must be typed manually:
 
 ```bash
 python3 experiments/scripts/v1872_post_score_command_center.py --group scoreonly_safe_queue --order 1 --score <REAL_SCORE> --confirm-real-score

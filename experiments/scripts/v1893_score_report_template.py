@@ -73,6 +73,12 @@ def build_payload(score: float | None) -> dict[str, Any]:
         "score_status": score_status,
         "dry_run_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",
         "confirm_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score",
+        "intake_command": "python3 experiments/scripts/v1894_score_report_intake.py <SCORE_REPORT_FILE>",
+        "bridge_dry_run_command": "python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE>",
+        "bridge_confirm_command": (
+            "python3 experiments/scripts/v1895_score_report_command_center.py "
+            "<SCORE_REPORT_FILE> --confirm-real-score"
+        ),
     }
 
 
@@ -108,7 +114,19 @@ def write_outputs(payload: dict[str, Any]) -> None:
         "",
         "## Commands after score appears",
         "",
-        "Dry-run first:",
+        "Safest path from a saved report file:",
+        "",
+        "```bash",
+        payload["bridge_dry_run_command"],
+        "```",
+        "",
+        "Then record only after confirming the score is real:",
+        "",
+        "```bash",
+        payload["bridge_confirm_command"],
+        "```",
+        "",
+        "Fallback direct command if no report file is available:",
         "",
         "```bash",
         payload["dry_run_command"],
@@ -117,10 +135,10 @@ def write_outputs(payload: dict[str, Any]) -> None:
         "Validate the pasted block first if you saved it to a file:",
         "",
         "```bash",
-        "python3 experiments/scripts/v1894_score_report_intake.py <SCORE_REPORT_FILE>",
+        payload["intake_command"],
         "```",
         "",
-        "Then record only after confirming the score is real:",
+        "Direct record command if the validated score must be typed manually:",
         "",
         "```bash",
         payload["confirm_command"],

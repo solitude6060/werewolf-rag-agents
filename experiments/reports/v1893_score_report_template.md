@@ -1,6 +1,6 @@
 # v1893 Score Report Template
 
-Generated UTC: `2026-05-14T18:35:28+00:00`
+Generated UTC: `2026-05-14T18:42:20+00:00`
 
 ## Upload context to report back
 
@@ -25,7 +25,19 @@ score_is_real_kaggle_private=yes
 
 ## Commands after score appears
 
-Dry-run first:
+Safest path from a saved report file:
+
+```bash
+python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE>
+```
+
+Then record only after confirming the score is real:
+
+```bash
+python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE> --confirm-real-score
+```
+
+Fallback direct command if no report file is available:
 
 ```bash
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
@@ -37,7 +49,7 @@ Validate the pasted block first if you saved it to a file:
 python3 experiments/scripts/v1894_score_report_intake.py <SCORE_REPORT_FILE>
 ```
 
-Then record only after confirming the score is real:
+Direct record command if the validated score must be typed manually:
 
 ```bash
 python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score

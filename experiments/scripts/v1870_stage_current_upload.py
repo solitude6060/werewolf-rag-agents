@@ -17,6 +17,8 @@ RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedb
 OUT_DIR = Path("experiments/final_submission_package/current_upload")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 POST_SCORE = Path("experiments/scripts/v1872_post_score_command_center.py")
+SCORE_TEMPLATE = Path("experiments/scripts/v1893_score_report_template.py")
+SCORE_BRIDGE = Path("experiments/scripts/v1895_score_report_command_center.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 TOP3 = 0.50671
@@ -127,6 +129,9 @@ def main() -> None:
             f"python3 {POST_SCORE} --group {row['group']} --order {row['order']} "
             "--score <REAL_SCORE> --confirm-real-score"
         ),
+        "score_report_template_command": f"python3 {SCORE_TEMPLATE}",
+        "score_report_bridge_command": f"python3 {SCORE_BRIDGE} <SCORE_REPORT_FILE>",
+        "score_report_bridge_confirm_command": f"python3 {SCORE_BRIDGE} <SCORE_REPORT_FILE> --confirm-real-score",
         "pre_upload_preflight_command": "python3 experiments/scripts/v1888_final_upload_preflight.py",
         "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
         "stop_if_score_greater_than": TOP3,
@@ -155,13 +160,31 @@ def main() -> None:
         "",
         "Expected result: `READY_TO_MANUAL_UPLOAD=yes`.",
         "",
-        "After the real private score appears, dry-run the route first:",
+        "Before the score appears, prepare the copy/paste score report template:",
+        "",
+        "```bash",
+        metadata["score_report_template_command"],
+        "```",
+        "",
+        "After the real private score appears, save the filled `SCORE_REPORT` block to a file and dry-run the safe bridge first:",
+        "",
+        "```bash",
+        metadata["score_report_bridge_command"],
+        "```",
+        "",
+        "Then record only after confirming the score is real:",
+        "",
+        "```bash",
+        metadata["score_report_bridge_confirm_command"],
+        "```",
+        "",
+        "Fallback direct dry-run if no report file is available:",
         "",
         "```bash",
         metadata["post_score_command"],
         "```",
         "",
-        "Record the score only after confirming it is real:",
+        "Fallback direct record command if the validated score must be typed manually:",
         "",
         "```bash",
         metadata["record_score_command"],

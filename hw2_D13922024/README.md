@@ -36,16 +36,19 @@ From this directory:
 
 ```bash
 python3 make_final.py --output submission.csv
-python3 assert/validate_submission.py submission.csv
 ```
 
-Expected validator output:
+The command copies the packaged final candidate and runs the validator. Expected validator output:
 
 ```text
 OK: 397 predictions validated
 ```
 
-The default command copies the packaged final candidate and validates it.  This is the recommended deadline-day path because the late-stage candidate selection depends on the final attempt queue and score-feedback router preserved in the experiment package.
+This is the recommended deadline-day path because the late-stage candidate selection depends on the final attempt queue and score-feedback router preserved in the experiment package. Optional explicit re-check:
+
+```bash
+python3 assert/validate_submission.py submission.csv
+```
 
 ## Full final-attempt package
 

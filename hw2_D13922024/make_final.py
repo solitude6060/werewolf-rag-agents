@@ -124,7 +124,7 @@ def stage5_apply_v1121(in_csv: Path, out_csv: Path) -> None:
 def validate_output(path: Path) -> None:
     print(f"\n[validator]")
     run_step(
-        [sys.executable, str(ROOT / "assert" / "validate_submission.py"), str(path)],
+        [sys.executable, str(ROOT / "assert" / "validate_submission.py"), str(path.resolve())],
         "validate",
     )
 
@@ -138,15 +138,17 @@ def main() -> None:
     ap.add_argument("--full", action="store_true",
                     help="rerun stages 1-3 from raw transcripts (requires Ollama)")
     args = ap.parse_args()
+    output = args.output if args.output.is_absolute() else Path.cwd() / args.output
+    output.parent.mkdir(parents=True, exist_ok=True)
 
     if args.from_checkpoint == "final" and not args.full:
         if args.split != "private":
             sys.exit("the packaged final checkpoint is for the private split")
         if not FINAL_CHECKPOINT.exists():
             sys.exit(f"missing checkpoint: {FINAL_CHECKPOINT}")
-        args.output.write_bytes(FINAL_CHECKPOINT.read_bytes())
-        validate_output(args.output)
-        print(f"\nFinal submission written to: {args.output}")
+        output.write_bytes(FINAL_CHECKPOINT.read_bytes())
+        validate_output(output)
+        print(f"\nFinal submission written to: {output}")
         return
 
     work = ROOT / f".work_{args.split}.csv"
@@ -164,11 +166,11 @@ def main() -> None:
             sys.exit(f"missing checkpoint: {v851}")
         work.write_bytes(v851.read_bytes())
 
-    stage5_apply_v1121(work, args.output)
+    stage5_apply_v1121(work, output)
     work.unlink(missing_ok=True)
 
-    validate_output(args.output)
-    print(f"\nFinal submission written to: {args.output}")
+    validate_output(output)
+    print(f"\nFinal submission written to: {output}")
 
 
 if __name__ == "__main__":
