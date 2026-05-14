@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -160,6 +161,25 @@ def router_cmd(args: argparse.Namespace, *, confirm: bool) -> list[str]:
     return cmd
 
 
+def confirm_command(args: argparse.Namespace, group: str, order: int) -> str:
+    cmd = [
+        "python3",
+        "experiments/scripts/v1872_post_score_command_center.py",
+        "--group",
+        group,
+        "--order",
+        str(order),
+        "--score",
+        f"{args.score:.5f}",
+    ]
+    if args.previous_score is not None:
+        cmd.extend(["--previous-score", f"{args.previous_score:.5f}"])
+    cmd.append("--confirm-real-score")
+    if args.skip_stage:
+        cmd.append("--skip-stage")
+    return " ".join(shlex.quote(part) for part in cmd)
+
+
 def main() -> None:
     args = parse_args()
     group, order, context_source = resolve_upload_context(args)
@@ -179,11 +199,7 @@ def main() -> None:
     if not args.confirm_real_score:
         print("WRITE_STATUS=dry_run_only")
         print("NEXT_CONFIRM_COMMAND")
-        print(
-            "python3 "
-            f"experiments/scripts/v1872_post_score_command_center.py --group {group} --order {order} "
-            f"--score {args.score:.5f} --confirm-real-score"
-        )
+        print(confirm_command(args, group, order))
         return
 
     confirmed = run(router_cmd(args, confirm=True))
