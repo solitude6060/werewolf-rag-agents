@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import json
 import subprocess
 import sys
 from pathlib import Path
 
+MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
 ROUTER = Path("experiments/scripts/v1836_score_feedback_router.py")
 BUDGET = Path("experiments/scripts/v1869_attempt_budget_guard.py")
 RUNBOOK = Path("experiments/scripts/v1866_final_attempt_runbook.py")
@@ -39,6 +42,52 @@ def recommended_next(router_output: str) -> str:
         if line.startswith("recommended_next="):
             return line.split("=", 1)[1].strip()
     return ""
+
+
+def read_csv_rows(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def row_count(path: Path) -> int:
+    with path.open(newline="", encoding="utf-8") as f:
+        return sum(1 for _ in csv.DictReader(f))
+
+
+def validate_recommended_next(recommendation: str) -> str:
+    if not recommendation:
+        return "fail_missing_recommended_next"
+    if not recommendation.endswith(".csv"):
+        return "non_concrete_ok"
+    if not MANIFEST.exists():
+        return f"fail_manifest_missing:{MANIFEST}"
+
+    target = str(Path(recommendation))
+    rows = read_csv_rows(MANIFEST)
+    row = next((item for item in rows if str(Path(item.get("output_path", ""))) == target), None)
+    if row is None:
+        return "fail_not_in_manifest"
+
+    path = Path(row["output_path"])
+    if not path.exists():
+        return "fail_missing_file"
+    rows_count = row_count(path)
+    if rows_count != 397:
+        return f"fail_bad_row_count:{rows_count}"
+    actual_sha = sha256(path)
+    if row.get("sha256") and actual_sha != row["sha256"]:
+        return "fail_hash_mismatch"
+    if row.get("validation_status") != "pass":
+        return f"fail_manifest_status_{row.get('validation_status')}"
+    return f"concrete_ok:{row['group']}#{row['order']}:{row['candidate']}"
 
 
 def read_current_upload_metadata(path: Path) -> dict[str, str] | None:
@@ -122,6 +171,10 @@ def main() -> None:
     preview_text = preview.stdout + preview.stderr
     next_path = recommended_next(preview_text)
     print_block("ROUTER_DRY_RUN", preview_text)
+    next_status = validate_recommended_next(next_path)
+    print(f"NEXT_PATH_STATUS={next_status}")
+    if next_status.startswith("fail_"):
+        raise SystemExit(f"recommended_next validation failed: {next_status}")
 
     if not args.confirm_real_score:
         print("WRITE_STATUS=dry_run_only")
