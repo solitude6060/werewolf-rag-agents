@@ -1,0 +1,7 @@
+label,exit_code,expected_exit,expected_text,text_found,pass
+no_records_is_not_complete,0,zero,GOAL_COMPLETE=no,yes,yes
+below_threshold_is_not_complete,0,zero,GOAL_COMPLETE=no,yes,yes
+top3_record_is_complete,0,zero,GOAL_COMPLETE=yes,yes,yes
+top3_flag_mismatch_rejected,1,nonzero,top3_flag_mismatch,yes,yes
+invalid_score_rejected,1,nonzero,score_out_of_range,yes,yes
+budget_overflow_not_complete,0,zero,RECORDS_CONSISTENT=no,yes,yes

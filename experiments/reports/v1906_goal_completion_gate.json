@@ -1,0 +1,38 @@
+{
+  "best_record": {},
+  "best_score": "none",
+  "checks": [
+    {
+      "detail": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
+      "name": "records_exist",
+      "ok": "no"
+    },
+    {
+      "detail": "0",
+      "name": "records_within_attempt_budget",
+      "ok": "yes"
+    },
+    {
+      "detail": "ok",
+      "name": "score_values_valid",
+      "ok": "yes"
+    },
+    {
+      "detail": "ok",
+      "name": "top3_flags_consistent",
+      "ok": "yes"
+    },
+    {
+      "detail": "none",
+      "name": "best_score_exceeds_threshold",
+      "ok": "no"
+    }
+  ],
+  "errors": [],
+  "generated_at_utc": "2026-05-14T19:15:34+00:00",
+  "goal_complete": "no",
+  "records_consistent": "yes",
+  "records_count": 0,
+  "records_path": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
+  "top3_threshold": "0.50671"
+}

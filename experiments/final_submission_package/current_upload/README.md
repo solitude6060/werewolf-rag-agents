@@ -38,6 +38,12 @@ No-edit record command after confirming the score is real:
 python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score
 ```
 
+After recording, run the completion gate before declaring the score goal complete:
+
+```bash
+python3 experiments/scripts/v1906_goal_completion_gate.py
+```
+
 Before the score appears, prepare the copy/paste score report template:
 
 ```bash
