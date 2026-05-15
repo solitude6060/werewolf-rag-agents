@@ -133,3 +133,35 @@ Current upload SHA-256:
 ```text
 6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f
 ```
+
+## Extra Three-Submit Batch
+
+User requested a fixed three-candidate batch for rapid manual upload. The batch is intentionally separate from `current_upload/` so all three files can be selected directly in the browser without relying on score-feedback staging between attempts.
+
+Batch directory:
+
+```text
+experiments/final_submission_package/upload_batch_2026-05-15_extra3/
+```
+
+Recommended fixed order:
+
+1. `v1842e` — conservative black-boost isolation; 3 score-only row changes vs `v1840c`.
+2. `v1845c` — higher-variance known-best black-boost overlay; larger independent swing.
+3. `v1826b` — structural-positive follow-up originally recommended after `v1826a = 0.48854`.
+
+The `README.md` and `manifest.csv` in the batch directory contain exact paths, SHA-256 hashes, and per-candidate score-recording commands.
+
+Batch validation:
+
+```bash
+python3 werewolf-project/assert/validate_submission.py experiments/final_submission_package/upload_batch_2026-05-15_extra3/01_v1842e_conservative_blackboost_isolation_private.csv
+python3 werewolf-project/assert/validate_submission.py experiments/final_submission_package/upload_batch_2026-05-15_extra3/02_v1845c_high_variance_knownbest_blackboost_private.csv
+python3 werewolf-project/assert/validate_submission.py experiments/final_submission_package/upload_batch_2026-05-15_extra3/03_v1826b_structural_positive_followup_private.csv
+```
+
+Observed result for all three files: `OK: 397 predictions validated`. Batch report:
+
+```text
+experiments/final_submission_package/upload_batch_2026-05-15_extra3/validation.md
+```

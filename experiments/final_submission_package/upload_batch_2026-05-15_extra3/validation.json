@@ -1,0 +1,41 @@
+{
+  "batch_ready": "yes",
+  "checks": [
+    {
+      "candidate": "v1842e",
+      "exists": "yes",
+      "path": "experiments/final_submission_package/upload_batch_2026-05-15_extra3/01_v1842e_conservative_blackboost_isolation_private.csv",
+      "ready": "yes",
+      "rows": "397",
+      "sha256": "6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f",
+      "sha_matches_manifest": "yes",
+      "upload_order": "01",
+      "validator_exit_code": "0",
+      "validator_output": "OK: 397 predictions validated"
+    },
+    {
+      "candidate": "v1845c",
+      "exists": "yes",
+      "path": "experiments/final_submission_package/upload_batch_2026-05-15_extra3/02_v1845c_high_variance_knownbest_blackboost_private.csv",
+      "ready": "yes",
+      "rows": "397",
+      "sha256": "dc42d87aceb2cd79d4e2f1ae026f03f234f6b4e4060aed784098df2f5f5ea401",
+      "sha_matches_manifest": "yes",
+      "upload_order": "02",
+      "validator_exit_code": "0",
+      "validator_output": "OK: 397 predictions validated"
+    },
+    {
+      "candidate": "v1826b",
+      "exists": "yes",
+      "path": "experiments/final_submission_package/upload_batch_2026-05-15_extra3/03_v1826b_structural_positive_followup_private.csv",
+      "ready": "yes",
+      "rows": "397",
+      "sha256": "8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "sha_matches_manifest": "yes",
+      "upload_order": "03",
+      "validator_exit_code": "0",
+      "validator_output": "OK: 397 predictions validated"
+    }
+  ]
+}
