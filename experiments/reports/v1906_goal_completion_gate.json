@@ -1,14 +1,24 @@
 {
-  "best_record": {},
-  "best_score": "none",
+  "best_record": {
+    "candidate": "v1856g",
+    "delta_vs_current_best": "-0.04225",
+    "group": "scoreonly_safe_queue",
+    "order": "1",
+    "recommended_next": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+    "recorded_at_utc": "2026-05-15T00:14:10+00:00",
+    "score": "0.42894",
+    "top3_hit": "no",
+    "uploaded_path": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv"
+  },
+  "best_score": "0.42894",
   "checks": [
     {
       "detail": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
       "name": "records_exist",
-      "ok": "no"
+      "ok": "yes"
     },
     {
-      "detail": "0",
+      "detail": "1",
       "name": "records_within_attempt_budget",
       "ok": "yes"
     },
@@ -23,16 +33,16 @@
       "ok": "yes"
     },
     {
-      "detail": "none",
+      "detail": "0.42894",
       "name": "best_score_exceeds_threshold",
       "ok": "no"
     }
   ],
   "errors": [],
-  "generated_at_utc": "2026-05-14T19:15:34+00:00",
+  "generated_at_utc": "2026-05-15T00:40:56+00:00",
   "goal_complete": "no",
   "records_consistent": "yes",
-  "records_count": 0,
+  "records_count": 1,
   "records_path": "experiments/final_submission_package/manifests/v1836_score_feedback_records.csv",
-  "top3_threshold": "0.50671"
+  "top3_threshold": "0.52380"
 }

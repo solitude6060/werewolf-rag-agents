@@ -15,6 +15,7 @@ DIVERSITY = Path("experiments/reports/v1873_final_five_diversity_audit.csv")
 GT = Path("werewolf-project/data/raw/Werewolf_Prediction_Dataset/public/roles_with_gt.csv")
 OUT_CSV = Path("experiments/reports/v1884_candidate_pool_coverage_scan.csv")
 OUT_MD = Path("experiments/reports/v1884_candidate_pool_coverage_scan.md")
+TOP3_THRESHOLD = 0.52380
 
 ROLES = ["Villager", "Werewolf", "Seer", "Medium", "Madman", "Hunter"]
 SAFE_ROLE_CHANGE_LIMIT = 0
@@ -408,7 +409,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This scan can identify missed local candidates, but it does not complete the active score goal.  Completion still requires a real Kaggle private score greater than `0.50671`.",
+            f"This scan can identify missed local candidates, but it does not complete the active score goal.  Completion still requires a real Kaggle private score greater than `{TOP3_THRESHOLD:.5f}`.",
             "",
         ]
     )

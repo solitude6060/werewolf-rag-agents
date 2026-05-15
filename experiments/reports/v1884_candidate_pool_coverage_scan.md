@@ -61,4 +61,4 @@ No low-role-change, unmanifested unique prediction beats the packaged maximum pu
 
 ## Completion boundary
 
-This scan can identify missed local candidates, but it does not complete the active score goal.  Completion still requires a real Kaggle private score greater than `0.50671`.
+This scan can identify missed local candidates, but it does not complete the active score goal.  Completion still requires a real Kaggle private score greater than `0.52380`.

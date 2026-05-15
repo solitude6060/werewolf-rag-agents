@@ -37,7 +37,7 @@ Before spending the final deadline-day upload attempts, verify that the final su
 - `python3 -m py_compile experiments/scripts/v1884_candidate_pool_coverage_scan.py`
 - `python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py`
 - Expected audit output includes `REVIEW_CANDIDATES=0` before keeping the staged upload unchanged.
-- The generated report must state that the active score goal is not complete without a real private score greater than `0.50671`.
+- The generated report must state that the active score goal is not complete without a real private score greater than `0.52380`.
 
 ## Outputs
 
