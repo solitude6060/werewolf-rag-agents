@@ -72,6 +72,7 @@ def write_summary(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
         f"- Template: `{payload['template']}`",
         f"- Score: `{payload['score']}`",
         f"- Write mode: `{payload['write_mode']}`",
+        f"- Synthetic dry-run score only: `{'yes' if payload['write_mode'] == 'dry_run' else 'no'}`",
         f"- Bridge exit code: `{payload['bridge_exit_code']}`",
         f"- Filled report persisted: `{payload['filled_report_persisted']}`",
         "",
