@@ -109,6 +109,12 @@ def latest_score_for(results: list[dict[str, str]], candidate: str) -> float | N
     return None
 
 
+def best_recorded_score(results: list[dict[str, str]]) -> float | None:
+    if not results:
+        return None
+    return max(float(row["score"]) for row in results)
+
+
 def route_next(
     manifest: list[dict[str, str]],
     results: list[dict[str, str]],
@@ -127,6 +133,20 @@ def route_next(
         # v1838 overlay files are score-only overlays on queue files.  Route
         # them through the equivalent queue stage while preferring later overlay
         # replacements when they exist.
+        overlay_positive_final = {
+            "v1838b": "v1838c",
+            "v1839b": "v1839c",
+            "v1840b": "v1840c",
+        }
+        if candidate in overlay_positive_final:
+            reference_score = previous_score
+            if reference_score is None:
+                reference_score = best_recorded_score(results)
+            if reference_score is None:
+                reference_score = BASELINE
+            if score > reference_score:
+                return by_candidate(manifest, overlay_positive_final[candidate])
+
         overlay_order = {
             "v1838a": 1,
             "v1838b": 3,

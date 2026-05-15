@@ -88,7 +88,7 @@
     }
   ],
   "current_source_path": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
-  "generated_at_utc": "2026-05-15T02:09:15+00:00",
+  "generated_at_utc": "2026-05-15T02:13:21+00:00",
   "override_reason": "post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b",
   "recommended_next": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
   "records_count": 2,
