@@ -15,8 +15,8 @@ scoreonly_safe_queue_order3_top3,scoreonly_safe_queue,3,0.50672,,STOP: score exc
 scoreonly_safe_queue_order4_positive,scoreonly_safe_queue,4,0.47200,,experiments/final_submission_package/portfolio_queue/04_v1848a_denoise_fallback_private.csv,concrete_ok:portfolio_queue#4:v1848a,yes
 scoreonly_safe_queue_order4_regression,scoreonly_safe_queue,4,0.46600,,experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv,concrete_ok:scoreonly_safe_queue#5:v1846g,yes
 scoreonly_safe_queue_order4_top3,scoreonly_safe_queue,4,0.50672,,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes
-scoreonly_safe_queue_order5_positive,scoreonly_safe_queue,5,0.47200,,NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.,non_concrete_ok,yes
-scoreonly_safe_queue_order5_regression,scoreonly_safe_queue,5,0.46600,,NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.,non_concrete_ok,yes
+scoreonly_safe_queue_order5_positive,scoreonly_safe_queue,5,0.47200,,experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv,concrete_ok:queue#1:v1826a,yes
+scoreonly_safe_queue_order5_regression,scoreonly_safe_queue,5,0.46600,,experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv,concrete_ok:queue#1:v1826a,yes
 scoreonly_safe_queue_order5_top3,scoreonly_safe_queue,5,0.50672,,STOP: score exceeds top-3 threshold.,non_concrete_ok,yes
 portfolio_queue_order3_positive,portfolio_queue,3,0.47200,,experiments/final_submission_package/portfolio_queue/04_v1848a_denoise_fallback_private.csv,concrete_ok:portfolio_queue#4:v1848a,yes
 portfolio_queue_order3_regression,portfolio_queue,3,0.46600,,experiments/final_submission_package/portfolio_queue/04_v1848a_denoise_fallback_private.csv,concrete_ok:portfolio_queue#4:v1848a,yes

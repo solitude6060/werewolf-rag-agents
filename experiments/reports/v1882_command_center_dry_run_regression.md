@@ -4,7 +4,7 @@ Date: 2026-05-15
 
 ## Summary
 
-- Scenarios checked: `7`
+- Scenarios checked: `8`
 - Failures: `0`
 - Score feedback records existed before: `True`
 - Score feedback records existed after: `True`
@@ -19,6 +19,7 @@ Date: 2026-05-15
 | scoreonly_order1_exact_best | `concrete_ok:scoreonly_safe_queue#3:v1850g` | `dry_run_only` | yes |
 | scoreonly_order1_top3_stop | `non_concrete_ok` | `dry_run_only` | yes |
 | scoreonly_order1_severe_regression | `concrete_ok:scoreonly_safe_queue#5:v1846g` | `dry_run_only` | yes |
+| scoreonly_order5_fallback_to_structural_queue | `concrete_ok:queue#1:v1826a` | `dry_run_only` | yes |
 | portfolio_order2_positive_preserves_previous | `concrete_ok:charprior_queue#2:v1853b` | `dry_run_only` | yes |
 | portfolio_order2_skip_stage_preserved | `concrete_ok:charprior_queue#2:v1853b` | `dry_run_only` | yes |
 | charprior_order2_positive | `concrete_ok:charprior_queue#3:v1853c` | `dry_run_only` | yes |

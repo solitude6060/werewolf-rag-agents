@@ -1,6 +1,6 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-15T00:14:26+00:00`
+Generated UTC: `2026-05-15T00:24:17+00:00`
 
 ## Upload now
 
@@ -67,12 +67,12 @@ python3 experiments/scripts/v1872_post_score_command_center.py --group scoreonly
 | Scenario | Example score | Recommended next | Path check |
 | --- | ---: | --- | --- |
 | hit top-3 | `0.50672` | `STOP: score exceeds top-3 threshold.` | `not_a_csv` |
-| strong positive | `0.48000` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| tiny positive | `0.47120` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| exact current best | `0.47119` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| near baseline | `0.47080` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| small regression | `0.46600` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| severe regression | `0.46400` | `NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| strong positive | `0.48000` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
+| tiny positive | `0.47120` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
+| exact current best | `0.47119` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
+| near baseline | `0.47080` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
+| small regression | `0.46600` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
+| severe regression | `0.46400` | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | `ok manifest_status=pass candidate=v1826a` |
 
 ## Completion boundary
 

@@ -209,7 +209,7 @@ def route_next(
                 return by_group_order(manifest, "portfolio_queue", 4)
             return by_group_order(manifest, "scoreonly_safe_queue", 5)
         if order == 5:
-            return "NO_SCOREONLY_SAFE_QUEUE_REMAINING: keep best verified score or choose contingency manually."
+            return by_group_order(manifest, "queue", 1)
 
     if group in {"black_boost_queue", "rolecap_queue", "denoise_queue", "lowtail_queue", "charprior_queue", "balancedprior_queue"}:
         ordered_group = group

@@ -82,6 +82,13 @@ def main() -> None:
             "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.46400 --confirm-real-score",
         },
         {
+            "label": "scoreonly_order5_fallback_to_structural_queue",
+            "args": ["--group", "scoreonly_safe_queue", "--order", "5", "--score", "0.46400"],
+            "expected_status": "concrete_ok:queue#1:v1826a",
+            "expected_next": "queue/01_v1826a_primary_first_private.csv",
+            "expected_confirm_fragment": "--group scoreonly_safe_queue --order 5 --score 0.46400 --confirm-real-score",
+        },
+        {
             "label": "portfolio_order2_positive_preserves_previous",
             "args": ["--group", "portfolio_queue", "--order", "2", "--score", "0.48001", "--previous-score", "0.48000"],
             "expected_status": "concrete_ok:charprior_queue#2:v1853b",
