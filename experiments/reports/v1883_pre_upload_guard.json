@@ -1,6 +1,6 @@
 {
   "attempt_context": "followup_from_records",
-  "candidate": "v1826b",
+  "candidate": "v1840b",
   "checks": [
     {
       "check": "manifest_exists",
@@ -29,17 +29,17 @@
     },
     {
       "check": "attempt_state_guard_ready",
-      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=staged_latest_recommended; RECORDS_COUNT=2; RECOMMENDED_NEXT=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
+      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=manual_override_from_records; RECORDS_COUNT=2; RECOMMENDED_NEXT=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
       "ok": "yes"
     },
     {
       "check": "manifest_row_found",
-      "detail": "queue#2",
+      "detail": "overlay#8",
       "ok": "yes"
     },
     {
       "check": "manifest_candidate_matches",
-      "detail": "v1826b",
+      "detail": "v1840b",
       "ok": "yes"
     },
     {
@@ -49,12 +49,12 @@
     },
     {
       "check": "metadata_source_matches_manifest",
-      "detail": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+      "detail": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
       "ok": "yes"
     },
     {
       "check": "source_exists",
-      "detail": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+      "detail": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
       "ok": "yes"
     },
     {
@@ -64,17 +64,17 @@
     },
     {
       "check": "current_upload_sha_matches_metadata",
-      "detail": "upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b metadata=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "detail": "upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc metadata=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_manifest",
-      "detail": "upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b manifest=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "detail": "upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc manifest=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_source",
-      "detail": "upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b source=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "detail": "upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc source=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
       "ok": "yes"
     },
     {
@@ -103,10 +103,10 @@
       "ok": "yes"
     }
   ],
-  "group": "queue",
-  "order": 2,
+  "group": "overlay",
+  "order": 8,
   "rows": 397,
-  "sha256": "8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+  "sha256": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
   "stop_if_score_greater_than": 0.5238,
   "upload_path": "experiments/final_submission_package/current_upload/submission.csv",
   "upload_ready": true

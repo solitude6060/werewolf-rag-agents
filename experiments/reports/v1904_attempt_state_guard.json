@@ -42,42 +42,57 @@
       "ok": "yes"
     },
     {
-      "detail": "current=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv expected=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+      "detail": "post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b",
+      "name": "manual_override_reason_present",
+      "ok": "yes"
+    },
+    {
+      "detail": "overlay#8",
+      "name": "manual_override_row_found",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+      "name": "manual_override_not_already_uploaded",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv expected=experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=queue expected=queue",
+      "detail": "current=overlay expected=overlay",
       "name": "current_group_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=2 expected=2",
+      "detail": "current=8 expected=8",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1826b expected=v1826b",
+      "detail": "current=v1840b expected=v1840b",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "detail": "upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc expected=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
+      "detail": "metadata=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc expected=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
-  "generated_at_utc": "2026-05-15T01:55:55+00:00",
-  "override_reason": "",
+  "current_source_path": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+  "generated_at_utc": "2026-05-15T02:09:15+00:00",
+  "override_reason": "post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b",
   "recommended_next": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
   "records_count": 2,
-  "state": "staged_latest_recommended",
+  "state": "manual_override_from_records",
   "upload_rows": 397,
-  "upload_sha256": "8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b"
+  "upload_sha256": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc"
 }

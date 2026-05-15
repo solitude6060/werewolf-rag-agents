@@ -1,15 +1,15 @@
 # v1900 Current Upload Score Report Guard
 
-Generated UTC: `2026-05-15T01:55:55+00:00`
+Generated UTC: `2026-05-15T02:09:15+00:00`
 
 ## Summary
 
 - Score report ready: `yes`
 - Upload: `experiments/final_submission_package/current_upload/submission.csv`
 - Score report: `experiments/final_submission_package/current_upload/SCORE_REPORT.txt`
-- Candidate: `v1826b`
+- Candidate: `v1840b`
 - Rows: `397`
-- SHA-256: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
+- SHA-256: `16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc`
 
 ## Checks
 
@@ -20,13 +20,13 @@ Generated UTC: `2026-05-15T01:55:55+00:00`
 | score_report_exists | yes | `experiments/final_submission_package/current_upload/SCORE_REPORT.txt` |
 | required_keys_present | yes | `all_present` |
 | uploaded_path_matches | yes | `experiments/final_submission_package/current_upload/submission.csv` |
-| candidate_matches_metadata | yes | `v1826b` |
-| group_matches_metadata | yes | `queue` |
-| order_matches_metadata | yes | `2` |
+| candidate_matches_metadata | yes | `v1840b` |
+| group_matches_metadata | yes | `overlay` |
+| order_matches_metadata | yes | `8` |
 | rows_match_upload | yes | `report=397 upload=397` |
 | rows_match_metadata | yes | `metadata=397 upload=397` |
-| sha_matches_upload | yes | `report=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
-| sha_matches_metadata | yes | `metadata=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
+| sha_matches_upload | yes | `report=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc` |
+| sha_matches_metadata | yes | `metadata=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc upload=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc` |
 | score_placeholder_ready | yes | `<REAL_PRIVATE_SCORE_DECIMAL>` |
 | real_private_flag_yes | yes | `yes` |
 

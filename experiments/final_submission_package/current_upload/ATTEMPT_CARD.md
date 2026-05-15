@@ -1,6 +1,6 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-15T01:56:20+00:00`
+Generated UTC: `2026-05-15T02:07:26+00:00`
 
 ## Upload now
 
@@ -10,11 +10,12 @@ Use this fixed path:
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Selected row source: `latest_record_recommended_next`
-Selected candidate: `v1826b` (`queue` order `2`)
-Selected source: `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv`
+Selected row source: `current_upload_manual_override`
+Manual override reason: `post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b`
+Selected candidate: `v1840b` (`overlay` order `8`)
+Selected source: `experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv`
 Rows: `397`
-SHA-256: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
+SHA-256: `16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc`
 Manifest validation status: `pass`
 Staged file exists: `yes`
 Staged file matches selected source: `yes`
@@ -23,7 +24,7 @@ Staged validator: `OK: 397 predictions validated`
 If staged match is not `yes`, run:
 
 ```bash
-python3 experiments/scripts/v1870_stage_current_upload.py --from-records
+python3 experiments/scripts/v1870_stage_current_upload.py --group overlay --order 8 --override-reason 'post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b'
 ```
 
 For the first upload with no records, this is also valid:
@@ -71,7 +72,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group queue --order 2 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 8 --score <REAL_SCORE> --confirm-real-score
 ```
 
 ## Router preview for this selected row
@@ -79,12 +80,12 @@ python3 experiments/scripts/v1872_post_score_command_center.py --group queue --o
 | Scenario | Example score | Recommended next | Path check |
 | --- | ---: | --- | --- |
 | hit top-3 | `0.52381` | `STOP: score exceeds top-3 threshold.` | `not_a_csv` |
-| strong positive | `0.48000` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
-| tiny positive | `0.47120` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
-| exact current best | `0.47119` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
-| near baseline | `0.47080` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
-| small regression | `0.46600` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
-| severe regression | `0.46400` | `experiments/final_submission_package/contingency/04_v1827d_after_v1826a_positive_b_negative_private.csv` | `ok manifest_status=pass candidate=v1827d` |
+| strong positive | `0.48000` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| tiny positive | `0.47120` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| exact current best | `0.47119` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| near baseline | `0.47080` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| small regression | `0.46600` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| severe regression | `0.46400` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
 
 ## Completion boundary
 

@@ -6,10 +6,10 @@ Upload this CSV to Kaggle:
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Source: `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv`
-Candidate: `v1826b` (`queue` order `2`)
+Source: `experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv`
+Candidate: `v1840b` (`overlay` order `8`)
 Rows: `397`
-SHA-256: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
+SHA-256: `16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc`
 Validator: `OK: 397 predictions validated`
 
 Before manually uploading, run the final one-command preflight:
@@ -77,7 +77,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group queue --order 2 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 8 --score <REAL_SCORE> --confirm-real-score
 ```
 
 Stop if the real score is greater than `0.52380`.

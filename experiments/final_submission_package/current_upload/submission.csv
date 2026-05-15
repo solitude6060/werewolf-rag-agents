@@ -23,7 +23,7 @@ id,index,character,role,wolf_score
 22,02,Village Girl Pamela,Villager,0.198
 23,02,Baker Otto,Villager,0
 24,02,Traveler Nicholas,Werewolf,1.0
-25,02,Young Girl Liza,Villager,0.062
+25,02,Young Girl Liza,Villager,0.001
 26,02,Father Jimzon,Villager,0.49
 27,02,Shepherd Katharina,Medium,0.001
 28,02,Tailor Elna,Werewolf,1
@@ -33,8 +33,8 @@ id,index,character,role,wolf_score
 32,02,Outlaw Dieter,Villager,0.342
 33,03,Optimist Gerd,Villager,0.001
 34,03,Baker Otto,Villager,0.001
-35,03,Boy Peter,Villager,0.35
-36,03,Librarian Clara,Villager,0.318
+35,03,Boy Peter,Villager,0.001
+36,03,Librarian Clara,Villager,0.001
 37,03,Traveler Nicholas,Werewolf,1.0
 38,03,Young Girl Liza,Madman,0
 39,03,Wounded Soldier Simon,Hunter,0.001
@@ -43,7 +43,7 @@ id,index,character,role,wolf_score
 42,03,Woodcutter Thomas,Villager,0.001
 43,03,Mayor Valter,Villager,0.00595
 44,03,Outlaw Dieter,Werewolf,0.5
-45,03,Village Girl Pamela,Werewolf,0.5
+45,03,Village Girl Pamela,Werewolf,1.0
 46,03,Old Man Moritz,Medium,0.174
 47,03,Sister Friedel,Villager,0
 48,04,Optimist Gerd,Villager,0.001
@@ -189,7 +189,7 @@ id,index,character,role,wolf_score
 188,15,Wounded Soldier Simon,Madman,0
 189,15,Merchant Albin,Villager,0.23
 190,15,Tailor Elna,Werewolf,1.0
-191,15,Outlaw Dieter,Werewolf,0.5
+191,15,Outlaw Dieter,Werewolf,1.0
 192,15,Boy Peter,Villager,0.0
 193,15,Woodcutter Thomas,Villager,0.001
 194,15,Shepherd Katharina,Medium,0.001
@@ -219,8 +219,8 @@ id,index,character,role,wolf_score
 218,17,Baker Otto,Villager,0
 219,17,Librarian Clara,Werewolf,1.0
 220,17,Farmer Jacob,Medium,0
-221,17,Boy Peter,Villager,0.171
-222,17,Shepherd Katharina,Werewolf,0.39
+221,17,Boy Peter,Villager,0.001
+222,17,Shepherd Katharina,Werewolf,1.0
 223,17,Father Jimzon,Madman,0
 224,18,Gerd,Villager,0.001
 225,18,Joachim,Villager,0.05
@@ -267,7 +267,7 @@ id,index,character,role,wolf_score
 266,21,Optimist Gerd,Villager,0.001
 267,21,Shepherd Katharina,Werewolf,1
 268,21,Boy Peter,Seer,0.398
-269,21,Young Girl Liza,Villager,0.158
+269,21,Young Girl Liza,Villager,0.001
 270,21,Tailor Elna,Villager,0.01195
 271,21,Outlaw Dieter,Villager,0.05
 272,21,Librarian Clara,Villager,0.0
@@ -282,7 +282,7 @@ id,index,character,role,wolf_score
 281,22,Young Man Joachim,Werewolf,1.0
 282,22,Baker Otto,Medium,0.001
 283,22,Sister Friedel,Madman,0
-284,22,Wounded Soldier Simon,Villager,0.246
+284,22,Wounded Soldier Simon,Villager,0.001
 285,22,Tailor Elna,Villager,0.046
 286,22,Innkeeper Regina,Seer,0.050
 287,22,Young Girl Liza,Villager,0.179
@@ -335,17 +335,17 @@ id,index,character,role,wolf_score
 334,26,Old Man Moritz,Villager,0.0
 335,26,Woodcutter Thomas,Seer,0.214
 336,26,Boy Peter,Werewolf,1.0
-337,26,Innkeeper Regina,Villager,0.254
+337,26,Innkeeper Regina,Villager,0.001
 338,26,Librarian Clara,Medium,0.001
 339,26,Farmer Jacob,Madman,0.262
-340,26,Wounded Soldier Simon,Villager,0.214
+340,26,Wounded Soldier Simon,Villager,0.001
 341,27,Optimist Gerd,Villager,0.001
 342,27,Old Man Moritz,Villager,0.254
 343,27,Traveler Nicholas,Villager,0.198
 344,27,Outlaw Dieter,Villager,0.05
 345,27,Young Girl Liza,Werewolf,1
 346,27,Young Man Joachim,Villager,0.254
-347,27,Mayor Valter,Villager,0.398
+347,27,Mayor Valter,Villager,0.001
 348,27,Sister Friedel,Werewolf,1
 349,27,Father Jimzon,Medium,0.001
 350,27,Librarian Clara,Villager,0.182
