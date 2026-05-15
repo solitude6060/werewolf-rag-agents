@@ -1,7 +1,7 @@
 # v1836 Score Feedback Records
 
 Current best before this router: `0.47119`.
-Top-3 target: `>0.50671`.
+Top-3 target: `>0.52380`.
 
 | Time UTC | Group | Order | Candidate | Score | Delta | Top-3 hit | Recommended next |
 | --- | --- | ---: | --- | ---: | ---: | --- | --- |

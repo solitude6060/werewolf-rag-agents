@@ -72,7 +72,7 @@ def write_outputs(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
         "",
         "## Completion boundary",
         "",
-        "This bridge validates and routes a score report. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+        "This bridge validates and routes a score report. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
         "",
     ]
     out_md.write_text("\n".join(lines), encoding="utf-8")

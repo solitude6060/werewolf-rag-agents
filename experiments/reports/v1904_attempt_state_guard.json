@@ -42,41 +42,57 @@
       "ok": "yes"
     },
     {
-      "detail": "current=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv expected=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "detail": "skip score-only v1846g after v1856g real private score 0.42894; updated top3 threshold is 0.52380; pivot to structural v1826a for upside",
+      "name": "manual_override_reason_present",
+      "ok": "yes"
+    },
+    {
+      "detail": "queue#1",
+      "name": "manual_override_row_found",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
+      "name": "manual_override_not_already_uploaded",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv expected=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=scoreonly_safe_queue expected=scoreonly_safe_queue",
+      "detail": "current=queue expected=queue",
       "name": "current_group_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=5 expected=5",
+      "detail": "current=1 expected=1",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1846g expected=v1846g",
+      "detail": "current=v1826a expected=v1826a",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb expected=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb expected=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "metadata=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
-  "generated_at_utc": "2026-05-15T00:18:47+00:00",
+  "current_source_path": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
+  "generated_at_utc": "2026-05-15T00:33:12+00:00",
+  "override_reason": "skip score-only v1846g after v1856g real private score 0.42894; updated top3 threshold is 0.52380; pivot to structural v1826a for upside",
   "recommended_next": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
   "records_count": 1,
-  "state": "staged_latest_recommended",
+  "state": "manual_override_from_records",
   "upload_rows": 397,
-  "upload_sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb"
+  "upload_sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad"
 }

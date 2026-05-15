@@ -30,4 +30,4 @@ The user-facing post-score command center dry-runs are safe and produce validate
 
 ## Completion boundary
 
-This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.50671`.
+This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.52380`.

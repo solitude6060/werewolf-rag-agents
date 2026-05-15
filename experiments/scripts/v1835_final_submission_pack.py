@@ -22,7 +22,7 @@ STUDENT_ID = "D13922024"
 DATE = "2026-05-14"
 DEADLINE = "2026-05-15 23:59"
 BASELINE_PRIVATE = 0.47119
-TOP3_THRESHOLD = 0.50671
+TOP3_THRESHOLD = 0.52380
 DEFAULT_OUT = Path("experiments/final_submission_package")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 

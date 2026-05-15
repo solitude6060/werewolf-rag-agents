@@ -19,7 +19,7 @@ COMMAND_CENTER_REGRESSION = Path("experiments/scripts/v1882_command_center_dry_r
 ATTEMPT_STATE_GUARD = Path("experiments/scripts/v1904_attempt_state_guard.py")
 OUT_JSON = Path("experiments/reports/v1883_pre_upload_guard.json")
 OUT_MD = Path("experiments/reports/v1883_pre_upload_guard.md")
-TOP3 = 0.50671
+TOP3 = 0.52380
 EXPECTED_FIRST_GROUP = "scoreonly_safe_queue"
 EXPECTED_FIRST_ORDER = 1
 EXPECTED_FIRST_CANDIDATE = "v1856g"
@@ -214,7 +214,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This guard only proves the upload file is ready.  The active score goal still requires a real Kaggle private score greater than `0.50671`.",
+            "This guard only proves the upload file is ready.  The active score goal still requires a real Kaggle private score greater than `0.52380`.",
             "",
         ]
     )

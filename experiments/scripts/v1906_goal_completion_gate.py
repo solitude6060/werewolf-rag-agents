@@ -13,7 +13,7 @@ from typing import Any
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 OUT_JSON = Path("experiments/reports/v1906_goal_completion_gate.json")
 OUT_MD = Path("experiments/reports/v1906_goal_completion_gate.md")
-TOP3 = 0.50671
+TOP3 = 0.52380
 MAX_FINAL_ATTEMPTS = 5
 
 

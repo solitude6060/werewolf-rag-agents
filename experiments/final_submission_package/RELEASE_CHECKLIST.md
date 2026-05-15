@@ -115,7 +115,7 @@ Broad problem-phrase findings: 0
 The active score objective is not complete until a real Kaggle private score is strictly greater than:
 
 ```text
-0.50671
+0.52380
 ```
 
 No local proxy, manifest pass, route regression, or validator result is enough by itself.

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -24,13 +25,14 @@ def sha256(path: Path) -> str:
 
 
 def report_text(*, score: str, sha: str | None = None, real_flag: str = "yes", path: str | None = None) -> str:
+    metadata = json.loads(Path("experiments/final_submission_package/current_upload/metadata.json").read_text(encoding="utf-8"))
     return "\n".join(
         [
             "SCORE_REPORT",
             f"uploaded_path={path or UPLOAD}",
-            "candidate=v1856g",
-            "group=scoreonly_safe_queue",
-            "order=1",
+            f"candidate={metadata['candidate']}",
+            f"group={metadata['group']}",
+            f"order={metadata['order']}",
             f"sha256={sha or sha256(UPLOAD)}",
             "rows=397",
             f"real_private_score={score}",
@@ -53,7 +55,7 @@ def main() -> None:
     cases = [
         {
             "label": "valid_top3_report",
-            "text": report_text(score="0.50672"),
+            "text": report_text(score="0.52381"),
             "expect_exit": "zero",
             "expect_text": "SCORE_STATUS=top3_completion_candidate",
         },
@@ -147,7 +149,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This regression validates score-report intake only. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This regression validates score-report intake only. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

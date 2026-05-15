@@ -3,7 +3,7 @@
 Date: `2026-05-14`  
 Student ID: `D13922024`  
 Current verified best: `0.47119`  
-Top-3 threshold to beat: `>0.50671`
+Top-3 threshold to beat: `>0.52380`
 
 ## Current top known private submissions
 
@@ -186,7 +186,7 @@ Top-3 threshold to beat: `>0.50671`
 ## Decision rules for final-attempt feedback
 
 1. Lowest role-risk first upload: `scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv`.
-2. Stop immediately if any private score is above `>0.50671`.
+2. Stop immediately if any private score is above `>0.52380`.
 3. If v1856g improves but remains below the threshold, preview the next score-only safe file with the router.
 4. If testing role-label changes is acceptable, the original portfolio queue remains available with v1856a first.
 5. If the last slot needs maximum local-proxy upside and calibration risk is acceptable, the score-only safe second slot is v1853g.

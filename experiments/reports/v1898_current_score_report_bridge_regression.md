@@ -23,4 +23,4 @@ The wrapper injects valid decimal scores into the current report template, deleg
 
 ## Completion boundary
 
-This regression validates local score-entry safety only. The active goal is complete only after a real private score greater than `0.50671` is recorded.
+This regression validates local score-entry safety only. The active goal is complete only after a real private score greater than `0.52380` is recorded.

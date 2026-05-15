@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -32,13 +33,14 @@ def file_state(path: Path) -> str:
 
 
 def report_text(*, score: str, sha: str | None = None, real_flag: str = "yes") -> str:
+    metadata = json.loads(Path("experiments/final_submission_package/current_upload/metadata.json").read_text(encoding="utf-8"))
     return "\n".join(
         [
             "SCORE_REPORT",
             f"uploaded_path={UPLOAD}",
-            "candidate=v1856g",
-            "group=scoreonly_safe_queue",
-            "order=1",
+            f"candidate={metadata['candidate']}",
+            f"group={metadata['group']}",
+            f"order={metadata['order']}",
             f"sha256={sha or sha256(UPLOAD)}",
             "rows=397",
             f"real_private_score={score}",
@@ -64,11 +66,11 @@ def main() -> None:
             "label": "valid_continue_report_dry_runs_next_csv",
             "text": report_text(score="0.47120"),
             "expect_exit": "zero",
-            "expect_text": "scoreonly_safe_queue/02_v1853g_scoreonly_max_proxy_private.csv",
+            "expect_text": "contingency/01_v1825c_diagnostic_neutral_private.csv",
         },
         {
             "label": "valid_top3_report_dry_runs_stop",
-            "text": report_text(score="0.50672"),
+            "text": report_text(score="0.52381"),
             "expect_exit": "zero",
             "expect_text": "STOP: score exceeds top-3 threshold.",
         },
@@ -153,7 +155,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This regression validates the dry-run bridge only. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This regression validates the dry-run bridge only. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

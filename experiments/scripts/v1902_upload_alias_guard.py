@@ -99,7 +99,7 @@ def write_outputs(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
             "",
             "## Completion boundary",
             "",
-            "This guard only prevents wrong-file manual upload risk. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This guard only prevents wrong-file manual upload risk. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

@@ -23,7 +23,7 @@ ATTEMPT_STATE_GUARD = Path("experiments/scripts/v1904_attempt_state_guard.py")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 OUT_JSON = Path("experiments/reports/v1888_final_upload_preflight.json")
 OUT_MD = Path("experiments/reports/v1888_final_upload_preflight.md")
-TOP3 = 0.50671
+TOP3 = 0.52380
 
 
 def run(cmd: list[str]) -> subprocess.CompletedProcess[str]:
@@ -112,7 +112,7 @@ def write_outputs(payload: dict[str, Any]) -> None:
             "",
             "## Completion boundary",
             "",
-            "This preflight only proves local upload readiness. The active objective still requires a real Kaggle private score greater than `0.50671`.",
+            "This preflight only proves local upload readiness. The active objective still requires a real Kaggle private score greater than `0.52380`.",
             "",
         ]
     )

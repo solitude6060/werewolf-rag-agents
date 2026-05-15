@@ -101,7 +101,7 @@ def write_outputs(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
             "",
             "## Completion boundary",
             "",
-            "This guard only verifies upload attempt-state consistency. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This guard only verifies upload attempt-state consistency. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )
@@ -121,6 +121,7 @@ def main() -> None:
     upload_sha = sha256(args.upload) if args.upload.exists() else ""
     upload_rows = row_count(args.upload) if args.upload.exists() else 0
     source_path = str(metadata.get("source_path", ""))
+    override_reason = str(metadata.get("attempt_state_override_reason", "")).strip()
     recommended_next = records[-1].get("recommended_next", "") if records else ""
     state = "no_records_first_upload" if not records else "records_present"
 
@@ -136,10 +137,24 @@ def main() -> None:
     else:
         concrete = recommended_next.endswith(".csv")
         add_check(checks, "latest_recommended_next_concrete", concrete, recommended_next)
-        expected_row = manifest_row_by_output(manifest, recommended_next) if concrete else None
-        add_check(checks, "latest_recommended_next_in_manifest", expected_row is not None, recommended_next)
+        recommended_row = manifest_row_by_output(manifest, recommended_next) if concrete else None
+        add_check(checks, "latest_recommended_next_in_manifest", recommended_row is not None, recommended_next)
         if not concrete:
             state = "no_concrete_next_upload"
+        if override_reason:
+            expected_row = manifest_row_by_group_order(
+                manifest,
+                str(metadata.get("group", "")),
+                str(metadata.get("order", "")),
+            )
+            uploaded_paths = {str(Path(row.get("uploaded_path", ""))) for row in records}
+            add_check(checks, "manual_override_reason_present", True, override_reason)
+            add_check(checks, "manual_override_row_found", expected_row is not None, f"{metadata.get('group', '')}#{metadata.get('order', '')}")
+            if expected_row is not None:
+                add_check(checks, "manual_override_not_already_uploaded", str(Path(expected_row.get("output_path", ""))) not in uploaded_paths, expected_row.get("output_path", ""))
+            state = "manual_override_from_records"
+        else:
+            expected_row = recommended_row
 
     if expected_row is not None:
         expected_path = expected_row.get("output_path", "")
@@ -160,6 +175,7 @@ def main() -> None:
         "state": state,
         "records_count": len(records),
         "recommended_next": recommended_next,
+        "override_reason": override_reason,
         "current_source_path": source_path,
         "upload_rows": upload_rows,
         "upload_sha256": upload_sha,

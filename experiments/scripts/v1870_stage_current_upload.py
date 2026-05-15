@@ -24,7 +24,7 @@ GOAL_COMPLETION_GATE = Path("experiments/scripts/v1906_goal_completion_gate.py")
 FINAL_GOAL_STATUS = Path("experiments/scripts/v1908_final_goal_status.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
-TOP3 = 0.50671
+TOP3 = 0.52380
 UPLOAD_ALIASES_ROOT = Path("hw2_D13922024")
 UPLOAD_CHECKPOINT_DIR = UPLOAD_ALIASES_ROOT / "checkpoints"
 
@@ -113,6 +113,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--manifest", type=Path, default=MANIFEST)
     parser.add_argument("--records", type=Path, default=RECORDS)
     parser.add_argument("--out-dir", type=Path, default=OUT_DIR)
+    parser.add_argument(
+        "--override-reason",
+        default="",
+        help="Document why an explicit group/order upload intentionally overrides the latest score-feedback recommendation.",
+    )
     return parser.parse_args()
 
 
@@ -170,6 +175,8 @@ def main() -> None:
         "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
         "stop_if_score_greater_than": TOP3,
     }
+    if args.override_reason:
+        metadata["attempt_state_override_reason"] = args.override_reason
     (args.out_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     score_report = [
         "SCORE_REPORT",

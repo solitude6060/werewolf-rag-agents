@@ -23,4 +23,4 @@ The bridge routes valid SCORE_REPORT files through the command-center dry-run an
 
 ## Completion boundary
 
-This regression validates the dry-run bridge only. The active goal is complete only after a real private score greater than `0.50671` is recorded.
+This regression validates the dry-run bridge only. The active goal is complete only after a real private score greater than `0.52380` is recorded.

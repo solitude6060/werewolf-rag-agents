@@ -22,7 +22,7 @@ RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedb
 METADATA = Path("experiments/final_submission_package/current_upload/metadata.json")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
-TOP3 = 0.50671
+TOP3 = 0.52380
 
 
 def run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[str]:

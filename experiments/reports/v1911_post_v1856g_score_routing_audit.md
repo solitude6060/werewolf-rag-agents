@@ -5,7 +5,7 @@ Branch: `dev/final-submission-report-pack`
 
 ## Objective restated
 
-Use the remaining final attempts to record a real Kaggle private score strictly greater than the third-place threshold `0.50671`.
+Use the remaining final attempts to record a real Kaggle private score strictly greater than the third-place threshold `0.52380`.
 
 ## New real score
 
@@ -20,7 +20,7 @@ The score was recorded through the current score-report bridge and written to `e
 | Requirement / gate | Evidence inspected | Coverage judgment | Status |
 | --- | --- | --- | --- |
 | Record the real `0.42894` score | `v1836_score_feedback_records.csv` contains `scoreonly_safe_queue,1,v1856g,...,0.42894,...,recommended_next=...05_v1846g...`. | Covers the real feedback for the just-uploaded file. | pass |
-| Do not mark goal complete unless score is above `0.50671` | `v1908_final_goal_status.py` reports `GOAL_COMPLETE=no`, `BEST_SCORE=0.42894`. | Prevents proxy/local readiness from ending the active score objective. | pass |
+| Do not mark goal complete unless score is above `0.52380` | `v1908_final_goal_status.py` reports `GOAL_COMPLETE=no`, `BEST_SCORE=0.42894`. | Prevents proxy/local readiness from ending the active score objective. | pass |
 | Stage a concrete next upload | `v1870_stage_current_upload.py --from-records` staged `scoreonly_safe_queue` order `5`, candidate `v1846g`. | Current upload now matches the latest router recommendation. | pass |
 | Manual upload path remains fixed | `v1888_final_upload_preflight.py` reports `RELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv`. | Keeps the browser upload instruction stable. | pass |
 | Current upload is valid | Validator reports `OK: 397 predictions validated`; SHA-256 is `f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb`. | Covers CSV format and row count for the next attempt. | pass |
@@ -50,7 +50,7 @@ sha256=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb
 
 `NOT COMPLETE`.
 
-Reason: the best recorded real private score is `0.42894`, which is below `0.50671`. The local state is ready for the next manual upload, but the active score objective still requires a real score above the threshold.
+Reason: the best recorded real private score is `0.42894`, which is below `0.52380`. The local state is ready for the next manual upload, but the active score objective still requires a real score above the threshold.
 
 ## Verification evidence
 

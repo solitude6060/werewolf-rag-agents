@@ -83,7 +83,7 @@ def scenarios() -> list[dict[str, str]]:
     cases: list[dict[str, str]] = []
     # Active first-upload boundary and operating bands.
     for label, score in [
-        ("order1_top3", 0.50672),
+        ("order1_top3", 0.52381),
         ("order1_strong_positive", 0.48000),
         ("order1_tiny_positive_v1874", 0.47120),
         ("order1_exact_current_best_v1874", 0.47119),
@@ -112,7 +112,7 @@ def scenarios() -> list[dict[str, str]]:
     # Later score-only orders and portfolio queue should remain concrete or terminal.
     for group in ["scoreonly_safe_queue", "portfolio_queue"]:
         for order in range(3, 6):
-            for label, score in [("positive", 0.47200), ("regression", 0.46600), ("top3", 0.50672)]:
+            for label, score in [("positive", 0.47200), ("regression", 0.46600), ("top3", 0.52381)]:
                 cases.append({"group": group, "order": str(order), "score": f"{score:.5f}", "previous_score": "", "label": f"{group}_order{order}_{label}"})
 
     for label, score in [("portfolio_order1_positive", 0.47200), ("portfolio_order1_near", 0.47080), ("portfolio_order1_regression", 0.46600)]:
@@ -137,7 +137,7 @@ def scenarios() -> list[dict[str, str]]:
     for label, score, previous in [
         ("charprior_order2_beats_first", 0.48101, 0.48001),
         ("charprior_order2_below_first", 0.48000, 0.48001),
-        ("charprior_order2_top3", 0.50672, 0.48001),
+        ("charprior_order2_top3", 0.52381, 0.48001),
     ]:
         cases.append(
             {
@@ -149,7 +149,7 @@ def scenarios() -> list[dict[str, str]]:
             }
         )
     for order in range(3, 6):
-        for label, score in [("positive", 0.47200), ("regression", 0.46600), ("top3", 0.50672)]:
+        for label, score in [("positive", 0.47200), ("regression", 0.46600), ("top3", 0.52381)]:
             cases.append(
                 {
                     "group": "charprior_queue",
@@ -220,7 +220,7 @@ def main() -> None:
         "",
         "## Completion boundary",
         "",
-        "This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.50671`.",
+        "This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.52380`.",
         "",
     ]
     OUT_MD.write_text("\n".join(lines), encoding="utf-8")

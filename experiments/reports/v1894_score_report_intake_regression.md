@@ -24,4 +24,4 @@ The intake validator accepts valid top-3/continue reports and rejects wrong SHA,
 
 ## Completion boundary
 
-This regression validates score-report intake only. The active goal is complete only after a real private score greater than `0.50671` is recorded.
+This regression validates score-report intake only. The active goal is complete only after a real private score greater than `0.52380` is recorded.

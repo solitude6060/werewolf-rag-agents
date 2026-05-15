@@ -48,7 +48,7 @@ python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
 ## What to upload to Kaggle
 
 Upload one CSV from the selected queue/fallback group; use the strategy table and router before spending the next attempt.
-Stop immediately if any score is above `0.50671`.
+Stop immediately if any score is above `0.52380`.
 
 | Order | Candidate | Private score | File | Condition |
 | ---: | --- | ---: | --- | --- |

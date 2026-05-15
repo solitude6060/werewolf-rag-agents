@@ -59,11 +59,11 @@ def main() -> None:
             "score": "0.47120",
             "template_text": TEMPLATE.read_text(encoding="utf-8"),
             "expect_exit": "zero",
-            "expect_text": "scoreonly_safe_queue/02_v1853g_scoreonly_max_proxy_private.csv",
+            "expect_text": "contingency/01_v1825c_diagnostic_neutral_private.csv",
         },
         {
             "label": "valid_top3_score_routes_stop",
-            "score": "0.50672",
+            "score": "0.52381",
             "template_text": TEMPLATE.read_text(encoding="utf-8"),
             "expect_exit": "zero",
             "expect_text": "STOP: score exceeds top-3 threshold.",
@@ -150,7 +150,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This regression validates local score-entry safety only. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This regression validates local score-entry safety only. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

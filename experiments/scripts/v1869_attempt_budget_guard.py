@@ -7,7 +7,7 @@ import csv
 from pathlib import Path
 
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
-TOP3 = 0.50671
+TOP3 = 0.52380
 BASELINE = 0.47119
 
 

@@ -6,7 +6,7 @@
       "exists": "yes",
       "path": "hw2_D13922024/submission.csv",
       "rows": "397",
-      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "sha_matches": "yes"
     },
     {
@@ -14,21 +14,21 @@
       "exists": "yes",
       "path": "hw2_D13922024/checkpoints/final_current_private.csv",
       "rows": "397",
-      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "sha_matches": "yes"
     },
     {
       "detail": "ok",
       "exists": "yes",
-      "path": "hw2_D13922024/checkpoints/final_v1846g_private.csv",
+      "path": "hw2_D13922024/checkpoints/final_v1826a_private.csv",
       "rows": "397",
-      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "sha_matches": "yes"
     }
   ],
   "canonical": "experiments/final_submission_package/current_upload/submission.csv",
   "canonical_rows": 397,
-  "canonical_sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+  "canonical_sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
   "checks": [
     {
       "detail": "experiments/final_submission_package/current_upload/submission.csv",
@@ -51,7 +51,7 @@
       "ok": "yes"
     },
     {
-      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "alias_1_sha_matches",
       "ok": "yes"
     },
@@ -66,12 +66,12 @@
       "ok": "yes"
     },
     {
-      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "alias_2_sha_matches",
       "ok": "yes"
     },
     {
-      "detail": "hw2_D13922024/checkpoints/final_v1846g_private.csv",
+      "detail": "hw2_D13922024/checkpoints/final_v1826a_private.csv",
       "name": "alias_3_exists",
       "ok": "yes"
     },
@@ -81,10 +81,10 @@
       "ok": "yes"
     },
     {
-      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "alias_3_sha_matches",
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-15T00:18:47+00:00"
+  "generated_at_utc": "2026-05-15T00:33:12+00:00"
 }

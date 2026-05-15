@@ -1,6 +1,6 @@
 {
   "attempt_context": "followup_from_records",
-  "candidate": "v1846g",
+  "candidate": "v1826a",
   "checks": [
     {
       "check": "manifest_exists",
@@ -29,17 +29,17 @@
     },
     {
       "check": "attempt_state_guard_ready",
-      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=staged_latest_recommended; RECORDS_COUNT=1; RECOMMENDED_NEXT=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
+      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=manual_override_from_records; RECORDS_COUNT=1; RECOMMENDED_NEXT=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
       "ok": "yes"
     },
     {
       "check": "manifest_row_found",
-      "detail": "scoreonly_safe_queue#5",
+      "detail": "queue#1",
       "ok": "yes"
     },
     {
       "check": "manifest_candidate_matches",
-      "detail": "v1846g",
+      "detail": "v1826a",
       "ok": "yes"
     },
     {
@@ -49,12 +49,12 @@
     },
     {
       "check": "metadata_source_matches_manifest",
-      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "detail": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
       "ok": "yes"
     },
     {
       "check": "source_exists",
-      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "detail": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
       "ok": "yes"
     },
     {
@@ -64,17 +64,17 @@
     },
     {
       "check": "current_upload_sha_matches_metadata",
-      "detail": "upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb metadata=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad metadata=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_manifest",
-      "detail": "upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb manifest=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad manifest=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_source",
-      "detail": "upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb source=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "detail": "upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad source=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "ok": "yes"
     },
     {
@@ -99,15 +99,15 @@
     },
     {
       "check": "command_center_regression_ok",
-      "detail": "WROTE_CSV=experiments/reports/v1882_command_center_dry_run_regression.csv; WROTE_REPORT=experiments/reports/v1882_command_center_dry_run_regression.md; SCENARIOS=7; FAILURES=0; MUTATION_OK=yes",
+      "detail": "WROTE_CSV=experiments/reports/v1882_command_center_dry_run_regression.csv; WROTE_REPORT=experiments/reports/v1882_command_center_dry_run_regression.md; SCENARIOS=8; FAILURES=0; MUTATION_OK=yes",
       "ok": "yes"
     }
   ],
-  "group": "scoreonly_safe_queue",
-  "order": 5,
+  "group": "queue",
+  "order": 1,
   "rows": 397,
-  "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
-  "stop_if_score_greater_than": 0.50671,
+  "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
+  "stop_if_score_greater_than": 0.5238,
   "upload_path": "experiments/final_submission_package/current_upload/submission.csv",
   "upload_ready": true
 }

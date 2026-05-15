@@ -5,7 +5,7 @@ Branch: `dev/final-submission-report-pack`
 
 ## Objective restated
 
-Use the remaining final attempts to record a real Kaggle private score strictly greater than the third-place threshold `0.50671`.
+Use the remaining final attempts to record a real Kaggle private score strictly greater than the third-place threshold `0.52380`.
 
 ## Change summary
 
@@ -21,7 +21,7 @@ This avoids the previous non-concrete `NO_SCOREONLY_SAFE_QUEUE_REMAINING` state 
 
 | Requirement / gate | Evidence inspected | Coverage judgment | Status |
 | --- | --- | --- | --- |
-| Active goal not complete without real score `>0.50671` | `v1908_final_goal_status.py` reports `GOAL_COMPLETE=no`, `BEST_SCORE=0.42894`. | Covers completion boundary. | pass |
+| Active goal not complete without real score `>0.52380` | `v1908_final_goal_status.py` reports `GOAL_COMPLETE=no`, `BEST_SCORE=0.42894`. | Covers completion boundary. | pass |
 | Current upload remains ready | `v1888_final_upload_preflight.py` reports `READY_TO_MANUAL_UPLOAD=yes` for `v1846g`. | Covers immediate manual upload. | pass |
 | Post-v1846g route is concrete | Direct router check for `scoreonly_safe_queue --order 5 --score 0.46400` returns `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv`. | Covers the next non-top-3 fallback. | pass |
 | Route target is manifest-backed and validated | `v1875_route_matrix_regression.py` reports `SCENARIOS=45`, `FAILURES=0`; cockpit preview marks `queue#1 v1826a` as `manifest_status=pass`. | Covers file existence, row count, SHA-256, and validation status through the route matrix. | pass |
@@ -80,4 +80,4 @@ sha256=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb
 
 `NOT COMPLETE`.
 
-Reason: no recorded real private score is above `0.50671`; the work only makes the next post-score step concrete.
+Reason: no recorded real private score is above `0.52380`; the work only makes the next post-score step concrete.

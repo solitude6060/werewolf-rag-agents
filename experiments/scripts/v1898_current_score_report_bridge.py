@@ -93,7 +93,7 @@ def write_summary(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
         "",
         "## Completion boundary",
         "",
-        "This wrapper only reduces score-entry handling risk. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+        "This wrapper only reduces score-entry handling risk. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
         "",
     ]
     out_md.write_text("\n".join(lines), encoding="utf-8")

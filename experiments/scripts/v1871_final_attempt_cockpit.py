@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import json
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -12,6 +13,7 @@ from pathlib import Path
 
 MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
+METADATA = Path("experiments/final_submission_package/current_upload/metadata.json")
 STAGED = Path("experiments/final_submission_package/current_upload/submission.csv")
 CARD = Path("experiments/final_submission_package/current_upload/ATTEMPT_CARD.md")
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
@@ -19,7 +21,7 @@ ROUTER = Path("experiments/scripts/v1836_score_feedback_router.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 BASELINE = 0.47119
-TOP3 = 0.50671
+TOP3 = 0.52380
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -54,13 +56,23 @@ def find_row_by_output_path(rows: list[dict[str, str]], path: str) -> dict[str, 
     raise SystemExit(f"path not found in manifest: {path}")
 
 
-def selected_row(manifest: list[dict[str, str]], records: list[dict[str, str]]) -> tuple[dict[str, str], str]:
+def selected_row(manifest: list[dict[str, str]], records: list[dict[str, str]]) -> tuple[dict[str, str], str, dict[str, str]]:
+    metadata: dict[str, str] = {}
+    if METADATA.exists():
+        raw = json.loads(METADATA.read_text(encoding="utf-8"))
+        metadata = {str(key): str(value) for key, value in raw.items()}
+    if records and metadata.get("attempt_state_override_reason"):
+        return (
+            find_row(manifest, metadata.get("group", ""), int(metadata.get("order", "0"))),
+            "current_upload_manual_override",
+            metadata,
+        )
     if not records:
-        return find_row(manifest, DEFAULT_GROUP, DEFAULT_ORDER), "no_records_default"
+        return find_row(manifest, DEFAULT_GROUP, DEFAULT_ORDER), "no_records_default", metadata
     recommended = records[-1].get("recommended_next", "").strip()
     if recommended.endswith(".csv"):
-        return find_row_by_output_path(manifest, recommended), "latest_record_recommended_next"
-    return records[-1], "latest_record_stop_or_manual"
+        return find_row_by_output_path(manifest, recommended), "latest_record_recommended_next", metadata
+    return records[-1], "latest_record_stop_or_manual", metadata
 
 
 def sha256(path: Path) -> str:
@@ -133,6 +145,7 @@ def make_card(
     records: list[dict[str, str]],
     row: dict[str, str],
     row_source: str,
+    metadata: dict[str, str],
 ) -> str:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     used = len(records)
@@ -172,9 +185,17 @@ def make_card(
     staged_match = staged_exists and staged_sha == source_sha
     staged_validator = validate(STAGED) if staged_exists else "missing"
     previous = latest if records else None
+    override_reason = metadata.get("attempt_state_override_reason", "")
+    restage_command = "python3 experiments/scripts/v1870_stage_current_upload.py --from-records"
+    if row_source == "current_upload_manual_override":
+        restage_command = (
+            "python3 experiments/scripts/v1870_stage_current_upload.py "
+            f"--group {row['group']} --order {row['order']} "
+            f"--override-reason {override_reason!r}"
+        )
 
     scenarios = [
-        ("hit top-3", 0.50672),
+        ("hit top-3", 0.52381),
         ("strong positive", 0.48000),
         ("tiny positive", 0.47120),
         ("exact current best", 0.47119),
@@ -206,6 +227,7 @@ def make_card(
             "```",
             "",
             f"Selected row source: `{row_source}`",
+            *([f"Manual override reason: `{override_reason}`"] if override_reason else []),
             f"Selected candidate: `{row['candidate']}` (`{row['group']}` order `{row['order']}`)",
             f"Selected source: `{source}`",
             f"Rows: `{rows}`",
@@ -218,7 +240,7 @@ def make_card(
             "If staged match is not `yes`, run:",
             "",
             "```bash",
-            "python3 experiments/scripts/v1870_stage_current_upload.py --from-records",
+            restage_command,
             "```",
             "",
             "For the first upload with no records, this is also valid:",
@@ -285,8 +307,8 @@ def main() -> None:
     args = parse_args()
     manifest = read_manifest(args.manifest)
     records = read_records(args.records)
-    row, row_source = selected_row(manifest, records)
-    card = make_card(manifest, records, row, row_source)
+    row, row_source, metadata = selected_row(manifest, records)
+    card = make_card(manifest, records, row, row_source, metadata)
     print(card)
     if not args.no_write:
         args.card.parent.mkdir(parents=True, exist_ok=True)

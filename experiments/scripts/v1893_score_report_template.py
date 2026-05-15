@@ -16,7 +16,7 @@ METADATA = Path("experiments/final_submission_package/current_upload/metadata.js
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 OUT_JSON = Path("experiments/reports/v1893_score_report_template.json")
 OUT_MD = Path("experiments/reports/v1893_score_report_template.md")
-TOP3 = 0.50671
+TOP3 = 0.52380
 
 
 def sha256(path: Path) -> str:
@@ -146,7 +146,7 @@ def write_outputs(payload: dict[str, Any]) -> None:
         "",
         "## Completion boundary",
         "",
-        "This template only structures the score report. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+        "This template only structures the score report. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
         "",
     ]
     OUT_MD.write_text("\n".join(lines), encoding="utf-8")

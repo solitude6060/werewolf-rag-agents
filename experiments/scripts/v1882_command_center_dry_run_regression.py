@@ -69,10 +69,10 @@ def main() -> None:
         },
         {
             "label": "scoreonly_order1_top3_stop",
-            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.50672"],
+            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.52381"],
             "expected_status": "non_concrete_ok",
             "expected_next": "STOP: score exceeds top-3 threshold.",
-            "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.50672 --confirm-real-score",
+            "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.52381 --confirm-real-score",
         },
         {
             "label": "scoreonly_order1_severe_regression",
@@ -183,7 +183,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.50671`.",
+            "This regression does not complete the active score objective; completion still requires a real Kaggle private score greater than `0.52380`.",
             "",
         ]
     )

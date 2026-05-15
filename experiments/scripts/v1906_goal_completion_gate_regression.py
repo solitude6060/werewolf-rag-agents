@@ -61,9 +61,9 @@ def main() -> None:
         below = tmpdir / "below.csv"
         write_records(below, [record("0.47120", "no")])
         hit = tmpdir / "hit.csv"
-        write_records(hit, [record("0.50672", "yes")])
+        write_records(hit, [record("0.52381", "yes")])
         mismatch = tmpdir / "mismatch.csv"
-        write_records(mismatch, [record("0.50672", "no")])
+        write_records(mismatch, [record("0.52381", "no")])
         invalid = tmpdir / "invalid.csv"
         write_records(invalid, [record("47.119", "yes")])
         overflow = tmpdir / "overflow.csv"

@@ -16,7 +16,8 @@ METADATA = Path("experiments/final_submission_package/current_upload/metadata.js
 RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 OUT_JSON = Path("experiments/reports/v1894_score_report_intake.json")
 OUT_MD = Path("experiments/reports/v1894_score_report_intake.md")
-TOP3 = 0.50671
+TOP3 = 0.52380
+MAX_FINAL_ATTEMPTS = 5
 REQUIRED_KEYS = [
     "uploaded_path",
     "candidate",
@@ -40,6 +41,13 @@ def sha256(path: Path) -> str:
 def row_count(path: Path) -> int:
     with path.open(newline="", encoding="utf-8") as f:
         return sum(1 for _ in csv.DictReader(f))
+
+
+def read_records(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
 
 
 def parse_score_report(path: Path) -> dict[str, str]:
@@ -97,6 +105,7 @@ def main() -> None:
 
     actual_sha = sha256(UPLOAD)
     actual_rows = row_count(UPLOAD)
+    records = read_records(RECORDS)
     score = parse_score(report["real_private_score"])
 
     add_check(checks, "uploaded_path_matches_current", Path(report["uploaded_path"]) == UPLOAD, report["uploaded_path"])
@@ -112,7 +121,13 @@ def main() -> None:
         report["score_is_real_kaggle_private"],
     )
     add_check(checks, "score_decimal_range_ok", True, f"{score:.5f}")
-    add_check(checks, "official_records_absent_before_intake", not RECORDS.exists(), str(RECORDS))
+    add_check(checks, "attempt_budget_not_exhausted", len(records) < MAX_FINAL_ATTEMPTS, str(len(records)))
+    add_check(
+        checks,
+        "no_prior_top3_hit",
+        not any(row.get("top3_hit") == "yes" for row in records),
+        "top3_hit_present" if any(row.get("top3_hit") == "yes" for row in records) else "none",
+    )
 
     ready = all(check["ok"] == "yes" for check in checks)
     dry_run_cmd = command(["python3", "experiments/scripts/v1872_post_score_command_center.py", "--score", f"{score:.5f}"])
@@ -162,7 +177,7 @@ def main() -> None:
             "",
             "## Completion boundary",
             "",
-            "This intake validates a report format only. The active goal is complete only after the real score is recorded and is greater than `0.50671`.",
+            "This intake validates a report format only. The active goal is complete only after the real score is recorded and is greater than `0.52380`.",
             "",
         ]
     )

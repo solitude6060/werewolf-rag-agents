@@ -2,11 +2,11 @@
 
 ## Goal
 
-Keep the active five-attempt score objective moving after the real `v1856g` private score (`0.42894`) showed a severe regression. The immediate upload is already staged to `v1846g`; this plan prevents the next score report from ending in a non-concrete router state if `v1846g` also misses the `0.50671` threshold.
+Keep the active five-attempt score objective moving after the real `v1856g` private score (`0.42894`) showed a severe regression. The immediate upload is already staged to `v1846g`; this plan prevents the next score report from ending in a non-concrete router state if `v1846g` also misses the `0.52380` threshold.
 
 ## Constraints
 
-- Do not mark the active goal complete unless a real private score is strictly greater than `0.50671`.
+- Do not mark the active goal complete unless a real private score is strictly greater than `0.52380`.
 - Do not spend or simulate external leaderboard attempts locally.
 - Keep `experiments/final_submission_package/current_upload/submission.csv` as the fixed manual upload path.
 - Preserve validation gates: router recommendations must be manifest-backed CSVs unless the score is a top-3 stop.
@@ -43,5 +43,5 @@ Rationale:
 
 ## Stop condition
 
-- `v1908_final_goal_status.py` remains `ACTION=UPLOAD_CURRENT` until a real score above `0.50671` is recorded.
+- `v1908_final_goal_status.py` remains `ACTION=UPLOAD_CURRENT` until a real score above `0.52380` is recorded.
 - The router must provide a concrete manifest-backed next CSV for post-v1846g non-top-3 scores.
