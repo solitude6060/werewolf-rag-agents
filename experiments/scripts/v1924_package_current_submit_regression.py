@@ -48,17 +48,18 @@ def main() -> None:
             check=False,
         )
         command_output = (proc.stdout + proc.stderr).strip()
+        normalized_command_output = command_output.replace(str(output), "<TEMP_SUBMISSION>")
         output_exists = output.exists()
         output_sha = sha256(output) if output_exists else "missing"
         output_rows = row_count(output) if output_exists else 0
 
     readme = PACKAGE_README.read_text(encoding="utf-8")
-    add(checks, "make_final_exit_zero", proc.returncode == 0, f"exit={proc.returncode}; {command_output}")
+    add(checks, "make_final_exit_zero", proc.returncode == 0, f"exit={proc.returncode}; {normalized_command_output}")
     add(checks, "canonical_sha_expected", canonical_sha == EXPECTED_SHA, canonical_sha)
     add(checks, "package_submission_matches_canonical", package_sha == canonical_sha == EXPECTED_SHA, package_sha)
     add(checks, "make_final_output_matches_canonical", output_sha == canonical_sha == EXPECTED_SHA, output_sha)
     add(checks, "make_final_rows_397", output_rows == 397, str(output_rows))
-    add(checks, "validator_ok", "OK: 397 predictions validated" in command_output, command_output)
+    add(checks, "validator_ok", "OK: 397 predictions validated" in command_output, normalized_command_output)
     add(checks, "readme_mentions_current_checkpoint", "checkpoints/final_current_private.csv" in readme, "final_current_private.csv")
     add(checks, "readme_mentions_v1826a", "v1826a" in readme, "v1826a")
     add(checks, "readme_mentions_live_threshold", ">0.52380" in readme or "> 0.52380" in readme, "0.52380")

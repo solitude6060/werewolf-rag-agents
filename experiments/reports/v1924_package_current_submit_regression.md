@@ -15,9 +15,9 @@
 
 [validator]
 
-[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py /tmp/v1924_package_make_final_rv8otn8q/submission.csv
+[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py <TEMP_SUBMISSION>
 
-Final submission written to: /tmp/v1924_package_make_final_rv8otn8q/submission.csv` |
+Final submission written to: <TEMP_SUBMISSION>` |
 | canonical_sha_expected | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
 | package_submission_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
 | make_final_output_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
@@ -26,9 +26,9 @@ Final submission written to: /tmp/v1924_package_make_final_rv8otn8q/submission.c
 
 [validator]
 
-[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py /tmp/v1924_package_make_final_rv8otn8q/submission.csv
+[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py <TEMP_SUBMISSION>
 
-Final submission written to: /tmp/v1924_package_make_final_rv8otn8q/submission.csv` |
+Final submission written to: <TEMP_SUBMISSION>` |
 | readme_mentions_current_checkpoint | yes | `final_current_private.csv` |
 | readme_mentions_v1826a | yes | `v1826a` |
 | readme_mentions_live_threshold | yes | `0.52380` |
