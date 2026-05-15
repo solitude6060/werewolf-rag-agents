@@ -66,3 +66,10 @@ Expected validator output:
 ```text
 OK: 397 predictions validated
 ```
+
+## Report files
+
+```text
+hw2_D13922024/hw2_report.md
+hw2_D13922024/hw2_report.zh-TW.md
+```

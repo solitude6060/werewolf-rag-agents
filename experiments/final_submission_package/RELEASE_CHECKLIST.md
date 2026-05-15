@@ -81,6 +81,7 @@ TOP3_THRESHOLD=0.52380
 ```text
 hw2_D13922024/submission.csv
 hw2_D13922024/hw2_report.md
+hw2_D13922024/hw2_report.zh-TW.md
 hw2_D13922024/README.md
 hw2_D13922024/make_final.py
 hw2_D13922024/assert/validate_submission.py

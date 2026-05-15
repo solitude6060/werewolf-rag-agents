@@ -38,6 +38,20 @@ Operational target `>0.50000`: not reached.
 Original active top-three gate `>0.52380`: not reached.
 Final attempt budget: `5/5` used.
 
+## Reports
+
+English report:
+
+```text
+hw2_report.md
+```
+
+Traditional Chinese report:
+
+```text
+hw2_report.zh-TW.md
+```
+
 ## One-command reproduction
 
 From this directory:
@@ -105,6 +119,7 @@ hw2_D13922024/
 ├── make_final.py
 ├── submission.csv
 ├── hw2_report.md
+├── hw2_report.zh-TW.md
 ├── README.md
 ├── requirements.txt
 ├── assert/validate_submission.py
