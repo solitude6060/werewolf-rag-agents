@@ -12,6 +12,27 @@ Rows: `397`
 SHA-256: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
 Validator: `OK: 397 predictions validated`
 
+
+## Wrong-file guard
+
+Upload **only** this current file, or one of the documented safe aliases with the same SHA-256:
+
+```text
+experiments/final_submission_package/current_upload/submission.csv
+hw2_D13922024/submission.csv
+hw2_D13922024/checkpoints/final_current_private.csv
+hw2_D13922024/checkpoints/final_v1826a_private.csv
+```
+
+Do **not** upload legacy/worktree lookalikes such as:
+
+```text
+werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv
+experiments/worktrees/*/hw2_D13922024/submission.csv
+```
+
+Those lookalikes have different SHA/row counts and are not the current `v1826a` upload. See `experiments/reports/v1917_wrong_file_upload_guard.md`.
+
 Before manually uploading, run the final one-command preflight:
 
 ```bash
