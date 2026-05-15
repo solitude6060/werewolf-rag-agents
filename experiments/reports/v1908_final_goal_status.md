@@ -1,6 +1,6 @@
 # v1908 Final Goal Status
 
-Generated UTC: `2026-05-15T02:22:04+00:00`
+Generated UTC: `2026-05-15T02:27:34+00:00`
 
 ## Summary
 
@@ -8,7 +8,7 @@ Generated UTC: `2026-05-15T02:22:04+00:00`
 - Goal complete: `no`
 - Ready to manual upload: `yes`
 - Records consistent: `yes`
-- Best score: `0.49266`
+- Best score: `0.49349`
 - Upload path: `experiments/final_submission_package/current_upload/submission.csv`
 
 ## Next command
@@ -24,11 +24,11 @@ GOAL_COMPLETION_GATE
 GOAL_COMPLETE=no
 RECORDS_CONSISTENT=yes
 RECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv
-RECORDS_COUNT=3
-BEST_SCORE=0.49266
+RECORDS_COUNT=4
+BEST_SCORE=0.49349
 TOP3_THRESHOLD=0.52380
-REPORT=/tmp/v1908_final_status_1bbijkp_/completion.md
-JSON=/tmp/v1908_final_status_1bbijkp_/completion.json
+REPORT=/tmp/v1908_final_status_h44t_0iz/completion.md
+JSON=/tmp/v1908_final_status_h44t_0iz/completion.json
 ```
 
 ## Preflight output
@@ -38,11 +38,11 @@ FINAL_UPLOAD_PREFLIGHT
 READY_TO_MANUAL_UPLOAD=yes
 RELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv
 ABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv
-CANDIDATE=v1840c
-GROUP=overlay
-ORDER=9
+CANDIDATE=v1846e
+GROUP=rolecap_queue
+ORDER=5
 ROWS=397
-SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145
+SHA256=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912
 REPORT=experiments/reports/v1888_final_upload_preflight.md
 JSON=experiments/reports/v1888_final_upload_preflight.json
 ```

@@ -22,7 +22,7 @@
       "ok": "yes"
     },
     {
-      "detail": "3",
+      "detail": "4",
       "name": "attempt_budget_not_exhausted",
       "ok": "yes"
     },
@@ -32,52 +32,67 @@
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+      "detail": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
       "name": "latest_recommended_next_concrete",
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+      "detail": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
       "name": "latest_recommended_next_in_manifest",
       "ok": "yes"
     },
     {
-      "detail": "current=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv expected=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+      "detail": "last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5",
+      "name": "manual_override_reason_present",
+      "ok": "yes"
+    },
+    {
+      "detail": "rolecap_queue#5",
+      "name": "manual_override_row_found",
+      "ok": "yes"
+    },
+    {
+      "detail": "experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
+      "name": "manual_override_not_already_uploaded",
+      "ok": "yes"
+    },
+    {
+      "detail": "current=experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv expected=experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=overlay expected=overlay",
+      "detail": "current=rolecap_queue expected=rolecap_queue",
       "name": "current_group_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=9 expected=9",
+      "detail": "current=5 expected=5",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1840c expected=v1840c",
+      "detail": "current=v1846e expected=v1846e",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 expected=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 expected=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 expected=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "metadata=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 expected=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
-  "generated_at_utc": "2026-05-15T02:22:04+00:00",
-  "override_reason": "",
-  "recommended_next": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
-  "records_count": 3,
-  "state": "staged_latest_recommended",
+  "current_source_path": "experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
+  "generated_at_utc": "2026-05-15T02:27:34+00:00",
+  "override_reason": "last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5",
+  "recommended_next": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
+  "records_count": 4,
+  "state": "manual_override_from_records",
   "upload_rows": 397,
-  "upload_sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145"
+  "upload_sha256": "c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912"
 }

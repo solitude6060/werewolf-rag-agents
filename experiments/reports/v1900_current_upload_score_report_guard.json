@@ -1,5 +1,5 @@
 {
-  "candidate": "v1840c",
+  "candidate": "v1846e",
   "checks": [
     {
       "detail": "experiments/final_submission_package/current_upload/submission.csv",
@@ -27,17 +27,17 @@
       "ok": "yes"
     },
     {
-      "detail": "v1840c",
+      "detail": "v1846e",
       "name": "candidate_matches_metadata",
       "ok": "yes"
     },
     {
-      "detail": "overlay",
+      "detail": "rolecap_queue",
       "name": "group_matches_metadata",
       "ok": "yes"
     },
     {
-      "detail": "9",
+      "detail": "5",
       "name": "order_matches_metadata",
       "ok": "yes"
     },
@@ -52,12 +52,12 @@
       "ok": "yes"
     },
     {
-      "detail": "report=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "report=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
       "name": "sha_matches_upload",
       "ok": "yes"
     },
     {
-      "detail": "metadata=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "metadata=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
       "name": "sha_matches_metadata",
       "ok": "yes"
     },
@@ -72,10 +72,10 @@
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-15T02:22:04+00:00",
+  "generated_at_utc": "2026-05-15T02:27:34+00:00",
   "rows": 397,
   "score_report": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
   "score_report_ready": "yes",
-  "sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+  "sha256": "c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
   "upload": "experiments/final_submission_package/current_upload/submission.csv"
 }

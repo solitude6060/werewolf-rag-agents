@@ -1,6 +1,6 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-15T02:17:25+00:00`
+Generated UTC: `2026-05-15T02:27:58+00:00`
 
 ## Upload now
 
@@ -10,11 +10,12 @@ Use this fixed path:
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Selected row source: `latest_record_recommended_next`
-Selected candidate: `v1840c` (`overlay` order `9`)
-Selected source: `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv`
+Selected row source: `current_upload_manual_override`
+Manual override reason: `last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5`
+Selected candidate: `v1846e` (`rolecap_queue` order `5`)
+Selected source: `experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv`
 Rows: `397`
-SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
+SHA-256: `c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912`
 Manifest validation status: `pass`
 Staged file exists: `yes`
 Staged file matches selected source: `yes`
@@ -23,7 +24,7 @@ Staged validator: `OK: 397 predictions validated`
 If staged match is not `yes`, run:
 
 ```bash
-python3 experiments/scripts/v1870_stage_current_upload.py --from-records
+python3 experiments/scripts/v1870_stage_current_upload.py --group rolecap_queue --order 5 --override-reason 'last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5'
 ```
 
 For the first upload with no records, this is also valid:
@@ -42,10 +43,10 @@ Expected guard result: `UPLOAD_READY=yes`.
 
 ## Attempt budget
 
-Attempts used from records: `3`
-Attempts remaining from records: `2`
-Best recorded score: `0.49266`
-Latest recorded score: `0.49266`
+Attempts used from records: `4`
+Attempts remaining from records: `1`
+Best recorded score: `0.49349`
+Latest recorded score: `0.49349`
 Stop threshold: `>0.52380`
 
 ## After real score appears
@@ -71,7 +72,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 9 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group rolecap_queue --order 5 --score <REAL_SCORE> --confirm-real-score
 ```
 
 ## Router preview for this selected row
@@ -79,12 +80,12 @@ python3 experiments/scripts/v1872_post_score_command_center.py --group overlay -
 | Scenario | Example score | Recommended next | Path check |
 | --- | ---: | --- | --- |
 | hit top-3 | `0.52381` | `STOP: score exceeds top-3 threshold.` | `not_a_csv` |
-| strong positive | `0.48000` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
-| tiny positive | `0.47120` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
-| exact current best | `0.47119` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
-| near baseline | `0.47080` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
-| small regression | `0.46600` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
-| severe regression | `0.46400` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| strong positive | `0.48000` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| tiny positive | `0.47120` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| exact current best | `0.47119` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| near baseline | `0.47080` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| small regression | `0.46600` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| severe regression | `0.46400` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
 
 ## Completion boundary
 

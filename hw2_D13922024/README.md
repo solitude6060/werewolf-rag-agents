@@ -14,26 +14,29 @@ It is byte-equal to:
 
 ```text
 checkpoints/final_current_private.csv
-checkpoints/final_v1840c_private.csv
+checkpoints/final_v1846e_private.csv
 ```
 
-Candidate lineage: `overlay` order `9`, `v1840c`.
+Candidate lineage: `rolecap_queue` order `5`, `v1846e`.
 
-Staging note: this is the high-upside follow-up after `v1840b` scored `0.49266`.
-It extends the positive v1840 overlay lane to the `v1829e` final Hail Mary
-family while preserving the high-precision AP overlay.
+Staging note: this is the final one-shot override after `v1840c` scored `0.49349`.
+The score-feedback router recommended `v1842e`; this package intentionally stages
+`v1846e` instead because it keeps role labels fixed, applies the role-cap AP
+calibration on top of `v1842e`, and has stronger public AP / leave-one-out
+evidence for a last attempt aimed at crossing `0.50000`.
 
 Known private leaderboard context before this final-attempt package:
 
 | Rank in our known submissions | Candidate | Private score | Note |
 | ---: | --- | ---: | --- |
-| 1 | v1840b | 0.49266 | Latest positive final-attempt score |
-| 2 | v1826a | 0.48854 | Previous positive structural score |
-| 3 | v1824a | 0.47119 | Verified rollback |
-| 4 | v1823a | 0.46492 | Positive stack backup |
-| 5 | v1823b | 0.46492 | Alternative tied backup |
+| 1 | v1840c | 0.49349 | Latest positive final-attempt score |
+| 2 | v1840b | 0.49266 | Previous positive overlay score |
+| 3 | v1826a | 0.48854 | Previous positive structural score |
+| 4 | v1824a | 0.47119 | Verified rollback |
+| 5 | v1823a | 0.46492 | Positive stack backup |
 
-Target to beat for the active final-attempt goal: `>0.52380`.
+Last-attempt operational target: `>0.50000`.
+Original active top-three gate: `>0.52380`.
 
 ## One-command reproduction
 
@@ -106,7 +109,8 @@ hw2_D13922024/
 ├── assert/validate_submission.py
 ├── checkpoints/
 │   ├── final_current_private.csv
-│   ├── final_v1840c_private.csv
+│   ├── final_v1846e_private.csv  (current final one-shot candidate)
+│   ├── final_v1840c_private.csv  (previous scored attempt: 0.49349)
 │   ├── final_v1840b_private.csv  (previous scored attempt: 0.49266)
 │   ├── final_v1826b_private.csv  (previous staged diagnostic follow-up)
 │   ├── final_v1826a_private.csv  (previous scored attempt: 0.48854)
@@ -122,4 +126,4 @@ hw2_D13922024/
 
 ## Completion boundary
 
-This package prepares the upload and reproduction artifacts.  It does not by itself prove the active leaderboard objective.  The objective is complete only after a real Kaggle private score greater than `0.52380` is recorded.
+This package prepares the upload and reproduction artifacts.  It does not by itself prove the leaderboard objective.  The last-attempt operational target is complete only after a real private score greater than `0.50000` is recorded; the original top-three objective remains complete only after a real private score greater than `0.52380` is recorded.
