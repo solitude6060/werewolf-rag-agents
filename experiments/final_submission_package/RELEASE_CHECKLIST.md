@@ -3,119 +3,98 @@
 Date: 2026-05-15  
 Branch: `dev/final-submission-report-pack`
 
-## Current upload
+## Final status
 
-Upload this file:
+All five final leaderboard attempts have been used.
+
+- Best verified candidate: `v1840c`
+- Best verified private score: `0.49349`
+- Failed last attempt: `v1846e = 0.46698`
+- Operational target `>0.50000`: not reached
+- Original top-three gate `>0.52380`: not reached
+
+## Final packaged submission
+
+Use this file for the final coursework package:
 
 ```text
+hw2_D13922024/submission.csv
+```
+
+It is byte-equal to:
+
+```text
+hw2_D13922024/checkpoints/final_current_private.csv
+hw2_D13922024/checkpoints/final_v1840c_private.csv
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Current staged candidate:
+Candidate:
 
 ```text
-scoreonly_safe_queue order 1, v1856g
+overlay order 9, v1840c
 ```
 
 Validation:
 
 ```text
 Rows: 397
-SHA-256: 468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d
+SHA-256: fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145
 Validator: OK: 397 predictions validated
 ```
 
-## One-command entry points
+## One-command entry point
 
-Rebuild the full candidate package:
-
-```bash
-python3 experiments/scripts/v1835_final_submission_pack.py --preset full
-```
-
-Show the current upload card:
+From the package directory:
 
 ```bash
-python3 experiments/scripts/v1871_final_attempt_cockpit.py
+cd hw2_D13922024
+python3 make_final.py --output submission.csv
 ```
 
-Run the final one-command preflight immediately before manual upload:
-
-```bash
-python3 experiments/scripts/v1888_final_upload_preflight.py
-```
-
-Expected output: `READY_TO_MANUAL_UPLOAD=yes`. The preflight also runs the pre-upload guard, validator, and candidate-pool coverage scan.
-
-After a real Kaggle private score appears, preview the route:
-
-```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>
-```
-
-Record the score only after confirming it is real:
-
-```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE> --confirm-real-score
-```
-
-## Package structure
+Expected output includes:
 
 ```text
-experiments/final_submission_package/
-  README.md
-  RELEASE_CHECKLIST.md
-  current_upload/
-    submission.csv
-    metadata.json
-    README.md
-    ATTEMPT_CARD.md
-  manifests/
-    final_submission_pack_manifest.csv
-    validation_log.txt
-    document_lint_log.txt
-  reports/
-    submission_strategy.md
-    reproducibility_checklist.md
-    hw2_report_draft.md
-  scoreonly_safe_queue/
-  portfolio_queue/
-  known_best/
-  known_best_overlay/
-  queue/
-  contingency/
-  overlay/
+OK: 397 predictions validated
 ```
 
-## Key reports
+## Verification before hand-in
 
-- `experiments/final_submission_package/reports/submission_strategy.md`
-- `experiments/reports/v1861_active_goal_completion_audit.md`
-- `experiments/reports/v1873_final_five_diversity_audit.md`
-- `experiments/reports/v1874_positive_signal_router_threshold.md`
-- `experiments/reports/v1875_route_matrix_regression.md`
-- `experiments/reports/v1883_pre_upload_guard.md`
-- `experiments/reports/v1884_candidate_pool_coverage_scan.md`
-- `experiments/reports/v1888_final_upload_preflight.md`
+From the workspace root:
 
-## Latest local verification
+```bash
+python3 hw2_D13922024/assert/validate_submission.py hw2_D13922024/submission.csv
+python3 hw2_D13922024/make_final.py --output /tmp/hw2_final_verify.csv
+python3 experiments/scripts/v1906_goal_completion_gate.py --out-json /tmp/hw2_final_gate.json --out-md /tmp/hw2_final_gate.md
+```
+
+Expected score gate result:
 
 ```text
-Route matrix: 45 scenarios, 0 failures
-Pre-upload guard: UPLOAD_READY=yes
-Candidate pool coverage: REVIEW_CANDIDATES=0
-Final upload preflight: READY_TO_MANUAL_UPLOAD=yes
-Current upload validator: OK: 397 predictions validated
-Submission-facing document findings: 0
-Broad problem-phrase findings: 0
+GOAL_COMPLETE=no
+BEST_SCORE=0.49349
+TOP3_THRESHOLD=0.52380
 ```
 
-## Stop condition
-
-The active score objective is not complete until a real Kaggle private score is strictly greater than:
+## Required files
 
 ```text
-0.52380
+hw2_D13922024/submission.csv
+hw2_D13922024/hw2_report.md
+hw2_D13922024/README.md
+hw2_D13922024/make_final.py
+hw2_D13922024/assert/validate_submission.py
+hw2_D13922024/checkpoints/final_current_private.csv
+hw2_D13922024/checkpoints/final_v1840c_private.csv
 ```
 
-No local proxy, manifest pass, route regression, or validator result is enough by itself.
+## Hygiene checks
+
+- No further leaderboard upload is available.
+- Do not package local `.omx`, cache, or credential files.
+- Do not use the failed last-attempt `v1846e` as the package default.
+- Preserve the score-feedback ledger for auditability:
+
+```text
+experiments/final_submission_package/manifests/v1836_score_feedback_records.csv
+```

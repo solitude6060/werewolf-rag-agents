@@ -1,9 +1,20 @@
 # HW2 Final Submission Package
 
-Student ID: `D13922024`  
-Package date: `2026-05-14`  
-Assignment deadline: `2026-05-15 23:59`  
+Student ID: `D13922024`
+Package date: `2026-05-14`
+Assignment deadline: `2026-05-15 23:59`
 Preset: `full`
+
+## Final closeout status
+
+All five final leaderboard attempts have been used.  The package default is now the best verified candidate, not the failed last attempt.
+
+- Final packaged candidate: `v1840c`
+- Best verified private score: `0.49349`
+- Failed last attempt: `v1846e = 0.46698`
+- Operational target `>0.50000`: not reached
+- Original top-three gate `>0.52380`: not reached
+- Final package path: `hw2_D13922024/submission.csv`
 
 ## One-command rebuild
 
@@ -38,25 +49,34 @@ python3 experiments/scripts/v1835_final_submission_pack.py --preset scoreonly-sa
 python3 experiments/scripts/v1835_final_submission_pack.py --preset full --skip-validation
 ```
 
-After rebuilding, run the upload guard and candidate-pool coverage audit before spending a real attempt:
+After rebuilding, run the guard and candidate-pool coverage audit for consistency.  No real attempts remain:
 
 ```bash
 python3 experiments/scripts/v1883_pre_upload_guard.py
 python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
 ```
 
-## What to upload to Kaggle
+## Final packaged CSV
 
-Upload one CSV from the selected queue/fallback group; use the strategy table and router before spending the next attempt.
-Stop immediately if any score is above `0.52380`.
+No further Kaggle upload is available.  For the coursework hand-in, use the best verified CSV:
 
-| Order | Candidate | Private score | File | Condition |
-| ---: | --- | ---: | --- | --- |
-| 1 | v1826a | pending | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` | Upload first in the normal final-attempt sequence. |
-| 2 | v1826b | pending | `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` | Use if v1826a improves or gives a positive signal. |
-| 3 | v1826d | pending | `experiments/final_submission_package/queue/03_v1826d_if_02_positive_private.csv` | Use if v1826b improves over v1826a. |
-| 4 | v1826c | pending | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | Use if still below the top-3 threshold and testing the g6 structural lane is acceptable. |
-| 5 | v1829e | pending | `experiments/final_submission_package/queue/05_v1829e_clean_hailmary_private.csv` | Preferred final-slot attempt if earlier queue entries are positive but still below top-3. |
+```text
+hw2_D13922024/submission.csv
+```
+
+Equivalent archive paths:
+
+```text
+hw2_D13922024/checkpoints/final_current_private.csv
+hw2_D13922024/checkpoints/final_v1840c_private.csv
+experiments/final_submission_package/current_upload/submission.csv
+```
+
+Candidate: `v1840c` (`overlay` order `9`)
+Private score: `0.49349`
+SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
+
+The tables below are preserved as the final-attempt archive and should not be interpreted as remaining upload instructions.
 
 ## Score-attack queue
 

@@ -1,21 +1,21 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-15T02:27:58+00:00`
+Generated UTC: `2026-05-15T02:37:55+00:00`
 
-## Upload now
+## Final archived best
 
-Use this fixed path:
+Use this fixed path for the final package default:
 
 ```text
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
 Selected row source: `current_upload_manual_override`
-Manual override reason: `last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5`
-Selected candidate: `v1846e` (`rolecap_queue` order `5`)
-Selected source: `experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv`
+Manual override reason: `final project closeout after all attempts exhausted; package default returns to best verified candidate v1840c=0.49349 rather than failed last attempt v1846e=0.46698`
+Selected candidate: `v1840c` (`overlay` order `9`)
+Selected source: `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv`
 Rows: `397`
-SHA-256: `c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912`
+SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
 Manifest validation status: `pass`
 Staged file exists: `yes`
 Staged file matches selected source: `yes`
@@ -24,7 +24,7 @@ Staged validator: `OK: 397 predictions validated`
 If staged match is not `yes`, run:
 
 ```bash
-python3 experiments/scripts/v1870_stage_current_upload.py --group rolecap_queue --order 5 --override-reason 'last chance target 0.5 after v1840c=0.49349; override router v1842e to v1846e because role-cap keeps labels fixed and has stronger public AP/LOO evidence for crossing 0.5'
+python3 experiments/scripts/v1870_stage_current_upload.py --group overlay --order 9 --override-reason 'final project closeout after all attempts exhausted; package default returns to best verified candidate v1840c=0.49349 rather than failed last attempt v1846e=0.46698'
 ```
 
 For the first upload with no records, this is also valid:
@@ -33,25 +33,25 @@ For the first upload with no records, this is also valid:
 python3 experiments/scripts/v1870_stage_current_upload.py
 ```
 
-Before manually uploading, run the final guard:
+Before packaging or hand-in, run the final guard:
 
 ```bash
 python3 experiments/scripts/v1883_pre_upload_guard.py
 ```
 
-Expected guard result: `UPLOAD_READY=yes`.
+Expected guard result: `UPLOAD_READY=yes` for file consistency; no upload attempts remain.
 
 ## Attempt budget
 
-Attempts used from records: `4`
-Attempts remaining from records: `1`
+Attempts used from records: `5`
+Attempts remaining from records: `0`
 Best recorded score: `0.49349`
-Latest recorded score: `0.49349`
+Latest recorded score: `0.46698`
 Stop threshold: `>0.52380`
 
-## After real score appears
+## Score recording status
 
-Use the no-edit current-upload bridge first; it reads the staged metadata and avoids typing group/order by hand:
+All five final attempts have already been recorded.  The best recorded score is `v1840c = 0.49349`; the failed last attempt is `v1846e = 0.46698`.  The commands below are retained only for traceability:
 
 ```bash
 python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>
@@ -72,7 +72,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group rolecap_queue --order 5 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 9 --score <REAL_SCORE> --confirm-real-score
 ```
 
 ## Router preview for this selected row
@@ -80,12 +80,12 @@ python3 experiments/scripts/v1872_post_score_command_center.py --group rolecap_q
 | Scenario | Example score | Recommended next | Path check |
 | --- | ---: | --- | --- |
 | hit top-3 | `0.52381` | `STOP: score exceeds top-3 threshold.` | `not_a_csv` |
-| strong positive | `0.48000` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| tiny positive | `0.47120` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| exact current best | `0.47119` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| near baseline | `0.47080` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| small regression | `0.46600` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
-| severe regression | `0.46400` | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` | `not_a_csv` |
+| strong positive | `0.48000` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
+| tiny positive | `0.47120` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
+| exact current best | `0.47119` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
+| near baseline | `0.47080` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
+| small regression | `0.46600` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
+| severe regression | `0.46400` | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `ok manifest_status=pass candidate=v1842e` |
 
 ## Completion boundary
 

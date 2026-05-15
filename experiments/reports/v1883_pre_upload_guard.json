@@ -1,6 +1,6 @@
 {
   "attempt_context": "followup_from_records",
-  "candidate": "v1846e",
+  "candidate": "v1840c",
   "checks": [
     {
       "check": "manifest_exists",
@@ -19,27 +19,27 @@
     },
     {
       "check": "score_records_present_for_followup",
-      "detail": "4",
+      "detail": "5",
       "ok": "yes"
     },
     {
       "check": "latest_recommended_next_is_csv",
-      "detail": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
-      "ok": "yes"
+      "detail": "NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
+      "ok": "no"
     },
     {
       "check": "attempt_state_guard_ready",
-      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=manual_override_from_records; RECORDS_COUNT=4; RECOMMENDED_NEXT=experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
-      "ok": "yes"
+      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=no; STATE=manual_override_from_records; RECORDS_COUNT=5; RECOMMENDED_NEXT=NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.; CURRENT_SOURCE_PATH=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json; attempt state guard failed: attempt_budget_not_exhausted,latest_recommended_next_concrete,latest_recommended_next_in_manifest,manual_override_not_already_uploaded",
+      "ok": "no"
     },
     {
       "check": "manifest_row_found",
-      "detail": "rolecap_queue#5",
+      "detail": "overlay#9",
       "ok": "yes"
     },
     {
       "check": "manifest_candidate_matches",
-      "detail": "v1846e",
+      "detail": "v1840c",
       "ok": "yes"
     },
     {
@@ -49,12 +49,12 @@
     },
     {
       "check": "metadata_source_matches_manifest",
-      "detail": "experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
+      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
       "ok": "yes"
     },
     {
       "check": "source_exists",
-      "detail": "experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
+      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
       "ok": "yes"
     },
     {
@@ -64,17 +64,17 @@
     },
     {
       "check": "current_upload_sha_matches_metadata",
-      "detail": "upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 metadata=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
+      "detail": "upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 metadata=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_manifest",
-      "detail": "upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 manifest=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
+      "detail": "upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 manifest=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
       "ok": "yes"
     },
     {
       "check": "current_upload_sha_matches_source",
-      "detail": "upload=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912 source=c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
+      "detail": "upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 source=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
       "ok": "yes"
     },
     {
@@ -84,13 +84,13 @@
     },
     {
       "check": "attempt_budget_command_ok",
-      "detail": "ATTEMPT_BUDGET; records_path=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv; max_attempts=5; attempts_used=4; attempts_remaining=1; best_score=0.49349; best_candidate=v1840c; best_group=overlay; delta_vs_current_best=+0.02230; latest_score=0.49349; latest_recommended_next=experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv; top3_hit=no; next_action=VALIDATE_AND_UPLOAD_RECOMMENDED_NEXT; next_command=python3 experiments/scripts/v1866_final_attempt_runbook.py --from-records; stage_command=python3 experiments/scripts/v1870_stage_current_upload.py --from-records",
+      "detail": "ATTEMPT_BUDGET; records_path=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv; max_attempts=5; attempts_used=5; attempts_remaining=0; best_score=0.49349; best_candidate=v1840c; best_group=overlay; delta_vs_current_best=+0.02230; latest_score=0.46698; latest_recommended_next=NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.; top3_hit=no; next_action=NO_ATTEMPTS_REMAINING",
       "ok": "yes"
     },
     {
       "check": "attempts_remaining_positive",
-      "detail": "1",
-      "ok": "yes"
+      "detail": "0",
+      "ok": "no"
     },
     {
       "check": "top3_not_already_hit",
@@ -103,11 +103,11 @@
       "ok": "yes"
     }
   ],
-  "group": "rolecap_queue",
-  "order": 5,
+  "group": "overlay",
+  "order": 9,
   "rows": 397,
-  "sha256": "c9e4d0d236c08296f6a5501219d05eb1c5861345cd1de7dcbae5c11c83e75912",
+  "sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
   "stop_if_score_greater_than": 0.5238,
   "upload_path": "experiments/final_submission_package/current_upload/submission.csv",
-  "upload_ready": true
+  "upload_ready": false
 }

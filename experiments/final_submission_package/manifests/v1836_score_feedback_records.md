@@ -9,3 +9,4 @@ Top-3 target: `>0.52380`.
 | 2026-05-15T01:55:50+00:00 | queue | 1 | v1826a | 0.48854 | +0.01735 | no | `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` |
 | 2026-05-15T02:15:53+00:00 | overlay | 8 | v1840b | 0.49266 | +0.02147 | no | `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv` |
 | 2026-05-15T02:25:22+00:00 | overlay | 9 | v1840c | 0.49349 | +0.02230 | no | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` |
+| 2026-05-15T02:35:17+00:00 | rolecap_queue | 5 | v1846e | 0.46698 | -0.00421 | no | `NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.` |
