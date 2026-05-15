@@ -84,7 +84,68 @@
       "detail": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
       "name": "alias_3_sha_matches",
       "ok": "yes"
+    },
+    {
+      "detail": ".",
+      "name": "lookalike_scan_completed",
+      "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-15T00:33:12+00:00"
+  "generated_at_utc": "2026-05-15T01:00:05+00:00",
+  "lookalikes": [
+    {
+      "detail": "safe upload path",
+      "exists": "yes",
+      "path": "experiments/final_submission_package/current_upload/submission.csv",
+      "rows": "397",
+      "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
+      "sha_matches": "yes",
+      "status": "safe_whitelist"
+    },
+    {
+      "detail": "different SHA or row count from canonical current upload",
+      "exists": "yes",
+      "path": "experiments/worktrees/consistency-solver/hw2_D13922024/submission.csv",
+      "rows": "673",
+      "sha256": "6abc72ae3aae93fdba09868e82903c6b8550d424eda9d290e890134847dd9f0a",
+      "sha_matches": "no",
+      "status": "do_not_upload"
+    },
+    {
+      "detail": "different SHA or row count from canonical current upload",
+      "exists": "yes",
+      "path": "experiments/worktrees/endgame-parser/hw2_D13922024/submission.csv",
+      "rows": "673",
+      "sha256": "6abc72ae3aae93fdba09868e82903c6b8550d424eda9d290e890134847dd9f0a",
+      "sha_matches": "no",
+      "status": "do_not_upload"
+    },
+    {
+      "detail": "different SHA or row count from canonical current upload",
+      "exists": "yes",
+      "path": "experiments/worktrees/v53-feedback/hw2_D13922024/submission.csv",
+      "rows": "673",
+      "sha256": "6abc72ae3aae93fdba09868e82903c6b8550d424eda9d290e890134847dd9f0a",
+      "sha_matches": "no",
+      "status": "do_not_upload"
+    },
+    {
+      "detail": "safe upload path",
+      "exists": "yes",
+      "path": "hw2_D13922024/submission.csv",
+      "rows": "397",
+      "sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
+      "sha_matches": "yes",
+      "status": "safe_whitelist"
+    },
+    {
+      "detail": "different SHA or row count from canonical current upload",
+      "exists": "yes",
+      "path": "werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv",
+      "rows": "673",
+      "sha256": "6abc72ae3aae93fdba09868e82903c6b8550d424eda9d290e890134847dd9f0a",
+      "sha_matches": "no",
+      "status": "do_not_upload"
+    }
+  ]
 }

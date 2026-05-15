@@ -18,6 +18,7 @@ DEFAULT_STATIC_ALIASES = [UPLOAD_ROOT / "submission.csv"]
 OUT_JSON = Path("experiments/reports/v1902_upload_alias_guard.json")
 OUT_MD = Path("experiments/reports/v1902_upload_alias_guard.md")
 EXPECTED_ROWS = 397
+DEFAULT_SCAN_ROOT = Path(".")
 
 
 def sha256(path: Path) -> str:
@@ -48,10 +49,67 @@ def default_aliases() -> list[Path]:
     return list(dict.fromkeys(aliases))
 
 
+def is_inside_git(path: Path) -> bool:
+    return ".git" in path.parts
+
+
+def path_key(path: Path) -> str:
+    try:
+        return str(path.resolve())
+    except FileNotFoundError:
+        return str(path)
+
+
+def find_submission_lookalikes(scan_root: Path, canonical: Path, aliases: list[Path], canonical_sha: str) -> list[dict[str, str]]:
+    """Find submission.csv files that a manual file picker might expose."""
+    safe_keys = {path_key(canonical)}
+    safe_keys.update(path_key(alias) for alias in aliases if alias.exists())
+    lookalikes: list[dict[str, str]] = []
+    if not scan_root.exists():
+        return lookalikes
+
+    for path in sorted(scan_root.rglob("submission.csv")):
+        if is_inside_git(path):
+            continue
+        exists = path.exists()
+        rows = row_count(path) if exists else 0
+        file_sha = sha256(path) if exists else ""
+        is_safe_path = path_key(path) in safe_keys
+        sha_matches = bool(canonical_sha) and file_sha == canonical_sha
+        if is_safe_path and sha_matches and rows == EXPECTED_ROWS:
+            status = "safe_whitelist"
+            detail = "safe upload path"
+        elif sha_matches and rows == EXPECTED_ROWS:
+            status = "unlisted_same_bytes"
+            detail = "same bytes as canonical but not in upload alias whitelist"
+        else:
+            status = "do_not_upload"
+            detail = "different SHA or row count from canonical current upload"
+        lookalikes.append(
+            {
+                "path": str(path),
+                "exists": "yes" if exists else "no",
+                "rows": str(rows),
+                "sha256": file_sha,
+                "sha_matches": "yes" if sha_matches else "no",
+                "status": status,
+                "detail": detail,
+            }
+        )
+    return lookalikes
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Check upload CSV aliases against the canonical current upload.")
     parser.add_argument("--canonical", type=Path, default=CANONICAL)
     parser.add_argument("--alias", type=Path, action="append", default=None)
+    parser.add_argument(
+        "--scan-root",
+        type=Path,
+        default=DEFAULT_SCAN_ROOT,
+        help="Root to scan for submission.csv lookalikes. Defaults to the repository root.",
+    )
+    parser.add_argument("--no-lookalike-scan", action="store_true", help="Skip repository-wide submission.csv lookalike scan.")
     parser.add_argument("--out-json", type=Path, default=OUT_JSON)
     parser.add_argument("--out-md", type=Path, default=OUT_MD)
     return parser.parse_args()
@@ -81,6 +139,20 @@ def write_outputs(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
         detail = str(alias["detail"]).replace("|", "\\|")
         lines.append(
             f"| `{alias['path']}` | {alias['exists']} | `{alias['rows']}` | {alias['sha_matches']} | `{detail}` |"
+        )
+    lines.extend(
+        [
+            "",
+            "## submission.csv lookalike scan",
+            "",
+            "| Path | Rows | SHA matches canonical | Status | Detail |",
+            "| --- | ---: | --- | --- | --- |",
+        ]
+    )
+    for item in payload["lookalikes"]:
+        detail = str(item["detail"]).replace("|", "\\|")
+        lines.append(
+            f"| `{item['path']}` | `{item['rows']}` | {item['sha_matches']} | `{item['status']}` | `{detail}` |"
         )
     lines.extend(
         [
@@ -140,6 +212,9 @@ def main() -> None:
             }
         )
 
+    lookalikes = [] if args.no_lookalike_scan else find_submission_lookalikes(args.scan_root, args.canonical, aliases, canonical_sha)
+    add_check(checks, "lookalike_scan_completed", True, "skipped" if args.no_lookalike_scan else str(args.scan_root))
+
     ready = all(check["ok"] == "yes" for check in checks)
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -148,6 +223,7 @@ def main() -> None:
         "canonical_rows": canonical_rows,
         "canonical_sha256": canonical_sha,
         "aliases": alias_payloads,
+        "lookalikes": lookalikes,
         "checks": checks,
     }
     write_outputs(payload, args.out_json, args.out_md)
@@ -159,6 +235,8 @@ def main() -> None:
     print(f"CANONICAL_SHA256={canonical_sha}")
     for alias in alias_payloads:
         print(f"ALIAS={alias['path']} rows={alias['rows']} sha_matches={alias['sha_matches']}")
+    for item in lookalikes:
+        print(f"LOOKALIKE={item['path']} rows={item['rows']} sha_matches={item['sha_matches']} status={item['status']}")
     print(f"REPORT={args.out_md}")
     print(f"JSON={args.out_json}")
     if not ready:

@@ -2,3 +2,4 @@ label,exit_code,expected_exit,expected_text,text_found,pass
 valid_alias_passes,0,zero,ALIAS_GUARD_READY=yes,yes,yes
 sha_mismatch_rejected,1,nonzero,alias_1_sha_matches,yes,yes
 missing_alias_rejected,1,nonzero,alias_1_exists,yes,yes
+unsafe_lookalike_reported,0,zero,LOOKALIKE=,yes,yes

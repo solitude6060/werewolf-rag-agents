@@ -1,6 +1,6 @@
 # v1902 Upload Alias Guard
 
-Generated UTC: `2026-05-15T00:33:12+00:00`
+Generated UTC: `2026-05-15T01:00:05+00:00`
 
 ## Summary
 
@@ -17,6 +17,17 @@ Generated UTC: `2026-05-15T00:33:12+00:00`
 | `hw2_D13922024/checkpoints/final_current_private.csv` | yes | `397` | yes | `ok` |
 | `hw2_D13922024/checkpoints/final_v1826a_private.csv` | yes | `397` | yes | `ok` |
 
+## submission.csv lookalike scan
+
+| Path | Rows | SHA matches canonical | Status | Detail |
+| --- | ---: | --- | --- | --- |
+| `experiments/final_submission_package/current_upload/submission.csv` | `397` | yes | `safe_whitelist` | `safe upload path` |
+| `experiments/worktrees/consistency-solver/hw2_D13922024/submission.csv` | `673` | no | `do_not_upload` | `different SHA or row count from canonical current upload` |
+| `experiments/worktrees/endgame-parser/hw2_D13922024/submission.csv` | `673` | no | `do_not_upload` | `different SHA or row count from canonical current upload` |
+| `experiments/worktrees/v53-feedback/hw2_D13922024/submission.csv` | `673` | no | `do_not_upload` | `different SHA or row count from canonical current upload` |
+| `hw2_D13922024/submission.csv` | `397` | yes | `safe_whitelist` | `safe upload path` |
+| `werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv` | `673` | no | `do_not_upload` | `different SHA or row count from canonical current upload` |
+
 ## Checks
 
 | Check | OK | Detail |
@@ -32,6 +43,7 @@ Generated UTC: `2026-05-15T00:33:12+00:00`
 | alias_3_exists | yes | `hw2_D13922024/checkpoints/final_v1826a_private.csv` |
 | alias_3_rows_match | yes | `alias=397 canonical=397` |
 | alias_3_sha_matches | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| lookalike_scan_completed | yes | `.` |
 
 ## Completion boundary
 

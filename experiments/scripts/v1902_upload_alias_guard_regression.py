@@ -15,10 +15,19 @@ OUT_CSV = Path("experiments/reports/v1902_upload_alias_guard_regression.csv")
 OUT_MD = Path("experiments/reports/v1902_upload_alias_guard_regression.md")
 
 
-def run_guard(canonical: Path, aliases: list[Path], out_json: Path, out_md: Path) -> subprocess.CompletedProcess[str]:
+def run_guard(
+    canonical: Path,
+    aliases: list[Path],
+    out_json: Path,
+    out_md: Path,
+    *,
+    scan_root: Path | None = None,
+) -> subprocess.CompletedProcess[str]:
     cmd = [sys.executable, str(GUARD), "--canonical", str(canonical), "--out-json", str(out_json), "--out-md", str(out_md)]
     for alias in aliases:
         cmd.extend(["--alias", str(alias)])
+    if scan_root is not None:
+        cmd.extend(["--scan-root", str(scan_root)])
     return subprocess.run(cmd, text=True, capture_output=True, check=False)
 
 
@@ -39,10 +48,15 @@ def main() -> None:
         alias_ok = tmpdir / "alias_ok.csv"
         alias_bad = tmpdir / "alias_bad.csv"
         missing_alias = tmpdir / "missing.csv"
+        unsafe_dir = tmpdir / "legacy"
+        unsafe_dir.mkdir()
+        unsafe_lookalike = unsafe_dir / "submission.csv"
         shutil.copyfile(CANONICAL, canonical)
         shutil.copyfile(CANONICAL, alias_ok)
         shutil.copyfile(CANONICAL, alias_bad)
+        shutil.copyfile(CANONICAL, unsafe_lookalike)
         mutate_csv(alias_bad)
+        mutate_csv(unsafe_lookalike)
 
         cases = [
             {
@@ -63,14 +77,23 @@ def main() -> None:
                 "label": "missing_alias_rejected",
                 "canonical": canonical,
                 "aliases": [missing_alias],
+                "scan_root": None,
                 "expect_exit": "nonzero",
                 "expect_text": "alias_1_exists",
+            },
+            {
+                "label": "unsafe_lookalike_reported",
+                "canonical": canonical,
+                "aliases": [alias_ok],
+                "scan_root": tmpdir,
+                "expect_exit": "zero",
+                "expect_text": "LOOKALIKE=",
             },
         ]
         for case in cases:
             out_json = tmpdir / f"{case['label']}.json"
             out_md = tmpdir / f"{case['label']}.md"
-            proc = run_guard(case["canonical"], case["aliases"], out_json, out_md)
+            proc = run_guard(case["canonical"], case["aliases"], out_json, out_md, scan_root=case.get("scan_root"))
             output = (proc.stdout + proc.stderr).strip()
             if out_md.exists():
                 output += "\n" + out_md.read_text(encoding="utf-8")
@@ -119,11 +142,11 @@ def main() -> None:
             "",
             "## Decision",
             "",
-            "The guard accepts identical upload aliases and rejects missing or byte-different aliases.",
+            "The guard accepts identical upload aliases, rejects missing or byte-different aliases, and reports unsafe submission.csv lookalikes without blocking the valid current upload.",
             "",
             "## Completion boundary",
             "",
-            "This regression validates local wrong-file prevention only. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This regression validates local wrong-file prevention only. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

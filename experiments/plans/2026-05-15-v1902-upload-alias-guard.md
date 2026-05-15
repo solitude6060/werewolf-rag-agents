@@ -16,7 +16,9 @@ The browser upload dialog is manual. Even with a canonical path, it is easy to s
 - Add `experiments/scripts/v1902_upload_alias_guard.py`.
 - Compare canonical upload against:
   - `hw2_D13922024/submission.csv`
-  - `hw2_D13922024/checkpoints/final_v1856g_private.csv`
+  - `hw2_D13922024/checkpoints/final_current_private.csv`
+  - `hw2_D13922024/checkpoints/final_<candidate>_private.csv`
+- Scan repository-local `submission.csv` lookalikes and report non-whitelisted paths as `do_not_upload` when their SHA/row count differs from the canonical current upload.
 - Check existence, row count, and SHA-256 equality.
 - Add regression for valid aliases, SHA mismatch, and missing alias.
 - Wire the guard into `experiments/scripts/v1888_final_upload_preflight.py`.
@@ -25,7 +27,7 @@ The browser upload dialog is manual. Even with a canonical path, it is easy to s
 
 - Do not upload to Kaggle.
 - Do not alter candidate CSV content.
-- Do not mark the active goal complete without a real recorded score greater than `0.50671`.
+- Do not mark the active goal complete without a real recorded score greater than `0.52380`.
 
 ## Validation standard
 
@@ -36,4 +38,4 @@ The browser upload dialog is manual. Even with a canonical path, it is easy to s
 
 ## Stop condition
 
-The final preflight reports alias guard ready, and any manual upload path among the canonical/current/package/final-checkpoint CSVs resolves to the same bytes and 397-row submission.
+The final preflight reports alias guard ready, any manual upload path among the canonical/current/package/final-checkpoint CSVs resolves to the same bytes and 397-row submission, and stale lookalike `submission.csv` files are visible as do-not-upload warnings.
