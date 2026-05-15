@@ -54,29 +54,29 @@ def main() -> None:
 
     cases = [
         {
-            "label": "current_tiny_positive",
-            "args": ["--score", "0.47120"],
+            "label": "scoreonly_order1_tiny_positive",
+            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.47120"],
             "expected_status": "concrete_ok:scoreonly_safe_queue#2:v1853g",
             "expected_next": "scoreonly_safe_queue/02_v1853g_scoreonly_max_proxy_private.csv",
             "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.47120 --confirm-real-score",
         },
         {
-            "label": "current_exact_best",
-            "args": ["--score", "0.47119"],
+            "label": "scoreonly_order1_exact_best",
+            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.47119"],
             "expected_status": "concrete_ok:scoreonly_safe_queue#3:v1850g",
             "expected_next": "scoreonly_safe_queue/03_v1850g_scoreonly_lowtail_private.csv",
             "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.47119 --confirm-real-score",
         },
         {
-            "label": "current_top3_stop",
-            "args": ["--score", "0.50672"],
+            "label": "scoreonly_order1_top3_stop",
+            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.50672"],
             "expected_status": "non_concrete_ok",
             "expected_next": "STOP: score exceeds top-3 threshold.",
             "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.50672 --confirm-real-score",
         },
         {
-            "label": "current_severe_regression",
-            "args": ["--score", "0.46400"],
+            "label": "scoreonly_order1_severe_regression",
+            "args": ["--group", "scoreonly_safe_queue", "--order", "1", "--score", "0.46400"],
             "expected_status": "concrete_ok:scoreonly_safe_queue#5:v1846g",
             "expected_next": "scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
             "expected_confirm_fragment": "--group scoreonly_safe_queue --order 1 --score 0.46400 --confirm-real-score",

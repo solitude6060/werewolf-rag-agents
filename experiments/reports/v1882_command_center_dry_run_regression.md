@@ -6,8 +6,8 @@ Date: 2026-05-15
 
 - Scenarios checked: `7`
 - Failures: `0`
-- Score feedback records existed before: `False`
-- Score feedback records existed after: `False`
+- Score feedback records existed before: `True`
+- Score feedback records existed after: `True`
 - Current upload SHA unchanged: `True`
 - Current metadata SHA unchanged: `True`
 
@@ -15,10 +15,10 @@ Date: 2026-05-15
 
 | Label | Next path status | Write status | Pass |
 | --- | --- | --- | --- |
-| current_tiny_positive | `concrete_ok:scoreonly_safe_queue#2:v1853g` | `dry_run_only` | yes |
-| current_exact_best | `concrete_ok:scoreonly_safe_queue#3:v1850g` | `dry_run_only` | yes |
-| current_top3_stop | `non_concrete_ok` | `dry_run_only` | yes |
-| current_severe_regression | `concrete_ok:scoreonly_safe_queue#5:v1846g` | `dry_run_only` | yes |
+| scoreonly_order1_tiny_positive | `concrete_ok:scoreonly_safe_queue#2:v1853g` | `dry_run_only` | yes |
+| scoreonly_order1_exact_best | `concrete_ok:scoreonly_safe_queue#3:v1850g` | `dry_run_only` | yes |
+| scoreonly_order1_top3_stop | `non_concrete_ok` | `dry_run_only` | yes |
+| scoreonly_order1_severe_regression | `concrete_ok:scoreonly_safe_queue#5:v1846g` | `dry_run_only` | yes |
 | portfolio_order2_positive_preserves_previous | `concrete_ok:charprior_queue#2:v1853b` | `dry_run_only` | yes |
 | portfolio_order2_skip_stage_preserved | `concrete_ok:charprior_queue#2:v1853b` | `dry_run_only` | yes |
 | charprior_order2_positive | `concrete_ok:charprior_queue#3:v1853c` | `dry_run_only` | yes |

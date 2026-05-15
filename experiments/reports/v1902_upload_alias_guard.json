@@ -6,21 +6,29 @@
       "exists": "yes",
       "path": "hw2_D13922024/submission.csv",
       "rows": "397",
-      "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "sha_matches": "yes"
     },
     {
       "detail": "ok",
       "exists": "yes",
-      "path": "hw2_D13922024/checkpoints/final_v1856g_private.csv",
+      "path": "hw2_D13922024/checkpoints/final_current_private.csv",
       "rows": "397",
-      "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "sha_matches": "yes"
+    },
+    {
+      "detail": "ok",
+      "exists": "yes",
+      "path": "hw2_D13922024/checkpoints/final_v1846g_private.csv",
+      "rows": "397",
+      "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "sha_matches": "yes"
     }
   ],
   "canonical": "experiments/final_submission_package/current_upload/submission.csv",
   "canonical_rows": 397,
-  "canonical_sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "canonical_sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
   "checks": [
     {
       "detail": "experiments/final_submission_package/current_upload/submission.csv",
@@ -43,12 +51,12 @@
       "ok": "yes"
     },
     {
-      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "alias_1_sha_matches",
       "ok": "yes"
     },
     {
-      "detail": "hw2_D13922024/checkpoints/final_v1856g_private.csv",
+      "detail": "hw2_D13922024/checkpoints/final_current_private.csv",
       "name": "alias_2_exists",
       "ok": "yes"
     },
@@ -58,10 +66,25 @@
       "ok": "yes"
     },
     {
-      "detail": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "alias_2_sha_matches",
+      "ok": "yes"
+    },
+    {
+      "detail": "hw2_D13922024/checkpoints/final_v1846g_private.csv",
+      "name": "alias_3_exists",
+      "ok": "yes"
+    },
+    {
+      "detail": "alias=397 canonical=397",
+      "name": "alias_3_rows_match",
+      "ok": "yes"
+    },
+    {
+      "detail": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
+      "name": "alias_3_sha_matches",
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-14T19:06:33+00:00"
+  "generated_at_utc": "2026-05-15T00:18:47+00:00"
 }

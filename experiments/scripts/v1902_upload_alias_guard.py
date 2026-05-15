@@ -11,10 +11,10 @@ from pathlib import Path
 from typing import Any
 
 CANONICAL = Path("experiments/final_submission_package/current_upload/submission.csv")
-DEFAULT_ALIASES = [
-    Path("hw2_D13922024/submission.csv"),
-    Path("hw2_D13922024/checkpoints/final_v1856g_private.csv"),
-]
+METADATA = Path("experiments/final_submission_package/current_upload/metadata.json")
+UPLOAD_ROOT = Path("hw2_D13922024")
+CHECKPOINT_DIR = UPLOAD_ROOT / "checkpoints"
+DEFAULT_STATIC_ALIASES = [UPLOAD_ROOT / "submission.csv"]
 OUT_JSON = Path("experiments/reports/v1902_upload_alias_guard.json")
 OUT_MD = Path("experiments/reports/v1902_upload_alias_guard.md")
 EXPECTED_ROWS = 397
@@ -35,6 +35,17 @@ def row_count(path: Path) -> int:
 
 def add_check(checks: list[dict[str, str]], name: str, ok: bool, detail: str) -> None:
     checks.append({"name": name, "ok": "yes" if ok else "no", "detail": detail})
+
+
+def default_aliases() -> list[Path]:
+    aliases = list(DEFAULT_STATIC_ALIASES)
+    if METADATA.exists():
+        data = json.loads(METADATA.read_text(encoding="utf-8"))
+        candidate = str(data.get("candidate", "")).strip()
+        aliases.append(CHECKPOINT_DIR / "final_current_private.csv")
+        if candidate:
+            aliases.append(CHECKPOINT_DIR / f"final_{candidate}_private.csv")
+    return list(dict.fromkeys(aliases))
 
 
 def parse_args() -> argparse.Namespace:
@@ -97,7 +108,7 @@ def write_outputs(payload: dict[str, Any], out_json: Path, out_md: Path) -> None
 
 def main() -> None:
     args = parse_args()
-    aliases = args.alias if args.alias is not None else DEFAULT_ALIASES
+    aliases = args.alias if args.alias is not None else default_aliases()
     checks: list[dict[str, str]] = []
     alias_payloads: list[dict[str, str]] = []
 

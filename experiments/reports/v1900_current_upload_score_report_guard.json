@@ -1,5 +1,5 @@
 {
-  "candidate": "v1856g",
+  "candidate": "v1846g",
   "checks": [
     {
       "detail": "experiments/final_submission_package/current_upload/submission.csv",
@@ -27,7 +27,7 @@
       "ok": "yes"
     },
     {
-      "detail": "v1856g",
+      "detail": "v1846g",
       "name": "candidate_matches_metadata",
       "ok": "yes"
     },
@@ -37,7 +37,7 @@
       "ok": "yes"
     },
     {
-      "detail": "1",
+      "detail": "5",
       "name": "order_matches_metadata",
       "ok": "yes"
     },
@@ -52,12 +52,12 @@
       "ok": "yes"
     },
     {
-      "detail": "report=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "report=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "sha_matches_upload",
       "ok": "yes"
     },
     {
-      "detail": "metadata=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "metadata=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "sha_matches_metadata",
       "ok": "yes"
     },
@@ -72,10 +72,10 @@
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-14T19:02:47+00:00",
+  "generated_at_utc": "2026-05-15T00:18:47+00:00",
   "rows": 397,
   "score_report": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
   "score_report_ready": "yes",
-  "sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+  "sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
   "upload": "experiments/final_submission_package/current_upload/submission.csv"
 }

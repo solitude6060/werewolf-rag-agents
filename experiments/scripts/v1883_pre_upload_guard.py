@@ -16,6 +16,7 @@ CURRENT_METADATA = Path("experiments/final_submission_package/current_upload/met
 VALIDATOR = Path("werewolf-project/assert/validate_submission.py")
 BUDGET = Path("experiments/scripts/v1869_attempt_budget_guard.py")
 COMMAND_CENTER_REGRESSION = Path("experiments/scripts/v1882_command_center_dry_run_regression.py")
+ATTEMPT_STATE_GUARD = Path("experiments/scripts/v1904_attempt_state_guard.py")
 OUT_JSON = Path("experiments/reports/v1883_pre_upload_guard.json")
 OUT_MD = Path("experiments/reports/v1883_pre_upload_guard.md")
 TOP3 = 0.50671
@@ -69,6 +70,10 @@ def parse_budget(output: str) -> dict[str, str]:
     return data
 
 
+def parse_kv(output: str) -> dict[str, str]:
+    return parse_budget(output)
+
+
 def main() -> None:
     checks: list[dict[str, str]] = []
 
@@ -86,8 +91,27 @@ def main() -> None:
     candidate = str(metadata.get("candidate", ""))
     metadata_sha = str(metadata.get("sha256", ""))
     source_path = Path(str(metadata.get("source_path", "")))
+    record_rows = read_rows(RECORDS) if RECORDS.exists() else []
+    attempt_context = "followup_from_records" if record_rows else "first_upload"
 
-    add("metadata_context_is_first_upload", group == EXPECTED_FIRST_GROUP and order == EXPECTED_FIRST_ORDER and candidate == EXPECTED_FIRST_CANDIDATE, f"{group}#{order}:{candidate}")
+    if attempt_context == "first_upload":
+        add(
+            "metadata_context_is_first_upload",
+            group == EXPECTED_FIRST_GROUP and order == EXPECTED_FIRST_ORDER and candidate == EXPECTED_FIRST_CANDIDATE,
+            f"{group}#{order}:{candidate}",
+        )
+    else:
+        latest_recommended = record_rows[-1].get("recommended_next", "").strip()
+        add("score_records_present_for_followup", True, str(len(record_rows)))
+        add("latest_recommended_next_is_csv", latest_recommended.endswith(".csv"), latest_recommended)
+        attempt_code, attempt_output = run([sys.executable, str(ATTEMPT_STATE_GUARD)])
+        attempt_state = parse_kv(attempt_output)
+        add(
+            "attempt_state_guard_ready",
+            attempt_code == 0 and attempt_state.get("ATTEMPT_STATE_READY") == "yes",
+            attempt_output.replace("\n", "; "),
+        )
+
     row = find_manifest_row(manifest_rows, group, order) if manifest_rows else None
     add("manifest_row_found", row is not None, f"{group}#{order}")
     if row is not None:
@@ -101,7 +125,8 @@ def main() -> None:
     upload_sha = sha256(CURRENT_UPLOAD) if CURRENT_UPLOAD.exists() else ""
     upload_rows = row_count(CURRENT_UPLOAD) if CURRENT_UPLOAD.exists() else -1
     add("current_upload_rows_397", upload_rows == 397, str(upload_rows))
-    add("current_upload_sha_matches_expected", upload_sha == EXPECTED_SHA, upload_sha)
+    if attempt_context == "first_upload":
+        add("current_upload_sha_matches_expected", upload_sha == EXPECTED_SHA, upload_sha)
     add("current_upload_sha_matches_metadata", upload_sha == metadata_sha, f"upload={upload_sha} metadata={metadata_sha}")
     if row is not None:
         add("current_upload_sha_matches_manifest", upload_sha == row.get("sha256", ""), f"upload={upload_sha} manifest={row.get('sha256', '')}")
@@ -112,13 +137,20 @@ def main() -> None:
     valid_ok, valid_output = validator(CURRENT_UPLOAD) if CURRENT_UPLOAD.exists() else (False, "missing upload")
     add("validator_ok", valid_ok, valid_output)
 
-    records_absent = not RECORDS.exists()
-    add("score_records_absent_for_first_upload", records_absent, str(RECORDS))
+    if attempt_context == "first_upload":
+        add("score_records_absent_for_first_upload", not record_rows, str(RECORDS))
 
     budget_code, budget_output = run([sys.executable, str(BUDGET)])
     budget = parse_budget(budget_output)
     add("attempt_budget_command_ok", budget_code == 0, budget_output.replace("\n", "; "))
-    add("attempts_remaining_5", budget.get("attempts_remaining") == "5", str(budget.get("attempts_remaining", "")))
+    if attempt_context == "first_upload":
+        add("attempts_remaining_5", budget.get("attempts_remaining") == "5", str(budget.get("attempts_remaining", "")))
+    else:
+        try:
+            attempts_remaining = int(budget.get("attempts_remaining", "0"))
+        except ValueError:
+            attempts_remaining = 0
+        add("attempts_remaining_positive", attempts_remaining > 0, str(budget.get("attempts_remaining", "")))
     add("top3_not_already_hit", budget.get("top3_hit") == "no", str(budget.get("top3_hit", "")))
 
     regression_code, regression_output = run([sys.executable, str(COMMAND_CENTER_REGRESSION)])
@@ -128,6 +160,7 @@ def main() -> None:
     result = {
         "upload_ready": ready,
         "upload_path": str(CURRENT_UPLOAD),
+        "attempt_context": attempt_context,
         "candidate": candidate,
         "group": group,
         "order": order,
@@ -147,6 +180,7 @@ def main() -> None:
         "## Summary",
         "",
         f"- Upload ready: `{'yes' if ready else 'no'}`",
+        f"- Attempt context: `{attempt_context}`",
         f"- Upload path: `{CURRENT_UPLOAD}`",
         f"- Candidate: `{group}` order `{order}` (`{candidate}`)",
         f"- SHA-256: `{upload_sha}`",
@@ -188,6 +222,7 @@ def main() -> None:
 
     print("PRE_UPLOAD_GUARD")
     print(f"UPLOAD_READY={'yes' if ready else 'no'}")
+    print(f"ATTEMPT_CONTEXT={attempt_context}")
     print(f"UPLOAD_PATH={CURRENT_UPLOAD}")
     print(f"CANDIDATE={candidate}")
     print(f"GROUP={group}")

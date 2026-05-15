@@ -25,6 +25,8 @@ FINAL_GOAL_STATUS = Path("experiments/scripts/v1908_final_goal_status.py")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 TOP3 = 0.50671
+UPLOAD_ALIASES_ROOT = Path("hw2_D13922024")
+UPLOAD_CHECKPOINT_DIR = UPLOAD_ALIASES_ROOT / "checkpoints"
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -85,6 +87,24 @@ def validate(path: Path) -> str:
     return proc.stdout.strip()
 
 
+def write_upload_aliases(staged: Path, candidate: str, expected_sha: str) -> list[Path]:
+    """Keep assignment-facing manual-upload aliases byte-identical to current_upload."""
+    aliases = [
+        UPLOAD_ALIASES_ROOT / "submission.csv",
+        UPLOAD_CHECKPOINT_DIR / "final_current_private.csv",
+        UPLOAD_CHECKPOINT_DIR / f"final_{candidate}_private.csv",
+    ]
+    written: list[Path] = []
+    for alias in dict.fromkeys(aliases):
+        alias.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(staged, alias)
+        alias_sha = sha256(alias)
+        if alias_sha != expected_sha:
+            raise SystemExit(f"alias hash mismatch: {alias} {alias_sha} != {expected_sha}")
+        written.append(alias)
+    return written
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Stage current recommended upload as current_upload/submission.csv")
     parser.add_argument("--group", default=DEFAULT_GROUP)
@@ -117,6 +137,11 @@ def main() -> None:
     if staged_sha != source_sha:
         raise SystemExit("staged hash differs from source hash")
     validation = validate(staged)
+    aliases = (
+        write_upload_aliases(staged, row["candidate"], staged_sha)
+        if args.out_dir.resolve() == OUT_DIR.resolve()
+        else []
+    )
     metadata = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source_path": str(source),
@@ -127,6 +152,7 @@ def main() -> None:
         "candidate": row["candidate"],
         "rows": row_count,
         "sha256": staged_sha,
+        "upload_aliases": [str(alias) for alias in aliases],
         "validator": validation,
         "post_score_command": f"python3 {POST_SCORE} --score <REAL_SCORE>",
         "record_score_command": (
@@ -256,6 +282,8 @@ def main() -> None:
     print(f"metadata={args.out_dir / 'metadata.json'}")
     print(f"readme={args.out_dir / 'README.md'}")
     print(f"score_report={args.out_dir / 'SCORE_REPORT.txt'}")
+    for alias in aliases:
+        print(f"alias={alias}")
 
 
 if __name__ == "__main__":

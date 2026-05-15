@@ -22,7 +22,7 @@
       "ok": "yes"
     },
     {
-      "detail": "0",
+      "detail": "1",
       "name": "attempt_budget_not_exhausted",
       "ok": "yes"
     },
@@ -32,17 +32,17 @@
       "ok": "yes"
     },
     {
-      "detail": "scoreonly_safe_queue#1",
-      "name": "first_upload_default_context",
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "name": "latest_recommended_next_concrete",
       "ok": "yes"
     },
     {
-      "detail": "scoreonly_safe_queue#1",
-      "name": "first_upload_manifest_row_found",
+      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "name": "latest_recommended_next_in_manifest",
       "ok": "yes"
     },
     {
-      "detail": "current=experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv expected=experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
+      "detail": "current=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv expected=experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
@@ -52,31 +52,31 @@
       "ok": "yes"
     },
     {
-      "detail": "current=1 expected=1",
+      "detail": "current=5 expected=5",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1856g expected=v1856g",
+      "detail": "current=v1846g expected=v1846g",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d expected=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "upload=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb expected=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d expected=468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d",
+      "detail": "metadata=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb expected=f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/scoreonly_safe_queue/01_v1856g_scoreonly_balanced_first_private.csv",
-  "generated_at_utc": "2026-05-14T19:11:31+00:00",
-  "recommended_next": "",
-  "records_count": 0,
-  "state": "no_records_first_upload",
+  "current_source_path": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+  "generated_at_utc": "2026-05-15T00:18:47+00:00",
+  "recommended_next": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+  "records_count": 1,
+  "state": "staged_latest_recommended",
   "upload_rows": 397,
-  "upload_sha256": "468ecff35fcb7f8db53c9a06a68100df687d859b8380682e662c7d1e09ea086d"
+  "upload_sha256": "f8411ba777122c92aca6dc72ff9cdadfe087ac4222258041269d7c0fe05bbffb"
 }
