@@ -3,9 +3,9 @@
 ## Summary
 
 - Failures: `0`
-- Canonical SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
-- Package submission SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
-- make_final output SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
+- Canonical SHA: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
+- Package submission SHA: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
+- make_final output SHA: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
 
 ## Checks
 
@@ -18,9 +18,9 @@
 [validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py <TEMP_SUBMISSION>
 
 Final submission written to: <TEMP_SUBMISSION>` |
-| canonical_sha_expected | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
-| package_submission_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
-| make_final_output_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| canonical_sha_matches_metadata | yes | `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
+| package_submission_matches_canonical | yes | `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
+| make_final_output_matches_canonical | yes | `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
 | make_final_rows_397 | yes | `397` |
 | validator_ok | yes | `OK: 397 predictions validated
 
@@ -30,7 +30,7 @@ Final submission written to: <TEMP_SUBMISSION>` |
 
 Final submission written to: <TEMP_SUBMISSION>` |
 | readme_mentions_current_checkpoint | yes | `final_current_private.csv` |
-| readme_mentions_v1826a | yes | `v1826a` |
+| readme_mentions_current_candidate | yes | `v1826b` |
 | readme_mentions_live_threshold | yes | `0.52380` |
 | readme_no_old_default_v1856g | yes | `old v1856g default string` |
 | readme_no_old_threshold | yes | `0.50671` |

@@ -1,14 +1,14 @@
 # v1904 Attempt State Guard
 
-Generated UTC: `2026-05-15T00:33:12+00:00`
+Generated UTC: `2026-05-15T01:55:55+00:00`
 
 ## Summary
 
 - Attempt state ready: `yes`
-- State: `manual_override_from_records`
-- Records count: `1`
-- Recommended next: `experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv`
-- Current upload source: `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv`
+- State: `staged_latest_recommended`
+- Records count: `2`
+- Recommended next: `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv`
+- Current upload source: `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv`
 
 ## Checks
 
@@ -18,19 +18,16 @@ Generated UTC: `2026-05-15T00:33:12+00:00`
 | metadata_exists | yes | `experiments/final_submission_package/current_upload/metadata.json` |
 | upload_exists | yes | `experiments/final_submission_package/current_upload/submission.csv` |
 | upload_rows_397 | yes | `397` |
-| attempt_budget_not_exhausted | yes | `1` |
+| attempt_budget_not_exhausted | yes | `2` |
 | no_prior_top3_hit | yes | `none` |
-| latest_recommended_next_concrete | yes | `experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv` |
-| latest_recommended_next_in_manifest | yes | `experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv` |
-| manual_override_reason_present | yes | `skip score-only v1846g after v1856g real private score 0.42894; updated top3 threshold is 0.52380; pivot to structural v1826a for upside` |
-| manual_override_row_found | yes | `queue#1` |
-| manual_override_not_already_uploaded | yes | `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` |
-| current_source_matches_expected | yes | `current=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv expected=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv` |
+| latest_recommended_next_concrete | yes | `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` |
+| latest_recommended_next_in_manifest | yes | `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` |
+| current_source_matches_expected | yes | `current=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv expected=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` |
 | current_group_matches_expected | yes | `current=queue expected=queue` |
-| current_order_matches_expected | yes | `current=1 expected=1` |
-| current_candidate_matches_expected | yes | `current=v1826a expected=v1826a` |
-| current_upload_sha_matches_expected | yes | `upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
-| metadata_sha_matches_expected | yes | `metadata=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| current_order_matches_expected | yes | `current=2 expected=2` |
+| current_candidate_matches_expected | yes | `current=v1826b expected=v1826b` |
+| current_upload_sha_matches_expected | yes | `upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
+| metadata_sha_matches_expected | yes | `metadata=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b` |
 
 ## Completion boundary
 

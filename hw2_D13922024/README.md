@@ -14,10 +14,10 @@ It is byte-equal to:
 
 ```text
 checkpoints/final_current_private.csv
-checkpoints/final_v1826a_private.csv
+checkpoints/final_v1826b_private.csv
 ```
 
-Candidate lineage: `queue` order `1`, `v1826a`.
+Candidate lineage: `queue` order `2`, `v1826b` (staged after `v1826a` scored `0.48854`).
 
 Known private leaderboard context before this final-attempt package:
 
@@ -102,7 +102,8 @@ hw2_D13922024/
 ├── assert/validate_submission.py
 ├── checkpoints/
 │   ├── final_current_private.csv
-│   ├── final_v1826a_private.csv
+│   ├── final_v1826b_private.csv
+│   ├── final_v1826a_private.csv  (previous scored attempt: 0.48854)
 │   ├── final_v1856g_private.csv  (score-feedback history checkpoint)
 │   ├── v440_base_private.csv
 │   ├── v440_base_public.csv

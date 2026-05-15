@@ -22,7 +22,7 @@
       "ok": "yes"
     },
     {
-      "detail": "1",
+      "detail": "2",
       "name": "attempt_budget_not_exhausted",
       "ok": "yes"
     },
@@ -32,32 +32,17 @@
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "detail": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
       "name": "latest_recommended_next_concrete",
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
+      "detail": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
       "name": "latest_recommended_next_in_manifest",
       "ok": "yes"
     },
     {
-      "detail": "skip score-only v1846g after v1856g real private score 0.42894; updated top3 threshold is 0.52380; pivot to structural v1826a for upside",
-      "name": "manual_override_reason_present",
-      "ok": "yes"
-    },
-    {
-      "detail": "queue#1",
-      "name": "manual_override_row_found",
-      "ok": "yes"
-    },
-    {
-      "detail": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
-      "name": "manual_override_not_already_uploaded",
-      "ok": "yes"
-    },
-    {
-      "detail": "current=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv expected=experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
+      "detail": "current=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv expected=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
@@ -67,32 +52,32 @@
       "ok": "yes"
     },
     {
-      "detail": "current=1 expected=1",
+      "detail": "current=2 expected=2",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1826a expected=v1826a",
+      "detail": "current=v1826b expected=v1826b",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
+      "detail": "upload=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad expected=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad",
+      "detail": "metadata=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b expected=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
-  "generated_at_utc": "2026-05-15T00:33:12+00:00",
-  "override_reason": "skip score-only v1846g after v1856g real private score 0.42894; updated top3 threshold is 0.52380; pivot to structural v1826a for upside",
-  "recommended_next": "experiments/final_submission_package/scoreonly_safe_queue/05_v1846g_scoreonly_rolecap_private.csv",
-  "records_count": 1,
-  "state": "manual_override_from_records",
+  "current_source_path": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+  "generated_at_utc": "2026-05-15T01:55:55+00:00",
+  "override_reason": "",
+  "recommended_next": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+  "records_count": 2,
+  "state": "staged_latest_recommended",
   "upload_rows": 397,
-  "upload_sha256": "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad"
+  "upload_sha256": "8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b"
 }

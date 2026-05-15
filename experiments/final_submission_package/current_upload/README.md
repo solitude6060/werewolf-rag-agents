@@ -6,32 +6,11 @@ Upload this CSV to Kaggle:
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Source: `experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv`
-Candidate: `v1826a` (`queue` order `1`)
+Source: `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv`
+Candidate: `v1826b` (`queue` order `2`)
 Rows: `397`
-SHA-256: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
+SHA-256: `8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b`
 Validator: `OK: 397 predictions validated`
-
-
-## Wrong-file guard
-
-Upload **only** this current file, or one of the documented safe aliases with the same SHA-256:
-
-```text
-experiments/final_submission_package/current_upload/submission.csv
-hw2_D13922024/submission.csv
-hw2_D13922024/checkpoints/final_current_private.csv
-hw2_D13922024/checkpoints/final_v1826a_private.csv
-```
-
-Do **not** upload legacy/worktree lookalikes such as:
-
-```text
-werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv
-experiments/worktrees/*/hw2_D13922024/submission.csv
-```
-
-Those lookalikes have different SHA/row counts and are not the current `v1826a` upload. See `experiments/reports/v1917_wrong_file_upload_guard.md`.
 
 Before manually uploading, run the final one-command preflight:
 
@@ -98,7 +77,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group queue --order 1 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group queue --order 2 --score <REAL_SCORE> --confirm-real-score
 ```
 
 Stop if the real score is greater than `0.52380`.

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -15,7 +16,7 @@ PACKAGE_MAKE = Path("hw2_D13922024/make_final.py")
 PACKAGE_README = Path("hw2_D13922024/README.md")
 OUT_CSV = Path("experiments/reports/v1924_package_current_submit_regression.csv")
 OUT_MD = Path("experiments/reports/v1924_package_current_submit_regression.md")
-EXPECTED_SHA = "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad"
+METADATA = Path("experiments/final_submission_package/current_upload/metadata.json")
 
 
 def sha256(path: Path) -> str:
@@ -39,6 +40,8 @@ def main() -> None:
     checks: list[dict[str, str]] = []
     canonical_sha = sha256(CANONICAL)
     package_sha = sha256(PACKAGE_SUBMISSION)
+    metadata = json.loads(METADATA.read_text(encoding="utf-8"))
+    candidate = str(metadata.get("candidate", ""))
     with tempfile.TemporaryDirectory(prefix="v1924_package_make_final_") as tmp:
         output = Path(tmp) / "submission.csv"
         proc = subprocess.run(
@@ -55,13 +58,13 @@ def main() -> None:
 
     readme = PACKAGE_README.read_text(encoding="utf-8")
     add(checks, "make_final_exit_zero", proc.returncode == 0, f"exit={proc.returncode}; {normalized_command_output}")
-    add(checks, "canonical_sha_expected", canonical_sha == EXPECTED_SHA, canonical_sha)
-    add(checks, "package_submission_matches_canonical", package_sha == canonical_sha == EXPECTED_SHA, package_sha)
-    add(checks, "make_final_output_matches_canonical", output_sha == canonical_sha == EXPECTED_SHA, output_sha)
+    add(checks, "canonical_sha_matches_metadata", canonical_sha == str(metadata.get("sha256", "")), canonical_sha)
+    add(checks, "package_submission_matches_canonical", package_sha == canonical_sha, package_sha)
+    add(checks, "make_final_output_matches_canonical", output_sha == canonical_sha, output_sha)
     add(checks, "make_final_rows_397", output_rows == 397, str(output_rows))
     add(checks, "validator_ok", "OK: 397 predictions validated" in command_output, normalized_command_output)
     add(checks, "readme_mentions_current_checkpoint", "checkpoints/final_current_private.csv" in readme, "final_current_private.csv")
-    add(checks, "readme_mentions_v1826a", "v1826a" in readme, "v1826a")
+    add(checks, "readme_mentions_current_candidate", candidate in readme, candidate)
     add(checks, "readme_mentions_live_threshold", ">0.52380" in readme or "> 0.52380" in readme, "0.52380")
     add(checks, "readme_no_old_default_v1856g", "Candidate lineage: `scoreonly_safe_queue` order `1`, `v1856g`." not in readme, "old v1856g default string")
     add(checks, "readme_no_old_threshold", ">0.50671" not in readme and "greater than `0.50671`" not in readme, "0.50671")

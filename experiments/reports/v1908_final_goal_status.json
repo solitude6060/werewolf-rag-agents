@@ -1,13 +1,13 @@
 {
   "action": "UPLOAD_CURRENT",
-  "best_score": "0.42894",
+  "best_score": "0.48854",
   "completion_exit_code": 0,
-  "completion_output": "GOAL_COMPLETION_GATE\nGOAL_COMPLETE=no\nRECORDS_CONSISTENT=yes\nRECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv\nRECORDS_COUNT=1\nBEST_SCORE=0.42894\nTOP3_THRESHOLD=0.52380\nREPORT=/tmp/v1908_final_status_z1ujyxcr/completion.md\nJSON=/tmp/v1908_final_status_z1ujyxcr/completion.json",
-  "generated_at_utc": "2026-05-15T00:33:12+00:00",
+  "completion_output": "GOAL_COMPLETION_GATE\nGOAL_COMPLETE=no\nRECORDS_CONSISTENT=yes\nRECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv\nRECORDS_COUNT=2\nBEST_SCORE=0.48854\nTOP3_THRESHOLD=0.52380\nREPORT=/tmp/v1908_final_status_hkqun_v9/completion.md\nJSON=/tmp/v1908_final_status_hkqun_v9/completion.json",
+  "generated_at_utc": "2026-05-15T01:55:55+00:00",
   "goal_complete": "no",
   "next_command": "upload experiments/final_submission_package/current_upload/submission.csv",
   "preflight_exit_code": 0,
-  "preflight_output": "FINAL_UPLOAD_PREFLIGHT\nREADY_TO_MANUAL_UPLOAD=yes\nRELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv\nABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv\nCANDIDATE=v1826a\nGROUP=queue\nORDER=1\nROWS=397\nSHA256=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad\nREPORT=experiments/reports/v1888_final_upload_preflight.md\nJSON=experiments/reports/v1888_final_upload_preflight.json",
+  "preflight_output": "FINAL_UPLOAD_PREFLIGHT\nREADY_TO_MANUAL_UPLOAD=yes\nRELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv\nABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv\nCANDIDATE=v1826b\nGROUP=queue\nORDER=2\nROWS=397\nSHA256=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b\nREPORT=experiments/reports/v1888_final_upload_preflight.md\nJSON=experiments/reports/v1888_final_upload_preflight.json",
   "ready_to_manual_upload": "yes",
   "records_consistent": "yes",
   "upload_path": "experiments/final_submission_package/current_upload/submission.csv"

@@ -1,9 +1,9 @@
 SCORE_REPORT
 uploaded_path=experiments/final_submission_package/current_upload/submission.csv
-candidate=v1826a
+candidate=v1826b
 group=queue
-order=1
-sha256=e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad
+order=2
+sha256=8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b
 rows=397
 real_private_score=<REAL_PRIVATE_SCORE_DECIMAL>
 score_is_real_kaggle_private=yes

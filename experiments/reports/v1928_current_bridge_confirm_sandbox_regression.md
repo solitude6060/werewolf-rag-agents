@@ -10,8 +10,8 @@
 
 | Label | Score | Latest top3 | Latest next | Metadata candidate | Pass |
 | --- | ---: | --- | --- | --- | --- |
-| continue_to_v1826b | `0.50000` | no | `experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv` | `v1826b` | yes |
-| top3_stop_no_stage | `0.52381` | yes | `STOP: score exceeds top-3 threshold.` | `v1826a` | yes |
+| continue_to_next | `0.50000` | no | `experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv` | `v1840b` | yes |
+| top3_stop_no_stage | `0.52381` | yes | `STOP: score exceeds top-3 threshold.` | `v1826b` | yes |
 
 ## Decision
 

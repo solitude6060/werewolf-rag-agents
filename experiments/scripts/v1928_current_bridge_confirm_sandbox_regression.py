@@ -19,7 +19,6 @@ CURRENT_METADATA = Path("experiments/final_submission_package/current_upload/met
 MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
 OUT_CSV = Path("experiments/reports/v1928_current_bridge_confirm_sandbox_regression.csv")
 OUT_MD = Path("experiments/reports/v1928_current_bridge_confirm_sandbox_regression.md")
-V1826A_SHA = "e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad"
 
 
 def sha256(path: Path) -> str:
@@ -48,11 +47,12 @@ def copy_fixture(tmpdir: Path) -> None:
     shutil.copytree(REPO_ROOT / "werewolf-project/src", tmpdir / "werewolf-project/src", ignore=ignore)
 
 
-def manifest_sha(tmpdir: Path, candidate: str) -> str:
+def manifest_row_by_output(tmpdir: Path, output_path: str) -> dict[str, str]:
+    target = str(Path(output_path))
     for row in read_csv(tmpdir / MANIFEST):
-        if row.get("candidate") == candidate:
-            return row.get("sha256", "")
-    raise AssertionError(f"candidate not found in manifest: {candidate}")
+        if str(Path(row.get("output_path", ""))) == target:
+            return row
+    raise AssertionError(f"output path not found in manifest: {output_path}")
 
 
 def run_case(label: str, score: str) -> dict[str, str]:
@@ -61,6 +61,8 @@ def run_case(label: str, score: str) -> dict[str, str]:
         copy_fixture(tmpdir)
         before_records = read_csv(tmpdir / RECORDS)
         before_upload_sha = sha256(tmpdir / CURRENT_UPLOAD)
+        before_metadata = json.loads((tmpdir / CURRENT_METADATA).read_text(encoding="utf-8"))
+        before_candidate = str(before_metadata.get("candidate", ""))
         proc = subprocess.run(
             [sys.executable, str(BRIDGE), "--score", score, "--confirm-real-score"],
             cwd=tmpdir,
@@ -76,20 +78,21 @@ def run_case(label: str, score: str) -> dict[str, str]:
         latest = after_records[-1] if after_records else {}
         metadata = json.loads((tmpdir / CURRENT_METADATA).read_text(encoding="utf-8"))
         after_upload_sha = sha256(tmpdir / CURRENT_UPLOAD)
-        v1826b_sha = manifest_sha(tmpdir, "v1826b")
         aliases = [Path(path) for path in metadata.get("upload_aliases", [])]
         alias_matches = [sha256(tmpdir / alias) == after_upload_sha for alias in aliases]
 
-        if label == "continue_to_v1826b":
+        if label == "continue_to_next":
+            recommended = latest.get("recommended_next", "")
+            recommended_row = manifest_row_by_output(tmpdir, recommended) if recommended.endswith(".csv") else {}
             checks = {
                 "exit_zero": proc.returncode == 0,
                 "bridge_confirmed": "WRITE_MODE=confirmed" in output,
                 "record_appended": len(after_records) == len(before_records) + 1,
-                "latest_candidate_v1826a": latest.get("candidate") == "v1826a",
+                "latest_candidate_matches_start": latest.get("candidate") == before_candidate,
                 "latest_top3_no": latest.get("top3_hit") == "no",
-                "latest_recommends_v1826b": latest.get("recommended_next") == "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
-                "metadata_candidate_v1826b": metadata.get("candidate") == "v1826b",
-                "upload_sha_v1826b": after_upload_sha == v1826b_sha,
+                "latest_recommends_concrete_csv": recommended.endswith(".csv"),
+                "metadata_candidate_matches_recommended": bool(recommended_row) and metadata.get("candidate") == recommended_row.get("candidate"),
+                "upload_sha_matches_recommended": bool(recommended_row) and after_upload_sha == recommended_row.get("sha256"),
                 "aliases_match_staged": bool(alias_matches) and all(alias_matches),
             }
         else:
@@ -97,11 +100,11 @@ def run_case(label: str, score: str) -> dict[str, str]:
                 "exit_zero": proc.returncode == 0,
                 "bridge_confirmed": "WRITE_MODE=confirmed" in output,
                 "record_appended": len(after_records) == len(before_records) + 1,
-                "latest_candidate_v1826a": latest.get("candidate") == "v1826a",
+                "latest_candidate_matches_start": latest.get("candidate") == before_candidate,
                 "latest_top3_yes": latest.get("top3_hit") == "yes",
                 "latest_recommends_stop": latest.get("recommended_next") == "STOP: score exceeds top-3 threshold.",
-                "metadata_still_v1826a": metadata.get("candidate") == "v1826a",
-                "upload_sha_unchanged": after_upload_sha == before_upload_sha == V1826A_SHA,
+                "metadata_still_start_candidate": metadata.get("candidate") == before_candidate,
+                "upload_sha_unchanged": after_upload_sha == before_upload_sha,
                 "stop_status_output": "STOP_STATUS=top3_hit_no_next_stage" in output,
             }
         failures = [name for name, ok in checks.items() if not ok]
@@ -125,7 +128,7 @@ def run_case(label: str, score: str) -> dict[str, str]:
 
 def main() -> None:
     before_real = {"records_sha": sha256(REPO_ROOT / RECORDS), "upload_sha": sha256(REPO_ROOT / CURRENT_UPLOAD)}
-    rows = [run_case("continue_to_v1826b", "0.50000"), run_case("top3_stop_no_stage", "0.52381")]
+    rows = [run_case("continue_to_next", "0.50000"), run_case("top3_stop_no_stage", "0.52381")]
     after_real = {"records_sha": sha256(REPO_ROOT / RECORDS), "upload_sha": sha256(REPO_ROOT / CURRENT_UPLOAD)}
     real_repo_unchanged = before_real == after_real
     failures = [row for row in rows if row["pass"] != "yes"]
