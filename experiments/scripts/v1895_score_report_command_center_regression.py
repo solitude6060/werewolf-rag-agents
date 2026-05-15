@@ -75,6 +75,12 @@ def main() -> None:
             "expect_text": "STOP: score exceeds top-3 threshold.",
         },
         {
+            "label": "valid_equal_threshold_report_dry_runs_next_csv",
+            "text": report_text(score="0.52380"),
+            "expect_exit": "zero",
+            "expect_text": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+        },
+        {
             "label": "invalid_wrong_sha_stops_before_command_center",
             "text": report_text(score="0.47120", sha="0" * 64),
             "expect_exit": "nonzero",

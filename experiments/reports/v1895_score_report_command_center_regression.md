@@ -4,7 +4,7 @@ Date: 2026-05-15
 
 ## Summary
 
-- Scenarios checked: `4`
+- Scenarios checked: `5`
 - Failures: `0`
 - Official records unchanged: `True`
 
@@ -14,6 +14,7 @@ Date: 2026-05-15
 | --- | ---: | --- | --- | --- |
 | valid_continue_report_dry_runs_next_csv | `0` | `zero` | yes | yes |
 | valid_top3_report_dry_runs_stop | `0` | `zero` | yes | yes |
+| valid_equal_threshold_report_dry_runs_next_csv | `0` | `zero` | yes | yes |
 | invalid_wrong_sha_stops_before_command_center | `1` | `nonzero` | yes | yes |
 | invalid_real_flag_stops_before_command_center | `1` | `nonzero` | yes | yes |
 

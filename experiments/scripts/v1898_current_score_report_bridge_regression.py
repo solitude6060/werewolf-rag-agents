@@ -69,6 +69,13 @@ def main() -> None:
             "expect_text": "STOP: score exceeds top-3 threshold.",
         },
         {
+            "label": "valid_equal_threshold_continues_routing",
+            "score": "0.52380",
+            "template_text": TEMPLATE.read_text(encoding="utf-8"),
+            "expect_exit": "zero",
+            "expect_text": "experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+        },
+        {
             "label": "invalid_percentage_like_score_rejected",
             "score": "47.119",
             "template_text": TEMPLATE.read_text(encoding="utf-8"),

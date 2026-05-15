@@ -1,5 +1,6 @@
 label,exit_code,expected_exit,expected_text,text_found,pass
 valid_continue_report_dry_runs_next_csv,0,zero,contingency/01_v1825c_diagnostic_neutral_private.csv,yes,yes
 valid_top3_report_dry_runs_stop,0,zero,STOP: score exceeds top-3 threshold.,yes,yes
+valid_equal_threshold_report_dry_runs_next_csv,0,zero,experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv,yes,yes
 invalid_wrong_sha_stops_before_command_center,1,nonzero,INTAKE_READY=no,yes,yes
 invalid_real_flag_stops_before_command_center,1,nonzero,INTAKE_READY=no,yes,yes
