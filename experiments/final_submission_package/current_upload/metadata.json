@@ -1,30 +1,29 @@
 {
-  "attempt_state_override_reason": "post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b",
-  "candidate": "v1840b",
+  "candidate": "v1840c",
   "current_score_bridge_command": "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE>",
   "current_score_bridge_confirm_command": "python3 experiments/scripts/v1898_current_score_report_bridge.py --score <REAL_SCORE> --confirm-real-score",
   "final_goal_status_command": "python3 experiments/scripts/v1908_final_goal_status.py",
-  "generated_at_utc": "2026-05-15T02:07:19+00:00",
+  "generated_at_utc": "2026-05-15T02:15:54+00:00",
   "goal_completion_gate_command": "python3 experiments/scripts/v1906_goal_completion_gate.py",
   "group": "overlay",
-  "order": "8",
+  "order": "9",
   "post_score_command": "python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCORE>",
   "pre_upload_guard_command": "python3 experiments/scripts/v1883_pre_upload_guard.py",
   "pre_upload_preflight_command": "python3 experiments/scripts/v1888_final_upload_preflight.py",
-  "record_score_command": "python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 8 --score <REAL_SCORE> --confirm-real-score",
+  "record_score_command": "python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 9 --score <REAL_SCORE> --confirm-real-score",
   "rows": 397,
   "score_report_bridge_command": "python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE>",
   "score_report_bridge_confirm_command": "python3 experiments/scripts/v1895_score_report_command_center.py <SCORE_REPORT_FILE> --confirm-real-score",
   "score_report_template_command": "python3 experiments/scripts/v1893_score_report_template.py",
   "score_report_template_path": "experiments/final_submission_package/current_upload/SCORE_REPORT.txt",
-  "sha256": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
-  "source_path": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+  "sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+  "source_path": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
   "staged_path": "experiments/final_submission_package/current_upload/submission.csv",
   "stop_if_score_greater_than": 0.5238,
   "upload_aliases": [
     "hw2_D13922024/submission.csv",
     "hw2_D13922024/checkpoints/final_current_private.csv",
-    "hw2_D13922024/checkpoints/final_v1840b_private.csv"
+    "hw2_D13922024/checkpoints/final_v1840c_private.csv"
   ],
   "validator": "OK: 397 predictions validated"
 }

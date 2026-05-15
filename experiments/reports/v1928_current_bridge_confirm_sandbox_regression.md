@@ -10,8 +10,8 @@
 
 | Label | Score | Latest top3 | Latest next | Metadata candidate | Pass |
 | --- | ---: | --- | --- | --- | --- |
-| continue_to_next | `0.50000` | no | `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv` | `v1840c` | yes |
-| top3_stop_no_stage | `0.52381` | yes | `STOP: score exceeds top-3 threshold.` | `v1840b` | yes |
+| continue_to_next | `0.50000` | no | `experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv` | `v1842e` | yes |
+| top3_stop_no_stage | `0.52381` | yes | `STOP: score exceeds top-3 threshold.` | `v1840c` | yes |
 
 ## Decision
 

@@ -14,24 +14,24 @@ It is byte-equal to:
 
 ```text
 checkpoints/final_current_private.csv
-checkpoints/final_v1840b_private.csv
+checkpoints/final_v1840c_private.csv
 ```
 
-Candidate lineage: `overlay` order `8`, `v1840b`.
+Candidate lineage: `overlay` order `9`, `v1840c`.
 
-Staging note: this is a manual upside override after `v1826a` scored `0.48854`.
-It preserves the positive `v1826a` AP layer, adds the g23 structural repair
-through `v1826d`, and applies the high-precision AP overlay.
+Staging note: this is the high-upside follow-up after `v1840b` scored `0.49266`.
+It extends the positive v1840 overlay lane to the `v1829e` final Hail Mary
+family while preserving the high-precision AP overlay.
 
 Known private leaderboard context before this final-attempt package:
 
 | Rank in our known submissions | Candidate | Private score | Note |
 | ---: | --- | ---: | --- |
-| 1 | v1826a | 0.48854 | Latest positive final-attempt score |
-| 2 | v1824a | 0.47119 | Verified rollback |
-| 3 | v1823a | 0.46492 | Positive stack backup |
-| 4 | v1823b | 0.46492 | Alternative tied backup |
-| 5 | v1821a | 0.46455 | Claim-graph repair baseline |
+| 1 | v1840b | 0.49266 | Latest positive final-attempt score |
+| 2 | v1826a | 0.48854 | Previous positive structural score |
+| 3 | v1824a | 0.47119 | Verified rollback |
+| 4 | v1823a | 0.46492 | Positive stack backup |
+| 5 | v1823b | 0.46492 | Alternative tied backup |
 
 Target to beat for the active final-attempt goal: `>0.52380`.
 
@@ -106,7 +106,8 @@ hw2_D13922024/
 ├── assert/validate_submission.py
 ├── checkpoints/
 │   ├── final_current_private.csv
-│   ├── final_v1840b_private.csv
+│   ├── final_v1840c_private.csv
+│   ├── final_v1840b_private.csv  (previous scored attempt: 0.49266)
 │   ├── final_v1826b_private.csv  (previous staged diagnostic follow-up)
 │   ├── final_v1826a_private.csv  (previous scored attempt: 0.48854)
 │   ├── final_v1856g_private.csv  (score-feedback history checkpoint)

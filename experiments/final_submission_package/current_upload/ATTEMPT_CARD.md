@@ -1,6 +1,6 @@
 # Final Attempt Cockpit
 
-Generated UTC: `2026-05-15T02:13:20+00:00`
+Generated UTC: `2026-05-15T02:17:25+00:00`
 
 ## Upload now
 
@@ -10,12 +10,11 @@ Use this fixed path:
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Selected row source: `current_upload_manual_override`
-Manual override reason: `post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b`
-Selected candidate: `v1840b` (`overlay` order `8`)
-Selected source: `experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv`
+Selected row source: `latest_record_recommended_next`
+Selected candidate: `v1840c` (`overlay` order `9`)
+Selected source: `experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv`
 Rows: `397`
-SHA-256: `16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc`
+SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
 Manifest validation status: `pass`
 Staged file exists: `yes`
 Staged file matches selected source: `yes`
@@ -24,7 +23,7 @@ Staged validator: `OK: 397 predictions validated`
 If staged match is not `yes`, run:
 
 ```bash
-python3 experiments/scripts/v1870_stage_current_upload.py --group overlay --order 8 --override-reason 'post-v1826a 0.48854: only 3 recorded attempts remain; preserve the positive v1826a AP layer, add g23 via v1826d, and apply high-precision AP overlay for higher top-3 upside than diagnostic v1826b'
+python3 experiments/scripts/v1870_stage_current_upload.py --from-records
 ```
 
 For the first upload with no records, this is also valid:
@@ -43,10 +42,10 @@ Expected guard result: `UPLOAD_READY=yes`.
 
 ## Attempt budget
 
-Attempts used from records: `2`
-Attempts remaining from records: `3`
-Best recorded score: `0.48854`
-Latest recorded score: `0.48854`
+Attempts used from records: `3`
+Attempts remaining from records: `2`
+Best recorded score: `0.49266`
+Latest recorded score: `0.49266`
 Stop threshold: `>0.52380`
 
 ## After real score appears
@@ -72,7 +71,7 @@ python3 experiments/scripts/v1872_post_score_command_center.py --score <REAL_SCO
 Fallback direct record command if the validated score must be typed manually:
 
 ```bash
-python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 8 --score <REAL_SCORE> --confirm-real-score
+python3 experiments/scripts/v1872_post_score_command_center.py --group overlay --order 9 --score <REAL_SCORE> --confirm-real-score
 ```
 
 ## Router preview for this selected row
@@ -80,12 +79,12 @@ python3 experiments/scripts/v1872_post_score_command_center.py --group overlay -
 | Scenario | Example score | Recommended next | Path check |
 | --- | ---: | --- | --- |
 | hit top-3 | `0.52381` | `STOP: score exceeds top-3 threshold.` | `not_a_csv` |
-| strong positive | `0.48000` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
-| tiny positive | `0.47120` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
-| exact current best | `0.47119` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
-| near baseline | `0.47080` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
-| small regression | `0.46600` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
-| severe regression | `0.46400` | `experiments/final_submission_package/queue/04_v1826c_alt_structural_private.csv` | `ok manifest_status=pass candidate=v1826c` |
+| strong positive | `0.48000` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| tiny positive | `0.47120` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| exact current best | `0.47119` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| near baseline | `0.47080` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| small regression | `0.46600` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
+| severe regression | `0.46400` | `NO_QUEUE_REMAINING: keep best verified score or choose maximum-risk contingency manually.` | `not_a_csv` |
 
 ## Completion boundary
 

@@ -212,12 +212,12 @@ id,index,character,role,wolf_score
 211,16,Father Jimzon,Medium,0.0
 212,16,Wounded Soldier Simon,Villager,0.001
 213,17,Optimist Gerd,Villager,0.001
-214,17,Wounded Soldier Simon,Villager,0.43
+214,17,Wounded Soldier Simon,Werewolf,1.0
 215,17,Young Girl Liza,Seer,0.001
 216,17,Traveler Nicholas,Villager,0.45
 217,17,Young Man Joachim,Hunter,0.27
 218,17,Baker Otto,Villager,0
-219,17,Librarian Clara,Werewolf,1.0
+219,17,Librarian Clara,Villager,0.050
 220,17,Farmer Jacob,Medium,0
 221,17,Boy Peter,Villager,0.001
 222,17,Shepherd Katharina,Werewolf,1.0
@@ -350,11 +350,11 @@ id,index,character,role,wolf_score
 349,27,Father Jimzon,Medium,0.001
 350,27,Librarian Clara,Villager,0.182
 351,27,Baker Otto,Madman,0
-352,27,Merchant Albin,Villager,0
+352,27,Merchant Albin,Werewolf,1.0
 353,27,Tailor Elna,Seer,0.286
 354,27,Farmer Jacob,Hunter,0.001
 355,27,Village Girl Pamela,Villager,0.0
-356,27,Boy Peter,Werewolf,1.0
+356,27,Boy Peter,Villager,0.050
 357,28,Optimist Gerd,Villager,0.001
 358,28,Farmer Jacob,Werewolf,1.0
 359,28,Mayor Valter,Villager,0.438

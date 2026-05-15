@@ -1,6 +1,6 @@
 {
   "absolute_upload_path": "/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv",
-  "candidate": "v1840b",
+  "candidate": "v1840c",
   "checks": [
     {
       "detail": "experiments/final_submission_package/current_upload/metadata.json",
@@ -18,17 +18,17 @@
       "ok": "yes"
     },
     {
-      "detail": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
+      "detail": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
       "name": "current_upload_sha_matches_metadata",
       "ok": "yes"
     },
     {
-      "detail": "overlay#8:v1840b",
+      "detail": "overlay#9:v1840c",
       "name": "manifest_row_found",
       "ok": "yes"
     },
     {
-      "detail": "v1840b",
+      "detail": "v1840c",
       "name": "manifest_candidate_matches",
       "ok": "yes"
     },
@@ -38,17 +38,17 @@
       "ok": "yes"
     },
     {
-      "detail": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
+      "detail": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
       "name": "manifest_sha_matches_upload",
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
       "name": "manifest_output_exists",
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
       "name": "manifest_output_sha_matches_upload",
       "ok": "yes"
     },
@@ -58,7 +58,7 @@
       "ok": "yes"
     },
     {
-      "detail": "PRE_UPLOAD_GUARD; UPLOAD_READY=yes; ATTEMPT_CONTEXT=followup_from_records; UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv; CANDIDATE=v1840b; GROUP=overlay; ORDER=8; SHA256=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc; ROWS=397; REPORT=experiments/reports/v1883_pre_upload_guard.md; JSON=experiments/reports/v1883_pre_upload_guard.json",
+      "detail": "PRE_UPLOAD_GUARD; UPLOAD_READY=yes; ATTEMPT_CONTEXT=followup_from_records; UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv; CANDIDATE=v1840c; GROUP=overlay; ORDER=9; SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145; ROWS=397; REPORT=experiments/reports/v1883_pre_upload_guard.md; JSON=experiments/reports/v1883_pre_upload_guard.json",
       "name": "pre_upload_guard_ready",
       "ok": "yes"
     },
@@ -68,27 +68,27 @@
       "ok": "yes"
     },
     {
-      "detail": "CURRENT_UPLOAD_SCORE_REPORT_GUARD; SCORE_REPORT_READY=yes; UPLOAD=experiments/final_submission_package/current_upload/submission.csv; SCORE_REPORT=experiments/final_submission_package/current_upload/SCORE_REPORT.txt; CANDIDATE=v1840b; ROWS=397; SHA256=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc; REPORT=experiments/reports/v1900_current_upload_score_report_guard.md; JSON=experiments/reports/v1900_current_upload_score_report_guard.json",
+      "detail": "CURRENT_UPLOAD_SCORE_REPORT_GUARD; SCORE_REPORT_READY=yes; UPLOAD=experiments/final_submission_package/current_upload/submission.csv; SCORE_REPORT=experiments/final_submission_package/current_upload/SCORE_REPORT.txt; CANDIDATE=v1840c; ROWS=397; SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145; REPORT=experiments/reports/v1900_current_upload_score_report_guard.md; JSON=experiments/reports/v1900_current_upload_score_report_guard.json",
       "name": "score_report_guard_ready",
       "ok": "yes"
     },
     {
-      "detail": "UPLOAD_ALIAS_GUARD; ALIAS_GUARD_READY=yes; CANONICAL=experiments/final_submission_package/current_upload/submission.csv; CANONICAL_ROWS=397; CANONICAL_SHA256=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc; ALIAS=hw2_D13922024/submission.csv rows=397 sha_matches=yes; ALIAS=hw2_D13922024/checkpoints/final_current_private.csv rows=397 sha_matches=yes; ALIAS=hw2_D13922024/checkpoints/final_v1840b_private.csv rows=397 sha_matches=yes; LOOKALIKE=experiments/final_submission_package/current_upload/submission.csv rows=397 sha_matches=yes status=safe_whitelist; LOOKALIKE=experiments/worktrees/consistency-solver/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=experiments/worktrees/endgame-parser/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=experiments/worktrees/v53-feedback/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=hw2_D13922024/submission.csv rows=397 sha_matches=yes status=safe_whitelist; LOOKALIKE=werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; REPORT=experiments/reports/v1902_upload_alias_guard.md; JSON=experiments/reports/v1902_upload_alias_guard.json",
+      "detail": "UPLOAD_ALIAS_GUARD; ALIAS_GUARD_READY=yes; CANONICAL=experiments/final_submission_package/current_upload/submission.csv; CANONICAL_ROWS=397; CANONICAL_SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145; ALIAS=hw2_D13922024/submission.csv rows=397 sha_matches=yes; ALIAS=hw2_D13922024/checkpoints/final_current_private.csv rows=397 sha_matches=yes; ALIAS=hw2_D13922024/checkpoints/final_v1840c_private.csv rows=397 sha_matches=yes; LOOKALIKE=experiments/final_submission_package/current_upload/submission.csv rows=397 sha_matches=yes status=safe_whitelist; LOOKALIKE=experiments/worktrees/consistency-solver/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=experiments/worktrees/endgame-parser/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=experiments/worktrees/v53-feedback/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; LOOKALIKE=hw2_D13922024/submission.csv rows=397 sha_matches=yes status=safe_whitelist; LOOKALIKE=werewolf-project/artifacts/legacy-submissions/hw2_D13922024/submission.csv rows=673 sha_matches=no status=do_not_upload; REPORT=experiments/reports/v1902_upload_alias_guard.md; JSON=experiments/reports/v1902_upload_alias_guard.json",
       "name": "upload_alias_guard_ready",
       "ok": "yes"
     },
     {
-      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=manual_override_from_records; RECORDS_COUNT=2; RECOMMENDED_NEXT=experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
+      "detail": "ATTEMPT_STATE_GUARD; ATTEMPT_STATE_READY=yes; STATE=staged_latest_recommended; RECORDS_COUNT=3; RECOMMENDED_NEXT=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv; CURRENT_SOURCE_PATH=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv; UPLOAD_ROWS=397; UPLOAD_SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145; REPORT=experiments/reports/v1904_attempt_state_guard.md; JSON=experiments/reports/v1904_attempt_state_guard.json",
       "name": "attempt_state_guard_ready",
       "ok": "yes"
     }
   ],
-  "generated_at_utc": "2026-05-15T02:09:15+00:00",
+  "generated_at_utc": "2026-05-15T02:19:12+00:00",
   "group": "overlay",
-  "order": "8",
+  "order": "9",
   "ready_to_manual_upload": "yes",
   "relative_upload_path": "experiments/final_submission_package/current_upload/submission.csv",
   "rows": 397,
-  "sha256": "16d56e36317dfdbe3e2372754def6ddeda8182f4bbfdd6723e8018eaa8a911dc",
+  "sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
   "top3_threshold": 0.5238
 }

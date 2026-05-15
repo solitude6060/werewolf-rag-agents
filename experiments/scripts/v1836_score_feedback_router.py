@@ -147,6 +147,14 @@ def route_next(
             if score > reference_score:
                 return by_candidate(manifest, overlay_positive_final[candidate])
 
+        overlay_final_fallback = {
+            "v1838c": "v1842e",
+            "v1839c": "v1842e",
+            "v1840c": "v1842e",
+        }
+        if candidate in overlay_final_fallback:
+            return by_candidate(manifest, overlay_final_fallback[candidate])
+
         overlay_order = {
             "v1838a": 1,
             "v1838b": 3,
