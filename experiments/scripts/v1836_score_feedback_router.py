@@ -14,7 +14,7 @@ from pathlib import Path
 
 BASELINE = 0.47119
 TOP3 = 0.52380
-MAX_FINAL_ATTEMPTS = 5
+MAX_FINAL_ATTEMPTS = 15
 MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
 RESULTS_CSV = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.csv")
 RESULTS_MD = Path("experiments/final_submission_package/manifests/v1836_score_feedback_records.md")

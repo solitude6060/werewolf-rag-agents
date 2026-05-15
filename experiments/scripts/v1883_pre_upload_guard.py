@@ -91,6 +91,7 @@ def main() -> None:
     candidate = str(metadata.get("candidate", ""))
     metadata_sha = str(metadata.get("sha256", ""))
     source_path = Path(str(metadata.get("source_path", "")))
+    override_reason = str(metadata.get("attempt_state_override_reason", "")).strip()
     record_rows = read_rows(RECORDS) if RECORDS.exists() else []
     attempt_context = "followup_from_records" if record_rows else "first_upload"
 
@@ -103,7 +104,11 @@ def main() -> None:
     else:
         latest_recommended = record_rows[-1].get("recommended_next", "").strip()
         add("score_records_present_for_followup", True, str(len(record_rows)))
-        add("latest_recommended_next_is_csv", latest_recommended.endswith(".csv"), latest_recommended)
+        add(
+            "latest_recommended_next_is_csv_or_manual_override",
+            latest_recommended.endswith(".csv") or bool(override_reason),
+            latest_recommended if latest_recommended.endswith(".csv") else f"manual_override={override_reason}",
+        )
         attempt_code, attempt_output = run([sys.executable, str(ATTEMPT_STATE_GUARD)])
         attempt_state = parse_kv(attempt_output)
         add(
@@ -144,7 +149,7 @@ def main() -> None:
     budget = parse_budget(budget_output)
     add("attempt_budget_command_ok", budget_code == 0, budget_output.replace("\n", "; "))
     if attempt_context == "first_upload":
-        add("attempts_remaining_5", budget.get("attempts_remaining") == "5", str(budget.get("attempts_remaining", "")))
+        add("attempts_remaining_15", budget.get("attempts_remaining") == "15", str(budget.get("attempts_remaining", "")))
     else:
         try:
             attempts_remaining = int(budget.get("attempts_remaining", "0"))

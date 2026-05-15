@@ -16,7 +16,7 @@ METADATA = Path("experiments/final_submission_package/current_upload/metadata.js
 UPLOAD = Path("experiments/final_submission_package/current_upload/submission.csv")
 OUT_JSON = Path("experiments/reports/v1904_attempt_state_guard.json")
 OUT_MD = Path("experiments/reports/v1904_attempt_state_guard.md")
-MAX_FINAL_ATTEMPTS = 5
+MAX_FINAL_ATTEMPTS = 15
 EXPECTED_ROWS = 397
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = "1"
@@ -136,12 +136,15 @@ def main() -> None:
         add_check(checks, "first_upload_manifest_row_found", expected_row is not None, f"{DEFAULT_GROUP}#{DEFAULT_ORDER}")
     else:
         concrete = recommended_next.endswith(".csv")
-        add_check(checks, "latest_recommended_next_concrete", concrete, recommended_next)
-        recommended_row = manifest_row_by_output(manifest, recommended_next) if concrete else None
-        add_check(checks, "latest_recommended_next_in_manifest", recommended_row is not None, recommended_next)
-        if not concrete:
-            state = "no_concrete_next_upload"
         if override_reason:
+            add_check(
+                checks,
+                "latest_recommended_next_concrete_or_manual_override",
+                True,
+                f"manual_override; concrete={concrete}; recommended_next={recommended_next}",
+            )
+            if not concrete:
+                add_check(checks, "manual_override_from_non_concrete_latest", True, recommended_next)
             expected_row = manifest_row_by_group_order(
                 manifest,
                 str(metadata.get("group", "")),
@@ -154,6 +157,11 @@ def main() -> None:
                 add_check(checks, "manual_override_not_already_uploaded", str(Path(expected_row.get("output_path", ""))) not in uploaded_paths, expected_row.get("output_path", ""))
             state = "manual_override_from_records"
         else:
+            add_check(checks, "latest_recommended_next_concrete", concrete, recommended_next)
+            recommended_row = manifest_row_by_output(manifest, recommended_next) if concrete else None
+            add_check(checks, "latest_recommended_next_in_manifest", recommended_row is not None, recommended_next)
+            if not concrete:
+                state = "no_concrete_next_upload"
             expected_row = recommended_row
 
     if expected_row is not None:

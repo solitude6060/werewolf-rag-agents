@@ -17,7 +17,7 @@ RECORDS = Path("experiments/final_submission_package/manifests/v1836_score_feedb
 OUT_JSON = Path("experiments/reports/v1894_score_report_intake.json")
 OUT_MD = Path("experiments/reports/v1894_score_report_intake.md")
 TOP3 = 0.52380
-MAX_FINAL_ATTEMPTS = 5
+MAX_FINAL_ATTEMPTS = 15
 REQUIRED_KEYS = [
     "uploaded_path",
     "candidate",

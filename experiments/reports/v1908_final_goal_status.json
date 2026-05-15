@@ -1,14 +1,14 @@
 {
-  "action": "BLOCKED",
+  "action": "UPLOAD_CURRENT",
   "best_score": "0.49349",
   "completion_exit_code": 0,
-  "completion_output": "GOAL_COMPLETION_GATE\nGOAL_COMPLETE=no\nRECORDS_CONSISTENT=yes\nRECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv\nRECORDS_COUNT=5\nBEST_SCORE=0.49349\nTOP3_THRESHOLD=0.52380\nREPORT=/tmp/v1908_final_status_427t8qwl/completion.md\nJSON=/tmp/v1908_final_status_427t8qwl/completion.json",
-  "generated_at_utc": "2026-05-15T02:40:09+00:00",
+  "completion_output": "GOAL_COMPLETION_GATE\nGOAL_COMPLETE=no\nRECORDS_CONSISTENT=yes\nRECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback_records.csv\nRECORDS_COUNT=5\nBEST_SCORE=0.49349\nTOP3_THRESHOLD=0.52380\nREPORT=/tmp/v1908_final_status_ilhs6bae/completion.md\nJSON=/tmp/v1908_final_status_ilhs6bae/completion.json",
+  "generated_at_utc": "2026-05-15T03:34:49+00:00",
   "goal_complete": "no",
-  "next_command": "inspect v1908 report outputs and fix the failing gate before uploading",
-  "preflight_exit_code": 1,
-  "preflight_output": "FINAL_UPLOAD_PREFLIGHT\nREADY_TO_MANUAL_UPLOAD=no\nRELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv\nABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv\nCANDIDATE=v1840c\nGROUP=overlay\nORDER=9\nROWS=397\nSHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145\nREPORT=experiments/reports/v1888_final_upload_preflight.md\nJSON=experiments/reports/v1888_final_upload_preflight.json\npreflight failed: pre_upload_guard_ready,attempt_state_guard_ready",
-  "ready_to_manual_upload": "no",
+  "next_command": "upload experiments/final_submission_package/current_upload/submission.csv",
+  "preflight_exit_code": 0,
+  "preflight_output": "FINAL_UPLOAD_PREFLIGHT\nREADY_TO_MANUAL_UPLOAD=yes\nRELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv\nABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv\nCANDIDATE=v1842e\nGROUP=black_boost_queue\nORDER=5\nROWS=397\nSHA256=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f\nREPORT=experiments/reports/v1888_final_upload_preflight.md\nJSON=experiments/reports/v1888_final_upload_preflight.json",
+  "ready_to_manual_upload": "yes",
   "records_consistent": "yes",
   "upload_path": "experiments/final_submission_package/current_upload/submission.csv"
 }

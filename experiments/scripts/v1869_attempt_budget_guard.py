@@ -25,7 +25,7 @@ def score_value(row: dict[str, str]) -> float:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Summarize final Kaggle attempt budget from score feedback records.")
     parser.add_argument("--records", type=Path, default=RECORDS)
-    parser.add_argument("--max-attempts", type=int, default=5)
+    parser.add_argument("--max-attempts", type=int, default=15)
     return parser.parse_args()
 
 

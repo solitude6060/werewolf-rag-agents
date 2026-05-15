@@ -12,8 +12,6 @@ from pathlib import Path
 
 GUARD = Path("experiments/scripts/v1904_attempt_state_guard.py")
 MANIFEST = Path("experiments/final_submission_package/manifests/final_submission_pack_manifest.csv")
-METADATA = Path("experiments/final_submission_package/current_upload/metadata.json")
-UPLOAD = Path("experiments/final_submission_package/current_upload/submission.csv")
 OUT_CSV = Path("experiments/reports/v1904_attempt_state_guard_regression.csv")
 OUT_MD = Path("experiments/reports/v1904_attempt_state_guard_regression.md")
 FIELDS = [
@@ -62,6 +60,22 @@ def record(*, group: str, order: str, candidate: str, uploaded_path: str, score:
     }
 
 
+def metadata_for(row: dict[str, str], *, override_reason: str = "") -> dict[str, str]:
+    source = Path(row["output_path"])
+    metadata = {
+        "source_path": str(source),
+        "staged_path": "submission.csv",
+        "group": row["group"],
+        "order": row["order"],
+        "candidate": row["candidate"],
+        "rows": "397",
+        "sha256": row["sha256"],
+    }
+    if override_reason:
+        metadata["attempt_state_override_reason"] = override_reason
+    return metadata
+
+
 def run_guard(records: Path, metadata: Path, upload: Path, out_json: Path, out_md: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [
@@ -89,14 +103,10 @@ def run_guard(records: Path, metadata: Path, upload: Path, out_json: Path, out_m
 def main() -> None:
     first_row = row_for("scoreonly_safe_queue", "1")
     second_row = row_for("scoreonly_safe_queue", "2")
-    base_metadata = json.loads(METADATA.read_text(encoding="utf-8"))
+    override_row = row_for("black_boost_queue", "5")
     rows: list[dict[str, str]] = []
     with tempfile.TemporaryDirectory(prefix="v1904_attempt_state_") as tmp:
         tmpdir = Path(tmp)
-        upload = tmpdir / "submission.csv"
-        shutil.copyfile(UPLOAD, upload)
-        metadata = tmpdir / "metadata.json"
-        metadata.write_text(json.dumps(base_metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
         no_records = tmpdir / "no_records.csv"  # intentionally absent
         match_records = tmpdir / "match_records.csv"
@@ -160,40 +170,141 @@ def main() -> None:
                 for i in range(5)
             ],
         )
+        override_records = tmpdir / "override_records.csv"
+        write_records(
+            override_records,
+            [
+                record(
+                    group="scoreonly_safe_queue",
+                    order="1",
+                    candidate="v1856g",
+                    uploaded_path=first_row["output_path"],
+                    score="0.42894",
+                    top3_hit="no",
+                    recommended_next=second_row["output_path"],
+                ),
+                record(
+                    group="queue",
+                    order="1",
+                    candidate="v1826a",
+                    uploaded_path="experiments/final_submission_package/queue/01_v1826a_primary_first_private.csv",
+                    score="0.48854",
+                    top3_hit="no",
+                    recommended_next="experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv",
+                ),
+                record(
+                    group="overlay",
+                    order="8",
+                    candidate="v1840b",
+                    uploaded_path="experiments/final_submission_package/overlay/08_v1840b_v1826d_high_precision_medium_ap_overlay_private.csv",
+                    score="0.49266",
+                    top3_hit="no",
+                    recommended_next="experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+                ),
+                record(
+                    group="overlay",
+                    order="9",
+                    candidate="v1840c",
+                    uploaded_path="experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+                    score="0.49349",
+                    top3_hit="no",
+                    recommended_next=override_row["output_path"],
+                ),
+                record(
+                    group="rolecap_queue",
+                    order="5",
+                    candidate="v1846e",
+                    uploaded_path="experiments/final_submission_package/rolecap_queue/05_v1846e_queue05_v1842e_rolecap099_private.csv",
+                    score="0.46698",
+                    top3_hit="no",
+                    recommended_next="NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
+                ),
+            ],
+        )
+        fifteen_records = tmpdir / "fifteen_records.csv"
+        write_records(
+            fifteen_records,
+            [
+                record(
+                    group="scoreonly_safe_queue",
+                    order=str((i % 5) + 1),
+                    candidate=f"v{i}",
+                    uploaded_path=f"v{i}.csv",
+                    score="0.46000",
+                    top3_hit="no",
+                    recommended_next=first_row["output_path"],
+                )
+                for i in range(15)
+            ],
+        )
 
         cases = [
             {
                 "label": "no_records_first_upload_passes",
                 "records": no_records,
+                "row": first_row,
+                "override_reason": "",
                 "expect_exit": "zero",
                 "expect_text": "STATE=no_records_first_upload",
             },
             {
                 "label": "latest_recommended_match_passes",
                 "records": match_records,
+                "row": first_row,
+                "override_reason": "",
                 "expect_exit": "zero",
                 "expect_text": "STATE=staged_latest_recommended",
             },
             {
                 "label": "latest_recommended_mismatch_rejected",
                 "records": mismatch_records,
+                "row": first_row,
+                "override_reason": "",
                 "expect_exit": "nonzero",
                 "expect_text": "current_source_matches_expected",
             },
             {
                 "label": "stop_record_rejected",
                 "records": stop_records,
+                "row": first_row,
+                "override_reason": "",
                 "expect_exit": "nonzero",
                 "expect_text": "no_prior_top3_hit",
             },
             {
-                "label": "budget_exhausted_rejected",
+                "label": "five_records_manual_override_with_open_budget_passes",
                 "records": exhausted_records,
+                "row": override_row,
+                "override_reason": "extra ten-submit restart after prior 5/5 records; choose v1842e as manual override after non-concrete rolecap stop",
+                "expect_exit": "zero",
+                "expect_text": "STATE=manual_override_from_records",
+            },
+            {
+                "label": "five_real_records_manual_override_after_non_concrete_passes",
+                "records": override_records,
+                "row": override_row,
+                "override_reason": "extra ten-submit restart after prior 5/5 records; choose v1842e as manual override after non-concrete rolecap stop",
+                "expect_exit": "zero",
+                "expect_text": "manual_override_from_non_concrete_latest",
+            },
+            {
+                "label": "fifteen_records_budget_exhausted_rejected",
+                "records": fifteen_records,
+                "row": first_row,
+                "override_reason": "",
                 "expect_exit": "nonzero",
                 "expect_text": "attempt_budget_not_exhausted",
             },
         ]
         for case in cases:
+            upload = tmpdir / f"{case['label']}_submission.csv"
+            shutil.copyfile(Path(case["row"]["output_path"]), upload)
+            metadata = tmpdir / f"{case['label']}_metadata.json"
+            metadata.write_text(
+                json.dumps(metadata_for(case["row"], override_reason=case["override_reason"]), indent=2, sort_keys=True)
+                + "\n",
+                encoding="utf-8",
+            )
             out_json = tmpdir / f"{case['label']}.json"
             out_md = tmpdir / f"{case['label']}.md"
             proc = run_guard(case["records"], metadata, upload, out_json, out_md)
@@ -245,11 +356,11 @@ def main() -> None:
             "",
             "## Decision",
             "",
-            "The guard accepts the first upload or a staged latest recommendation, and rejects mismatched, stopped, or exhausted attempt states.",
+            "The guard accepts the first upload, a staged latest recommendation, or a documented manual override after non-concrete router output while the expanded attempt budget remains open.",
             "",
             "## Completion boundary",
             "",
-            "This regression validates local attempt-state readiness only. The active goal is complete only after a real private score greater than `0.50671` is recorded.",
+            "This regression validates local attempt-state readiness only. The active goal is complete only after a real private score greater than `0.52380` is recorded.",
             "",
         ]
     )

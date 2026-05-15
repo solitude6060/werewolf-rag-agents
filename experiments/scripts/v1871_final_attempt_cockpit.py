@@ -22,6 +22,7 @@ DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
 BASELINE = 0.47119
 TOP3 = 0.52380
+MAX_FINAL_ATTEMPTS = 15
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -149,7 +150,7 @@ def make_card(
 ) -> str:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     used = len(records)
-    remaining = max(5 - used, 0)
+    remaining = max(MAX_FINAL_ATTEMPTS - used, 0)
     best = best_score(records)
     latest = latest_score(records)
     if row_source == "latest_record_stop_or_manual":

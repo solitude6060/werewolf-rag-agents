@@ -41,7 +41,7 @@ id,index,character,role,wolf_score
 40,03,Shepherd Katharina,Seer,0.43
 41,03,Farmer Jacob,Villager,0.45
 42,03,Woodcutter Thomas,Villager,0.001
-43,03,Mayor Valter,Villager,0.00595
+43,03,Mayor Valter,Villager,1.0
 44,03,Outlaw Dieter,Werewolf,0.5
 45,03,Village Girl Pamela,Werewolf,1.0
 46,03,Old Man Moritz,Medium,0.174
@@ -127,7 +127,7 @@ id,index,character,role,wolf_score
 126,10,Boy Peter,Madman,0
 127,10,Young Girl Liza,Villager,0
 128,10,Shepherd Katharina,Werewolf,1.0
-129,10,Sister Friedel,Seer,0.050
+129,10,Sister Friedel,Seer,1.0
 130,10,Outlaw Dieter,Hunter,0.001
 131,10,Librarian Clara,Villager,0.166
 132,10,Village Girl Pamela,Werewolf,1.0
@@ -282,7 +282,7 @@ id,index,character,role,wolf_score
 281,22,Young Man Joachim,Werewolf,1.0
 282,22,Baker Otto,Medium,0.001
 283,22,Sister Friedel,Madman,0
-284,22,Wounded Soldier Simon,Villager,0.001
+284,22,Wounded Soldier Simon,Villager,0.246
 285,22,Tailor Elna,Villager,0.046
 286,22,Innkeeper Regina,Seer,0.050
 287,22,Young Girl Liza,Villager,0.179

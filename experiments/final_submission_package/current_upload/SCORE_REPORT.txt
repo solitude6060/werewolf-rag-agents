@@ -1,9 +1,9 @@
 SCORE_REPORT
 uploaded_path=experiments/final_submission_package/current_upload/submission.csv
-candidate=v1840c
-group=overlay
-order=9
-sha256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145
+candidate=v1842e
+group=black_boost_queue
+order=5
+sha256=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f
 rows=397
 real_private_score=<REAL_PRIVATE_SCORE_DECIMAL>
 score_is_real_kaggle_private=yes

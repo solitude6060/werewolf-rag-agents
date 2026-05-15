@@ -1,5 +1,5 @@
 {
-  "attempt_state_ready": "no",
+  "attempt_state_ready": "yes",
   "checks": [
     {
       "detail": "experiments/final_submission_package/manifests/final_submission_pack_manifest.csv",
@@ -24,7 +24,7 @@
     {
       "detail": "5",
       "name": "attempt_budget_not_exhausted",
-      "ok": "no"
+      "ok": "yes"
     },
     {
       "detail": "none",
@@ -32,67 +32,67 @@
       "ok": "yes"
     },
     {
-      "detail": "NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
-      "name": "latest_recommended_next_concrete",
-      "ok": "no"
+      "detail": "manual_override; concrete=False; recommended_next=NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
+      "name": "latest_recommended_next_concrete_or_manual_override",
+      "ok": "yes"
     },
     {
       "detail": "NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
-      "name": "latest_recommended_next_in_manifest",
-      "ok": "no"
+      "name": "manual_override_from_non_concrete_latest",
+      "ok": "yes"
     },
     {
-      "detail": "final project closeout after all attempts exhausted; package default returns to best verified candidate v1840c=0.49349 rather than failed last attempt v1846e=0.46698",
+      "detail": "extra ten-submit restart after prior 5/5 records; isolate v1842e black-boost delta from failed rolecap v1846e; v1842e differs from best v1840c by 3 score-only rows and is not a duplicate",
       "name": "manual_override_reason_present",
       "ok": "yes"
     },
     {
-      "detail": "overlay#9",
+      "detail": "black_boost_queue#5",
       "name": "manual_override_row_found",
       "ok": "yes"
     },
     {
-      "detail": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+      "detail": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
       "name": "manual_override_not_already_uploaded",
-      "ok": "no"
+      "ok": "yes"
     },
     {
-      "detail": "current=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv expected=experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
+      "detail": "current=experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv expected=experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
       "name": "current_source_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=overlay expected=overlay",
+      "detail": "current=black_boost_queue expected=black_boost_queue",
       "name": "current_group_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=9 expected=9",
+      "detail": "current=5 expected=5",
       "name": "current_order_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "current=v1840c expected=v1840c",
+      "detail": "current=v1842e expected=v1842e",
       "name": "current_candidate_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "upload=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 expected=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "upload=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f expected=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f",
       "name": "current_upload_sha_matches_expected",
       "ok": "yes"
     },
     {
-      "detail": "metadata=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145 expected=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145",
+      "detail": "metadata=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f expected=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f",
       "name": "metadata_sha_matches_expected",
       "ok": "yes"
     }
   ],
-  "current_source_path": "experiments/final_submission_package/overlay/09_v1840c_v1829e_high_precision_medium_ap_overlay_private.csv",
-  "generated_at_utc": "2026-05-15T02:40:09+00:00",
-  "override_reason": "final project closeout after all attempts exhausted; package default returns to best verified candidate v1840c=0.49349 rather than failed last attempt v1846e=0.46698",
+  "current_source_path": "experiments/final_submission_package/black_boost_queue/05_v1842e_queue05_v1829e_blackboost_attack_private.csv",
+  "generated_at_utc": "2026-05-15T03:34:49+00:00",
+  "override_reason": "extra ten-submit restart after prior 5/5 records; isolate v1842e black-boost delta from failed rolecap v1846e; v1842e differs from best v1840c by 3 score-only rows and is not a duplicate",
   "recommended_next": "NO_ROLECAP_QUEUE_REMAINING: keep best verified score or choose contingency manually.",
   "records_count": 5,
   "state": "manual_override_from_records",
   "upload_rows": 397,
-  "upload_sha256": "fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145"
+  "upload_sha256": "6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f"
 }

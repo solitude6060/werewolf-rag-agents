@@ -2,10 +2,10 @@
 
 Student ID: `D13922024`
 
-## Final packaged submission
+## Current branch upload candidate
 
-The package default submission is the best verified final candidate after all
-leaderboard attempts were exhausted:
+On branch `feature/final-ten-breakthrough`, the package default is intentionally
+restaged for the ten-additional-submit breakthrough sprint:
 
 ```text
 submission.csv
@@ -15,28 +15,31 @@ It is byte-equal to:
 
 ```text
 checkpoints/final_current_private.csv
-checkpoints/final_v1840c_private.csv
+checkpoints/final_v1842e_private.csv
 ```
 
-Candidate lineage: `overlay` order `9`, `v1840c`.
+Candidate lineage: `black_boost_queue` order `5`, `v1842e`.
+SHA-256: `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f`.
 
-Staging note: the last attempted candidate `v1846e` scored `0.46698`, so the
-coursework package intentionally returns to the best verified candidate
-`v1840c`, which scored `0.49349`.
+Staging note: the closed hand-in baseline on `develop` remains `v1840c`
+(`0.49349`). This feature branch keeps `v1840c` as rollback checkpoint but
+uses `v1842e` to isolate the black-boost delta after the failed `v1846e`
+rolecap attempt.
 
-Known final private leaderboard context:
+Known private leaderboard context before this restart:
 
 | Rank in our known submissions | Candidate | Private score | Note |
 | ---: | --- | ---: | --- |
-| 1 | v1840c | 0.49349 | Best verified final candidate; packaged default |
+| 1 | v1840c | 0.49349 | Best verified rollback checkpoint |
 | 2 | v1840b | 0.49266 | Previous positive overlay score |
 | 3 | v1826a | 0.48854 | Previous positive structural score |
 | 4 | v1824a | 0.47119 | Verified rollback |
 | 5 | v1846e | 0.46698 | Failed last one-shot override |
 
-Operational target `>0.50000`: not reached.
+Current branch upload target: `v1842e`, not yet scored.
+Operational target `>0.50000`: not reached yet.
 Original active top-three gate `>0.52380`: not reached.
-Final attempt budget: `5/5` used.
+Attempt budget after restart: `5/15` used, `10` remaining.
 
 ## Reports
 
@@ -52,6 +55,10 @@ Traditional Chinese report:
 hw2_report.zh-TW.md
 ```
 
+The reports document the closed `develop` hand-in baseline (`v1840c`). The
+active breakthrough upload state is tracked under
+`../experiments/final_submission_package/current_upload/`.
+
 ## One-command reproduction
 
 From this directory:
@@ -60,14 +67,16 @@ From this directory:
 python3 make_final.py --output submission.csv
 ```
 
-The command copies the packaged final candidate and runs the validator. Expected validator output:
+The command copies the current branch candidate and runs the validator. Expected validator output:
 
 ```text
 OK: 397 predictions validated
 ```
 
-This is the recommended hand-in path because it copies the best verified final
-candidate and validates the required CSV shape. Optional explicit re-check:
+For the closed hand-in baseline, use the `develop` branch or the release zip.
+For this branch's breakthrough sprint, this command reproduces the current
+upload candidate and validates the required CSV shape. Optional explicit
+re-check:
 
 ```bash
 python3 assert/validate_submission.py submission.csv
@@ -125,7 +134,8 @@ hw2_D13922024/
 ├── assert/validate_submission.py
 ├── checkpoints/
 │   ├── final_current_private.csv
-│   ├── final_v1840c_private.csv  (packaged best candidate: 0.49349)
+│   ├── final_v1842e_private.csv  (current breakthrough upload candidate)
+│   ├── final_v1840c_private.csv  (best verified rollback: 0.49349)
 │   ├── final_v1846e_private.csv  (failed last attempt: 0.46698)
 │   ├── final_v1840b_private.csv  (previous scored attempt: 0.49266)
 │   ├── final_v1826b_private.csv  (previous staged diagnostic follow-up)

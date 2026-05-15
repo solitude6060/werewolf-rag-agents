@@ -1,12 +1,12 @@
 # v1908 Final Goal Status
 
-Generated UTC: `2026-05-15T02:40:09+00:00`
+Generated UTC: `2026-05-15T03:34:49+00:00`
 
 ## Summary
 
-- Action: `BLOCKED`
+- Action: `UPLOAD_CURRENT`
 - Goal complete: `no`
-- Ready to manual upload: `no`
+- Ready to manual upload: `yes`
 - Records consistent: `yes`
 - Best score: `0.49349`
 - Upload path: `experiments/final_submission_package/current_upload/submission.csv`
@@ -14,7 +14,7 @@ Generated UTC: `2026-05-15T02:40:09+00:00`
 ## Next command
 
 ```bash
-inspect v1908 report outputs and fix the failing gate before uploading
+upload experiments/final_submission_package/current_upload/submission.csv
 ```
 
 ## Completion gate output
@@ -27,25 +27,24 @@ RECORDS_PATH=experiments/final_submission_package/manifests/v1836_score_feedback
 RECORDS_COUNT=5
 BEST_SCORE=0.49349
 TOP3_THRESHOLD=0.52380
-REPORT=/tmp/v1908_final_status_427t8qwl/completion.md
-JSON=/tmp/v1908_final_status_427t8qwl/completion.json
+REPORT=/tmp/v1908_final_status_ilhs6bae/completion.md
+JSON=/tmp/v1908_final_status_ilhs6bae/completion.json
 ```
 
 ## Preflight output
 
 ```text
 FINAL_UPLOAD_PREFLIGHT
-READY_TO_MANUAL_UPLOAD=no
+READY_TO_MANUAL_UPLOAD=yes
 RELATIVE_UPLOAD_PATH=experiments/final_submission_package/current_upload/submission.csv
 ABSOLUTE_UPLOAD_PATH=/home/ma/Research/PhD/course/114_2/AI/hw2/experiments/final_submission_package/current_upload/submission.csv
-CANDIDATE=v1840c
-GROUP=overlay
-ORDER=9
+CANDIDATE=v1842e
+GROUP=black_boost_queue
+ORDER=5
 ROWS=397
-SHA256=fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145
+SHA256=6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f
 REPORT=experiments/reports/v1888_final_upload_preflight.md
 JSON=experiments/reports/v1888_final_upload_preflight.json
-preflight failed: pre_upload_guard_ready,attempt_state_guard_ready
 ```
 
 ## Completion boundary

@@ -1,13 +1,13 @@
 # v1902 Upload Alias Guard
 
-Generated UTC: `2026-05-15T02:40:09+00:00`
+Generated UTC: `2026-05-15T03:34:49+00:00`
 
 ## Summary
 
 - Alias guard ready: `yes`
 - Canonical upload: `experiments/final_submission_package/current_upload/submission.csv`
 - Canonical rows: `397`
-- Canonical SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
+- Canonical SHA-256: `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f`
 
 ## Alias results
 
@@ -15,7 +15,7 @@ Generated UTC: `2026-05-15T02:40:09+00:00`
 | --- | --- | ---: | --- | --- |
 | `hw2_D13922024/submission.csv` | yes | `397` | yes | `ok` |
 | `hw2_D13922024/checkpoints/final_current_private.csv` | yes | `397` | yes | `ok` |
-| `hw2_D13922024/checkpoints/final_v1840c_private.csv` | yes | `397` | yes | `ok` |
+| `hw2_D13922024/checkpoints/final_v1842e_private.csv` | yes | `397` | yes | `ok` |
 
 ## submission.csv lookalike scan
 
@@ -36,13 +36,13 @@ Generated UTC: `2026-05-15T02:40:09+00:00`
 | canonical_rows_397 | yes | `397` |
 | alias_1_exists | yes | `hw2_D13922024/submission.csv` |
 | alias_1_rows_match | yes | `alias=397 canonical=397` |
-| alias_1_sha_matches | yes | `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145` |
+| alias_1_sha_matches | yes | `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f` |
 | alias_2_exists | yes | `hw2_D13922024/checkpoints/final_current_private.csv` |
 | alias_2_rows_match | yes | `alias=397 canonical=397` |
-| alias_2_sha_matches | yes | `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145` |
-| alias_3_exists | yes | `hw2_D13922024/checkpoints/final_v1840c_private.csv` |
+| alias_2_sha_matches | yes | `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f` |
+| alias_3_exists | yes | `hw2_D13922024/checkpoints/final_v1842e_private.csv` |
 | alias_3_rows_match | yes | `alias=397 canonical=397` |
-| alias_3_sha_matches | yes | `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145` |
+| alias_3_sha_matches | yes | `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f` |
 | lookalike_scan_completed | yes | `.` |
 
 ## Completion boundary
