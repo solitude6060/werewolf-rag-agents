@@ -1,0 +1,5 @@
+name,ok,detail
+runbook_exit_zero,yes,exit=0
+prints_live_threshold,yes,expected=0.52380
+does_not_print_stale_threshold,yes,stale=0.50671
+records_and_upload_unchanged,yes,"before={'records_sha': 'fc7c1f781c557e8a4b9fede40344dfaf7dfabe09f115a1fdef8b9c9f92053590', 'records_count': '1', 'upload_sha': 'e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad'}; after={'records_sha': 'fc7c1f781c557e8a4b9fede40344dfaf7dfabe09f115a1fdef8b9c9f92053590', 'records_count': '1', 'upload_sha': 'e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad'}"

@@ -13,10 +13,11 @@ submission.csv
 It is byte-equal to:
 
 ```text
-checkpoints/final_v1856g_private.csv
+checkpoints/final_current_private.csv
+checkpoints/final_v1826a_private.csv
 ```
 
-Candidate lineage: `scoreonly_safe_queue` order `1`, `v1856g`.
+Candidate lineage: `queue` order `1`, `v1826a`.
 
 Known private leaderboard context before this final-attempt package:
 
@@ -28,7 +29,7 @@ Known private leaderboard context before this final-attempt package:
 | 4 | v1821a | 0.46455 | Claim-graph repair baseline |
 | 5 | v1819b | 0.45499 | Older conservative backup |
 
-Target to beat for the active final-attempt goal: `>0.50671`.
+Target to beat for the active final-attempt goal: `>0.52380`.
 
 ## One-command reproduction
 
@@ -100,7 +101,9 @@ hw2_D13922024/
 ├── requirements.txt
 ├── assert/validate_submission.py
 ├── checkpoints/
-│   ├── final_v1856g_private.csv
+│   ├── final_current_private.csv
+│   ├── final_v1826a_private.csv
+│   ├── final_v1856g_private.csv  (score-feedback history checkpoint)
 │   ├── v440_base_private.csv
 │   ├── v440_base_public.csv
 │   ├── v851_after_cross_claim_private.csv
@@ -112,4 +115,4 @@ hw2_D13922024/
 
 ## Completion boundary
 
-This package prepares the upload and reproduction artifacts.  It does not by itself prove the active leaderboard objective.  The objective is complete only after a real Kaggle private score greater than `0.50671` is recorded.
+This package prepares the upload and reproduction artifacts.  It does not by itself prove the active leaderboard objective.  The objective is complete only after a real Kaggle private score greater than `0.52380` is recorded.

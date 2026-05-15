@@ -10,7 +10,7 @@ Pipeline (multi-agent + RAG + post-lynch event extraction):
            bracket-bold or definitive Medium reveal in next 200 lines)
 
 Usage:
-  # Fast path (copies the packaged final candidate and validates it):
+  # Fast path (copies the packaged current final candidate and validates it):
   python3 make_final.py --output submission.csv
 
   # Earlier reproducibility checkpoint:
@@ -37,7 +37,7 @@ STEPS = ROOT / "pipeline_steps"
 CKPT = ROOT / "checkpoints"
 DATA_ROOT = ROOT.parent / "werewolf-project" / "data" / "raw" / "Werewolf_Prediction_Dataset"
 
-FINAL_CHECKPOINT = CKPT / "final_v1856g_private.csv"
+FINAL_CHECKPOINT = CKPT / "final_current_private.csv"
 
 # 9 audit-validated post-lynch reveal corrections that v1120 produced and v1121 keeps.
 # (g13 Nicholas was DROPPED in audit — its reveal "Nicholas is the werewolf." was
@@ -134,7 +134,7 @@ def main() -> None:
     ap.add_argument("--split", choices=["private", "public"], default="private")
     ap.add_argument("--output", type=Path, default=ROOT / "submission.csv")
     ap.add_argument("--from-checkpoint", choices=["final", "v440", "v851"], default="final",
-                    help="final copies the packaged v1856g candidate; v440/v851 reproduce the earlier pipeline")
+                    help="final copies the packaged current candidate; v440/v851 reproduce the earlier pipeline")
     ap.add_argument("--full", action="store_true",
                     help="rerun stages 1-3 from raw transcripts (requires Ollama)")
     args = ap.parse_args()

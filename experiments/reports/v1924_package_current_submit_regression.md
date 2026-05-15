@@ -1,0 +1,40 @@
+# v1924 Package Current Submit Regression
+
+## Summary
+
+- Failures: `0`
+- Canonical SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
+- Package submission SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
+- make_final output SHA: `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad`
+
+## Checks
+
+| Check | OK | Detail |
+| --- | --- | --- |
+| make_final_exit_zero | yes | `exit=0; OK: 397 predictions validated
+
+[validator]
+
+[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py /tmp/v1924_package_make_final_rv8otn8q/submission.csv
+
+Final submission written to: /tmp/v1924_package_make_final_rv8otn8q/submission.csv` |
+| canonical_sha_expected | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| package_submission_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| make_final_output_matches_canonical | yes | `e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad` |
+| make_final_rows_397 | yes | `397` |
+| validator_ok | yes | `OK: 397 predictions validated
+
+[validator]
+
+[validate] /usr/bin/python3 /home/ma/Research/PhD/course/114_2/AI/hw2/hw2_D13922024/assert/validate_submission.py /tmp/v1924_package_make_final_rv8otn8q/submission.csv
+
+Final submission written to: /tmp/v1924_package_make_final_rv8otn8q/submission.csv` |
+| readme_mentions_current_checkpoint | yes | `final_current_private.csv` |
+| readme_mentions_v1826a | yes | `v1826a` |
+| readme_mentions_live_threshold | yes | `0.52380` |
+| readme_no_old_default_v1856g | yes | `old v1856g default string` |
+| readme_no_old_threshold | yes | `0.50671` |
+
+## Completion boundary
+
+This regression proves package reproduction alignment only. The active leaderboard goal remains incomplete until a real private score greater than `0.52380` is recorded.

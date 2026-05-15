@@ -16,7 +16,7 @@ ROUTER = Path("experiments/scripts/v1836_score_feedback_router.py")
 STAGED_UPLOAD = Path("experiments/final_submission_package/current_upload/submission.csv")
 DEFAULT_GROUP = "scoreonly_safe_queue"
 DEFAULT_ORDER = 1
-TOP3 = 0.50671
+TOP3 = 0.52380
 
 
 def read_manifest(path: Path) -> list[dict[str, str]]:
