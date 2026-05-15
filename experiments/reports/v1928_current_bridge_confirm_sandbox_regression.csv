@@ -1,0 +1,3 @@
+label,score,exit_code,records_before,records_after,latest_candidate,latest_top3_hit,latest_next,metadata_candidate,upload_sha_before,upload_sha_after,failure_count,failures,pass
+continue_to_v1826b,0.50000,0,1,2,v1826a,no,experiments/final_submission_package/queue/02_v1826b_if_01_positive_private.csv,v1826b,e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad,8c16775f7eba65456c6050260ed8a0446ef11d2f75a4bdc2a39423400a2aad4b,0,,yes
+top3_stop_no_stage,0.52381,0,1,2,v1826a,yes,STOP: score exceeds top-3 threshold.,v1826a,e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad,e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad,0,,yes
