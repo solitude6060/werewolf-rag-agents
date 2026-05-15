@@ -1,8 +1,9 @@
 # HW2 報告：多角色推理的狼人預測系統
 
 **學生 ID：** D13922024
-**最終封裝候選：** v1840c
-**最佳已驗證 private 分數：** 0.49349
+**目前 main upload candidate：** v1842e
+**最佳已驗證 rollback 分數：** v1840c = 0.49349
+**目前 candidate 狀態：** 本地驗證通過，private score 尚未回傳
 **評分公式：** 0.4 × Macro-F1 + 0.6 × Werewolf AP
 
 ## 1. 任務與限制
@@ -17,7 +18,7 @@
 - 僅使用本機推論與可重現的規則式後處理；
 - 每個 submission CSV 在上傳或封裝前都通過格式驗證。
 
-最後繳交包預設使用最佳已驗證候選 `v1840c`。最後一輪排行榜衝刺共用完 5 次嘗試；最後一槍 `v1846e` 的 private 分數退步到 `0.46698`，因此它只保留為失敗實驗紀錄，不作為最終 `submission.csv`。
+目前 public `main` package 預設使用 `v1842e`，作為 extra-submit sprint 的本地驗證候選。最佳已驗證 rollback checkpoint 仍是 `v1840c = 0.49349`；失敗的 role-cap 實驗 `v1846e = 0.46698` 保留在 ledger 與 checkpoints 中，作為可追蹤紀錄。
 
 ## 2. 系統設計
 
@@ -82,7 +83,15 @@
 | v1840c | 0.49349 | 將 v1840 overlay 延伸到 v1829e clean Hail Mary family | 最佳已驗證 |
 | v1846e | 0.46698 | 最後 role-cap one-shot，建立在 v1842e 上 | 最後嘗試失敗 |
 
-最後一輪嘗試用量為 `5/5`。操作目標 `>0.50000` 與原始 top-three gate `>0.52380` 都未達成。因此最終封裝候選是最佳已驗證的 `v1840c`，不是最後失敗的 `v1846e`。
+```mermaid
+xychart-beta
+    title "Private score trajectory"
+    x-axis ["v1819b", "v1821a", "v1823a", "v1824a", "v1826a", "v1840b", "v1840c", "v1846e"]
+    y-axis "Private score" 0.45 --> 0.50
+    line [0.45499, 0.46455, 0.46492, 0.47119, 0.48854, 0.49266, 0.49349, 0.46698]
+```
+
+原始 final-attempt sprint 已使用 `5/5` 次；之後 extra-submit sprint 重新開啟。最佳已驗證 rollback 仍是 `v1840c = 0.49349`；目前 `main` 的 upload candidate 是 `v1842e`，目標是隔離 black-boost 訊號並避開失敗的 role-cap stack。原始 top-three gate `>0.52380` 尚未達成。
 
 ## 6. 成功與失敗分析
 
@@ -90,7 +99,7 @@
 
 **失敗的部分。** 最後的 role-cap 嘗試是因為 public proxy 與 leave-one-out 檢查看起來較強而被選中，但 private 分數明顯退步。這表示 public AP calibration 不能取代逐字稿證據，也不能單獨當成 private split 的可靠指標。
 
-**最終封裝的處理。** 繳交包回到最佳已驗證 private 候選 `v1840c`。失敗的 `v1846e` 仍保留在 checkpoints 與實驗 ledger 中，方便追蹤，但不作為預設 `submission.csv`。
+**public package 的處理。** package 保留 `v1840c` 作為最佳已驗證 rollback checkpoint，同時讓 `v1842e` 成為目前 extra sprint upload candidate。失敗的 `v1846e` 仍保留在 checkpoints 與實驗 ledger 中，方便追蹤。
 
 ## 7. 可重現性
 
@@ -100,7 +109,7 @@
 python3 make_final.py --output submission.csv
 ```
 
-此指令會複製封裝好的最佳候選，並執行 validator。預期輸出包含：
+此指令會複製目前 main candidate，並執行 validator。預期輸出包含：
 
 ```text
 OK: 397 predictions validated
@@ -123,4 +132,76 @@ id,index,character,role,wolf_score
 ```text
 experiments/final_submission_package/
 experiments/final_submission_package/manifests/v1836_score_feedback_records.csv
+```
+
+
+## 8. 延伸技術附錄
+
+public branch 另有更完整的中英文技術報告：
+
+```text
+docs/TECHNICAL_REPORT.zh-TW.md
+docs/TECHNICAL_REPORT.md
+```
+
+### 8.1 Pipeline 圖
+
+```mermaid
+flowchart LR
+    A[逐字稿] --> B[事件抽取]
+    B --> C[規則檢索]
+    C --> D[玩家分析]
+    D --> E[角色數量限制求解]
+    E --> F[後期 audit overlays]
+    F --> G[Validated CSV]
+    G --> H[Manifest 與 preflight guards]
+```
+
+### 8.2 核心 artifacts
+
+| Artifact | Path | 用途 |
+| --- | --- | --- |
+| 目前 upload CSV | `experiments/final_submission_package/current_upload/submission.csv` | main branch upload candidate |
+| 三連發候選 | `experiments/final_submission_package/upload_batch_2026-05-15_extra3/` | 固定手動上傳 path |
+| Score ledger | `experiments/final_submission_package/manifests/v1836_score_feedback_records.csv` | private feedback history |
+| Preflight report | `experiments/reports/v1888_final_upload_preflight.md` | upload-readiness evidence |
+| Goal gate | `experiments/reports/v1906_goal_completion_gate.md` | 防止提早宣告完成 |
+
+### 8.3 Extra sprint candidate matrix
+
+| 順序 | Candidate | Diff vs `v1840c` | Role diff | Score diff | 入選理由 |
+| ---: | --- | ---: | ---: | ---: | --- |
+| 1 | `v1842e` | 3 | 0 | 3 | 保守 black-boost isolation |
+| 2 | `v1845c` | 15 | 10 | 12 | 高波動 known-best overlay |
+| 3 | `v1826b` | 16 | 4 | 16 | `v1826a` 正向後的 structural follow-up |
+
+### 8.4 決策地圖
+
+```mermaid
+flowchart TD
+    A[Transcript evidence] --> B{Evidence type}
+    B -->|Reveal / claim contradiction| C[Role-changing structural repair]
+    B -->|Black-result or explicit wolf clue| D[Score-only overlay]
+    B -->|Weak public-proxy signal| E[Low-priority calibration candidate]
+    C --> F[Role-budget validation]
+    D --> F
+    E --> F
+    F --> G{Regression risk acceptable?}
+    G -->|yes| H[Manifested candidate CSV]
+    G -->|no| I[Reject before upload]
+```
+
+### 8.5 重現與驗證指令
+
+```bash
+python3 werewolf-project/assert/validate_submission.py \
+  experiments/final_submission_package/current_upload/submission.csv
+cd hw2_D13922024
+python3 make_final.py --output /tmp/werewolf_submission_check.csv
+```
+
+預期 validator output：
+
+```text
+OK: 397 predictions validated
 ```

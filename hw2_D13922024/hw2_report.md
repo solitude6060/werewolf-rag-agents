@@ -1,8 +1,9 @@
 # HW2 Report: Multi-Agent Werewolf Prediction
 
 **Student ID:** D13922024
-**Final packaged candidate:** v1840c
-**Best verified private score:** 0.49349
+**Current main upload candidate:** v1842e
+**Best verified rollback score:** v1840c = 0.49349
+**Current candidate status:** locally validated, private score pending
 **Score formula:** 0.4 × Macro-F1 + 0.6 × Werewolf AP
 
 ## 1. Task and Constraints
@@ -17,7 +18,7 @@ The solution follows the course constraints:
 - use local inference and deterministic post-processing only;
 - validate every submission CSV before upload.
 
-The final hand-in package defaults to the best verified candidate, `v1840c`.  The final leaderboard sprint used all five attempts; the last experimental candidate `v1846e` regressed to `0.46698`, so it is documented as a failed experiment rather than used as the packaged default.
+The public `main` package currently defaults to `v1842e`, which is locally validated for the reopened extra-submit sprint.  The best verified rollback checkpoint remains `v1840c = 0.49349`.  The failed role-cap experiment `v1846e = 0.46698` remains documented for traceability.
 
 ## 2. System Design
 
@@ -82,7 +83,15 @@ The strongest prompt pattern is evidence-first: list retrieved facts, identify c
 | v1840c | 0.49349 | v1840 overlay extended to v1829e clean Hail Mary family | best verified |
 | v1846e | 0.46698 | final role-cap one-shot on top of v1842e | failed last attempt |
 
-Final attempt budget: `5/5` used.  The operational target `>0.50000` and the original top-three gate `>0.52380` were not reached.  The final packaged candidate is therefore the best verified submission, `v1840c`, rather than the failed last attempt.
+```mermaid
+xychart-beta
+    title "Private score trajectory"
+    x-axis ["v1819b", "v1821a", "v1823a", "v1824a", "v1826a", "v1840b", "v1840c", "v1846e"]
+    y-axis "Private score" 0.45 --> 0.50
+    line [0.45499, 0.46455, 0.46492, 0.47119, 0.48854, 0.49266, 0.49349, 0.46698]
+```
+
+Original final-attempt budget used `5/5` attempts before the extra-submit sprint reopened.  The best verified rollback is `v1840c = 0.49349`; the current `main` upload candidate is `v1842e`, chosen to isolate the black-boost signal without the failed role-cap stack.  The original top-three gate `>0.52380` has not been reached yet.
 
 ## 6. Success and Failure Analysis
 
@@ -90,7 +99,7 @@ Final attempt budget: `5/5` used.  The operational target `>0.50000` and the ori
 
 **What failed.**  The final role-cap attempt was selected because public proxy and leave-one-out checks were strong, but private feedback regressed sharply.  This confirms that public AP calibration was not a reliable substitute for transcript-grounded evidence on the private split.
 
-**Mitigation used in the final package.**  The hand-in package returns to `v1840c`, the best verified private candidate.  The failed `v1846e` file remains in checkpoints and the experiment ledger for traceability, but it is not the default `submission.csv`.
+**Mitigation used in the public package.**  The package keeps `v1840c` as the best verified rollback checkpoint while exposing `v1842e` as the current extra-sprint upload candidate.  The failed `v1846e` file remains in checkpoints and the experiment ledger for traceability.
 
 ## 7. Reproducibility
 
@@ -100,7 +109,7 @@ From the package directory:
 python3 make_final.py --output submission.csv
 ```
 
-The command copies the packaged best candidate and runs the validator.  Expected validator output:
+The command copies the current main candidate and runs the validator.  Expected validator output:
 
 ```text
 OK: 397 predictions validated
@@ -123,4 +132,76 @@ The complete final-attempt archive and score-feedback ledger are preserved under
 ```text
 experiments/final_submission_package/
 experiments/final_submission_package/manifests/v1836_score_feedback_records.csv
+```
+
+
+## 8. Extended Technical Appendix
+
+The public branch contains a fuller technical report with additional diagrams and tables:
+
+```text
+docs/TECHNICAL_REPORT.md
+docs/TECHNICAL_REPORT.zh-TW.md
+```
+
+### 8.1 Pipeline diagram
+
+```mermaid
+flowchart LR
+    A[Transcript] --> B[Event extraction]
+    B --> C[Rule retrieval]
+    C --> D[Player analysis]
+    D --> E[Role-budget solver]
+    E --> F[Audit overlays]
+    F --> G[Validated CSV]
+    G --> H[Manifest and preflight guards]
+```
+
+### 8.2 Core artifacts
+
+| Artifact | Path | Purpose |
+| --- | --- | --- |
+| Current upload CSV | `experiments/final_submission_package/current_upload/submission.csv` | Main branch upload candidate |
+| Three-candidate batch | `experiments/final_submission_package/upload_batch_2026-05-15_extra3/` | Fixed manual upload paths |
+| Score ledger | `experiments/final_submission_package/manifests/v1836_score_feedback_records.csv` | Private feedback history |
+| Preflight report | `experiments/reports/v1888_final_upload_preflight.md` | Upload-readiness evidence |
+| Goal gate | `experiments/reports/v1906_goal_completion_gate.md` | Prevents premature completion claims |
+
+### 8.3 Extra sprint candidate matrix
+
+| Order | Candidate | Diff vs `v1840c` | Role diff | Score diff | Why it is in the batch |
+| ---: | --- | ---: | ---: | ---: | --- |
+| 1 | `v1842e` | 3 | 0 | 3 | conservative black-boost isolation |
+| 2 | `v1845c` | 15 | 10 | 12 | higher-variance known-best overlay |
+| 3 | `v1826b` | 16 | 4 | 16 | structural follow-up after positive `v1826a` |
+
+### 8.4 Decision map
+
+```mermaid
+flowchart TD
+    A[Transcript evidence] --> B{Evidence type}
+    B -->|Reveal / claim contradiction| C[Role-changing structural repair]
+    B -->|Black-result or explicit wolf clue| D[Score-only overlay]
+    B -->|Weak public-proxy signal| E[Low-priority calibration candidate]
+    C --> F[Role-budget validation]
+    D --> F
+    E --> F
+    F --> G{Regression risk acceptable?}
+    G -->|yes| H[Manifested candidate CSV]
+    G -->|no| I[Reject before upload]
+```
+
+### 8.5 Reproduction and validation commands
+
+```bash
+python3 werewolf-project/assert/validate_submission.py \
+  experiments/final_submission_package/current_upload/submission.csv
+cd hw2_D13922024
+python3 make_final.py --output /tmp/werewolf_submission_check.csv
+```
+
+Expected validator output remains:
+
+```text
+OK: 397 predictions validated
 ```

@@ -5,16 +5,17 @@ Package date: `2026-05-14`
 Assignment deadline: `2026-05-15 23:59`
 Preset: `full`
 
-## Final closeout status
+## Main branch status
 
-All five final leaderboard attempts have been used.  The package default is now the best verified candidate, not the failed last attempt.
+The public `main` branch preserves the best verified score history and prepares the reopened extra-submit sprint.
 
-- Final packaged candidate: `v1840c`
-- Best verified private score: `0.49349`
-- Failed last attempt: `v1846e = 0.46698`
-- Operational target `>0.50000`: not reached
-- Original top-three gate `>0.52380`: not reached
-- Final package path: `hw2_D13922024/submission.csv`
+- Current upload candidate: `v1842e` (`black_boost_queue#5`)
+- Current upload path: `experiments/final_submission_package/current_upload/submission.csv`
+- Current upload SHA-256: `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f`
+- Best verified rollback checkpoint before extra sprint: `v1840c = 0.49349`
+- Failed role-cap attempt: `v1846e = 0.46698`
+- Original top-three gate: `>0.52380`
+- Fixed extra-submit batch: `experiments/final_submission_package/upload_batch_2026-05-15_extra3/`
 
 ## One-command rebuild
 
@@ -49,16 +50,16 @@ python3 experiments/scripts/v1835_final_submission_pack.py --preset scoreonly-sa
 python3 experiments/scripts/v1835_final_submission_pack.py --preset full --skip-validation
 ```
 
-After rebuilding, run the guard and candidate-pool coverage audit for consistency.  No real attempts remain:
+After rebuilding, run the guard and candidate-pool coverage audit for consistency:
 
 ```bash
 python3 experiments/scripts/v1883_pre_upload_guard.py
 python3 experiments/scripts/v1884_candidate_pool_coverage_scan.py
 ```
 
-## Final packaged CSV
+## Current packaged CSV
 
-No further Kaggle upload is available.  For the coursework hand-in, use the best verified CSV:
+For the current `main` branch upload state, use:
 
 ```text
 hw2_D13922024/submission.csv
@@ -68,15 +69,19 @@ Equivalent archive paths:
 
 ```text
 hw2_D13922024/checkpoints/final_current_private.csv
-hw2_D13922024/checkpoints/final_v1840c_private.csv
+hw2_D13922024/checkpoints/final_v1842e_private.csv
 experiments/final_submission_package/current_upload/submission.csv
 ```
 
-Candidate: `v1840c` (`overlay` order `9`)
-Private score: `0.49349`
-SHA-256: `fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`
+Candidate: `v1842e` (`black_boost_queue` order `5`)
+Private score: pending
+SHA-256: `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f`
 
-The tables below are preserved as the final-attempt archive and should not be interpreted as remaining upload instructions.
+Best verified rollback checkpoint: `v1840c = 0.49349` with SHA-256
+`fa06e6028d18ecf6e75a73aedd634c190461970b0b330c13721b31c38f56a145`.
+
+The tables below are preserved as the candidate archive.  For the three fixed
+extra-submit files, use `upload_batch_2026-05-15_extra3/`.
 
 ## Score-attack queue
 

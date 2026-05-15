@@ -2,10 +2,9 @@
 
 Student ID: `D13922024`
 
-## Current branch upload candidate
+## Main branch upload candidate
 
-On branch `feature/final-ten-breakthrough`, the package default is intentionally
-restaged for the ten-additional-submit breakthrough sprint:
+On `main`, the package default is the current extra-submit sprint candidate:
 
 ```text
 submission.csv
@@ -21,10 +20,9 @@ checkpoints/final_v1842e_private.csv
 Candidate lineage: `black_boost_queue` order `5`, `v1842e`.
 SHA-256: `6223a0ead5230c655d0ea09ccd3c6a5af51f8d35af2f2b9dd118b584cf8d6d7f`.
 
-Staging note: the closed hand-in baseline on `develop` remains `v1840c`
-(`0.49349`). This feature branch keeps `v1840c` as rollback checkpoint but
-uses `v1842e` to isolate the black-boost delta after the failed `v1846e`
-rolecap attempt.
+Staging note: `v1840c` remains the best verified rollback checkpoint
+(`0.49349`).  The current `main` branch prepares `v1842e` and a fixed
+three-candidate upload batch for the reopened extra-submit sprint.
 
 Known private leaderboard context before this restart:
 
@@ -34,12 +32,11 @@ Known private leaderboard context before this restart:
 | 2 | v1840b | 0.49266 | Previous positive overlay score |
 | 3 | v1826a | 0.48854 | Previous positive structural score |
 | 4 | v1824a | 0.47119 | Verified rollback |
-| 5 | v1846e | 0.46698 | Failed last one-shot override |
+| 5 | v1846e | 0.46698 | Failed role-cap attempt |
 
 Current branch upload target: `v1842e`, not yet scored.
-Operational target `>0.50000`: not reached yet.
 Original active top-three gate `>0.52380`: not reached.
-Attempt budget after restart: `5/15` used, `10` remaining.
+Attempt budget after restart: `5/15` used, `10` remaining before recording new scores.
 
 ## Reports
 
