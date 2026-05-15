@@ -19,6 +19,7 @@ ACTIVE_PATHS = [
     Path("hw2_D13922024/make_final.py"),
     Path("hw2_D13922024/hw2_report.md"),
     Path("experiments/scripts/v1866_final_attempt_runbook.py"),
+    Path("experiments/scripts/v1836_score_feedback_router.py"),
     Path("experiments/scripts/v1870_stage_current_upload.py"),
     Path("experiments/scripts/v1871_final_attempt_cockpit.py"),
     Path("experiments/scripts/v1872_post_score_command_center.py"),

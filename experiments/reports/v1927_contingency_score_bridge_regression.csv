@@ -1,0 +1,10 @@
+name,ok,detail
+stage_exit_zero,yes,exit=0
+stage_recommends_contingency,yes,v1825c recommendation
+metadata_group_contingency,yes,contingency
+metadata_candidate_v1825c,yes,v1825c
+bridge_exit_zero,yes,exit=0; CURRENT_SCORE_REPORT_BRIDGE\nTEMPLATE=experiments/final_submission_package/current_upload/SCORE_REPORT.txt\nSCORE=0.47000\nWRITE_MODE=dry_run\nBRIDGE_EXIT_CODE=0\nFILLED_REPORT_PERSISTED=no\nREPORT=experiments/reports/v1898_current_score_report_bridge.md\nJSON=experiments/reports/v1898_current_score_report_bridge.json\nBRIDGE_OUTPUT_BEGIN\nSCORE_REPORT_COMMAND_CENTER\nINTAKE_READY=yes\nSCORE=0.47000\nSCORE_STATUS=continue_routing_required\nWRITE_MODE=dry_run\nCOMMAND_CENTER_EXIT_CODE=0\nOFFICIAL_RECORDS_MUTATE
+bridge_routes_manual_review,yes,manual review fallback
+bridge_candidate_v1825c,yes,candidate=v1825c
+official_repo_unchanged,yes,"before={'records_sha': 'fc7c1f781c557e8a4b9fede40344dfaf7dfabe09f115a1fdef8b9c9f92053590', 'upload_sha': 'e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad'}; after={'records_sha': 'fc7c1f781c557e8a4b9fede40344dfaf7dfabe09f115a1fdef8b9c9f92053590', 'upload_sha': 'e4b44b76dbcd0d2068b24a0ba4b65585a142d8f3944da210f79bb35fd60421ad'}"
+sandbox_latest_is_v1826a,yes,candidate=v1826a score=0.47150 next=experiments/final_submission_package/contingency/01_v1825c_diagnostic_neutral_private.csv

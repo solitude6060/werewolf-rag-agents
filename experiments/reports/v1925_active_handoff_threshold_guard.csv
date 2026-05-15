@@ -8,6 +8,7 @@ hw2_D13922024/README.md,yes,0,2,pass,ok
 hw2_D13922024/make_final.py,yes,0,0,pass,ok
 hw2_D13922024/hw2_report.md,yes,0,0,pass,ok
 experiments/scripts/v1866_final_attempt_runbook.py,yes,0,1,pass,ok
+experiments/scripts/v1836_score_feedback_router.py,yes,0,1,pass,ok
 experiments/scripts/v1870_stage_current_upload.py,yes,0,1,pass,ok
 experiments/scripts/v1871_final_attempt_cockpit.py,yes,0,1,pass,ok
 experiments/scripts/v1872_post_score_command_center.py,yes,0,1,pass,ok

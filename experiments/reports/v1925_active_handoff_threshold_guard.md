@@ -1,13 +1,13 @@
 # v1925 Active Handoff Threshold Guard
 
-Generated UTC: `2026-05-15T01:26:53+00:00`
+Generated UTC: `2026-05-15T01:33:29+00:00`
 
 ## Summary
 
 - Ready: `yes`
 - Live threshold: `>0.52380`
 - Stale threshold rejected: `0.50671`
-- Files scanned: `24`
+- Files scanned: `25`
 - Failures: `0`
 
 ## Matrix
@@ -23,6 +23,7 @@ Generated UTC: `2026-05-15T01:26:53+00:00`
 | `hw2_D13922024/make_final.py` | `0` | `0` | `pass` | `ok` |
 | `hw2_D13922024/hw2_report.md` | `0` | `0` | `pass` | `ok` |
 | `experiments/scripts/v1866_final_attempt_runbook.py` | `0` | `1` | `pass` | `ok` |
+| `experiments/scripts/v1836_score_feedback_router.py` | `0` | `1` | `pass` | `ok` |
 | `experiments/scripts/v1870_stage_current_upload.py` | `0` | `1` | `pass` | `ok` |
 | `experiments/scripts/v1871_final_attempt_cockpit.py` | `0` | `1` | `pass` | `ok` |
 | `experiments/scripts/v1872_post_score_command_center.py` | `0` | `1` | `pass` | `ok` |
